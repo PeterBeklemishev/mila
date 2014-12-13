@@ -1,0 +1,469 @@
+*******************************************************************************
+*                                                                             *
+*                 ARM C CROSS COMPILER Version 1.03.121111                    *
+*                      Copyright (C) 2009 Phyton, Inc.                        *
+*                                                                             *
+*******************************************************************************
+
+                 IdleFunc??T:
+;FILE: ..\src\Menu.c
+;000109    void IdleFunc(void) {
+;000110    }
+00000000    4770                       	BX              R14
+.ENDF
+                  SelFunc??T:
+;000114    void SelFunc(void) {
+00000002    B510                       	PUSH            {R4,R14} 
+;000115        psCurrentMenuItem = psMenuItem;
+00000004    4CAC                       	LDR             R4,?lr0000	; MenuItemIndex
+00000006    6920                       	LDR             R0,[R4,#16]
+00000008    60E0                       	STR             R0,[R4,#12]
+;000117        if(psMenuItem->psSubMenu != NULL) {
+0000000A    6880                       	LDR             R0,[R0,#8]
+0000000C    B198                       	CBZ             R0,??_1_ELSE
+;000118            MenuItemIndex = 0;
+0000000E    2000                       	MOVS            R0,#0
+00000010    6020                       	STR             R0,[R4,#0]
+;000119            psCurrentMenu = psMenuItem->psSubMenu;
+00000012    6920                       	LDR             R0,[R4,#16]
+00000014    6880                       	LDR             R0,[R0,#8]
+00000016    60A0                       	STR             R0,[R4,#8]
+;000120            psMenuItem = &(psCurrentMenu->psItems)[MenuItemIndex];
+00000018    6841                       	LDR             R1,[R0,#4]
+0000001A    6820                       	LDR             R0,[R4,#0]
+0000001C    220C                       	MOVS            R2,#12
+0000001E    1002FB00                   	MLA             R0,R0,R2,R1
+00000022    6120                       	STR             R0,[R4,#16]
+;000121            DisplayMenu();
+00000024    F8F8F000                   	BLF             DisplayMenu??T
+;000122            nMenuLevel++;
+00000028    6860                       	LDR             R0,[R4,#4]
+0000002A    1C40                       	ADDS            R0,R0,#1
+0000002C    6060                       	STR             R0,[R4,#4]
+;000123            psPrevMenu[nMenuLevel] = psCurrentMenu;
+0000002E    0180EB04                   	ADD             R1,R4,R0,LSL #2
+00000032    68A0                       	LDR             R0,[R4,#8]
+00000034    6148                       	STR             R0,[R1,#20]
+;000124        }
+                   ??_1_ELSE:
+;000125        psCurrentMenuItem->pfMenuFunc();
+00000036    68E0                       	LDR             R0,[R4,#12]
+00000038    6840                       	LDR             R0,[R0,#4]
+0000003A    4780                       	BLX             R0
+;000126    }
+0000003C    BD10                       	POP             {R4,R15} 
+.ENDF
+                   UpFunc??T:
+;000130    void UpFunc(void) {
+0000003E    B5F0                       	PUSH            {R4-R7,R14} 
+;000132        psMenuItem = &psCurrentMenu->psItems[MenuItemIndex];
+00000040    4C5B                       	LDR             R4,?lr0001	; ItemNumb
+00000042    6920                       	LDR             R0,[R4,#16]
+00000044    6841                       	LDR             R1,[R0,#4]
+00000046    68A0                       	LDR             R0,[R4,#8]
+00000048    270C                       	MOVS            R7,#12
+0000004A    1007FB00                   	MLA             R0,R0,R7,R1
+0000004E    61A0                       	STR             R0,[R4,#24]
+;000133        CurrentMethod = MET_AND;
+00000050    2004                       	MOVS            R0,#4
+00000052    4E9A                       	LDR             R6,?lr0002	; CurrentMethod
+00000054    6030                       	STR             R0,[R6,#0]
+;000103        LCD_PUTS(x, y, ptr);
+00000056    69A0                       	LDR             R0,[R4,#24]
+00000058    6806                       	LDR             R6,[R0,#0]
+0000005A    4D99                       	LDR             R5,?lr0003	; CurrentFont
+0000005C    6828                       	LDR             R0,[R5,#0]
+0000005E    6800                       	LDR             R0,[R0,#0]
+00000060    1C82                       	ADDS            R2,R0,#2
+00000062    68A1                       	LDR             R1,[R4,#8]
+00000064    6828                       	LDR             R0,[R5,#0]
+00000066    6800                       	LDR             R0,[R0,#0]
+00000068    0001FB02                   	MLA             R0,R2,R1,R0
+0000006C    1D00                       	ADDS            R0,R0,#4
+0000006E    B2C4                       	UXTB            R4,R0
+00000070    4621                       	MOV             R1,R4
+00000072    2000                       	MOVS            R0,#0
+00000074    4A93                       	LDR             R2,?lr0004	; ?lit00000
+00000076    FFC3F7FF                   	BLF             LCD_PUTS
+0000007A    4630                       	MOV             R0,R6
+0000007C    FFC0F7FF                   	BLF             strlen
+00000080    6829                       	LDR             R1,[R5,#0]
+00000082    6849                       	LDR             R1,[R1,#4]
+00000084    227F                       	MOVS            R2,#127
+00000086    2011FB00                   	MLS             R0,R0,R1,R2
+0000008A    0840                       	LSRS            R0,R0,#1
+0000008C    B2C0                       	UXTB            R0,R0
+0000008E    4621                       	MOV             R1,R4
+00000090    4632                       	MOV             R2,R6
+00000092    FFB5F7FF                   	BLF             LCD_PUTS
+;000137        if(MenuItemIndex > 0)
+00000096    4C46                       	LDR             R4,?lr0001	; ItemNumb
+00000098    68A0                       	LDR             R0,[R4,#8]
+;000138            MenuItemIndex--;
+0000009A    B908                       	CBNZ            R0,??_10_COMMON
+;000140            MenuItemIndex = psCurrentMenu->nItems - 1;
+0000009C    6920                       	LDR             R0,[R4,#16]
+0000009E    6880                       	LDR             R0,[R0,#8]
+                ??_10_COMMON:
+000000A0    1E40                       	SUBS            R0,R0,#1
+000000A2    60A0                       	STR             R0,[R4,#8]
+;000144        psMenuItem = &psCurrentMenu->psItems[MenuItemIndex];
+000000A4    6920                       	LDR             R0,[R4,#16]
+000000A6    6841                       	LDR             R1,[R0,#4]
+000000A8    68A0                       	LDR             R0,[R4,#8]
+000000AA    1007FB00                   	MLA             R0,R0,R7,R1
+000000AE    61A0                       	STR             R0,[R4,#24]
+;000145        CurrentMethod = MET_NOT_XOR;
+000000B0    2003                       	MOVS            R0,#3
+000000B2    4E82                       	LDR             R6,?lr0002	; CurrentMethod
+000000B4    6030                       	STR             R0,[R6,#0]
+;000146        LCD_PUTS(0, (MenuItemIndex * (CurrentFont->Height + 2) + CurrentFont->Height + 4), "                                        ");
+000000B6    6828                       	LDR             R0,[R5,#0]
+000000B8    7800                       	LDRB            R0,[R0,#0]
+000000BA    1C82                       	ADDS            R2,R0,#2
+000000BC    7A21                       	LDRB            R1,[R4,#8]
+000000BE    6828                       	LDR             R0,[R5,#0]
+000000C0    7800                       	LDRB            R0,[R0,#0]
+000000C2    0001FB02                   	MLA             R0,R2,R1,R0
+000000C6    1D00                       	ADDS            R0,R0,#4
+000000C8    B2C1                       	UXTB            R1,R0
+000000CA    2000                       	MOVS            R0,#0
+000000CC    4A7D                       	LDR             R2,?lr0004	; ?lit00000
+000000CE    FF97F7FF                   	BLF             LCD_PUTS
+;000148        ItemNumb[nMenuLevel] = MenuItemIndex;
+000000D2    68E1                       	LDR             R1,[R4,#12]
+000000D4    68A0                       	LDR             R0,[R4,#8]
+000000D6    0021F844                   	STR             R0,[R4,R1,LSL #2]
+;000149    }
+000000DA    BDF0                       	POP             {R4-R7,R15} 
+.ENDF
+                 DownFunc??T:
+;000153    void DownFunc(void) {
+000000DC    B5F0                       	PUSH            {R4-R7,R14} 
+;000155        psMenuItem = &psCurrentMenu->psItems[MenuItemIndex];
+000000DE    4C34                       	LDR             R4,?lr0001	; ItemNumb
+000000E0    6920                       	LDR             R0,[R4,#16]
+000000E2    6841                       	LDR             R1,[R0,#4]
+000000E4    68A0                       	LDR             R0,[R4,#8]
+000000E6    270C                       	MOVS            R7,#12
+000000E8    1007FB00                   	MLA             R0,R0,R7,R1
+000000EC    61A0                       	STR             R0,[R4,#24]
+;000156        CurrentMethod = MET_AND;
+000000EE    2004                       	MOVS            R0,#4
+000000F0    4E72                       	LDR             R6,?lr0002	; CurrentMethod
+000000F2    6030                       	STR             R0,[R6,#0]
+;000103        LCD_PUTS(x, y, ptr);
+000000F4    69A0                       	LDR             R0,[R4,#24]
+000000F6    6806                       	LDR             R6,[R0,#0]
+000000F8    4D71                       	LDR             R5,?lr0003	; CurrentFont
+000000FA    6828                       	LDR             R0,[R5,#0]
+000000FC    6800                       	LDR             R0,[R0,#0]
+000000FE    1C82                       	ADDS            R2,R0,#2
+00000100    68A1                       	LDR             R1,[R4,#8]
+00000102    6828                       	LDR             R0,[R5,#0]
+00000104    6800                       	LDR             R0,[R0,#0]
+00000106    0001FB02                   	MLA             R0,R2,R1,R0
+0000010A    1D00                       	ADDS            R0,R0,#4
+0000010C    B2C4                       	UXTB            R4,R0
+0000010E    4621                       	MOV             R1,R4
+00000110    2000                       	MOVS            R0,#0
+00000112    4A6C                       	LDR             R2,?lr0004	; ?lit00000
+00000114    FF74F7FF                   	BLF             LCD_PUTS
+00000118    4630                       	MOV             R0,R6
+0000011A    FF71F7FF                   	BLF             strlen
+0000011E    6829                       	LDR             R1,[R5,#0]
+00000120    6849                       	LDR             R1,[R1,#4]
+00000122    227F                       	MOVS            R2,#127
+00000124    2011FB00                   	MLS             R0,R0,R1,R2
+00000128    0840                       	LSRS            R0,R0,#1
+0000012A    B2C0                       	UXTB            R0,R0
+0000012C    4621                       	MOV             R1,R4
+0000012E    4632                       	MOV             R2,R6
+00000130    FF66F7FF                   	BLF             LCD_PUTS
+;000161        if(MenuItemIndex >= ((psCurrentMenu->nItems)-1))
+00000134    4C1E                       	LDR             R4,?lr0001	; ItemNumb
+00000136    68A1                       	LDR             R1,[R4,#8]
+00000138    6920                       	LDR             R0,[R4,#16]
+0000013A    6880                       	LDR             R0,[R0,#8]
+0000013C    1E40                       	SUBS            R0,R0,#1
+0000013E    4281                       	CMP             R1,R0
+00000140    BF2E                       	ITEE            CS
+;000162            MenuItemIndex = 0;
+00000142    2000                       	MOVCS           R0,#0
+;000164            MenuItemIndex++;
+00000144    68A0                       	LDRCC           R0,[R4,#8]
+00000146    1C40                       	ADDCC           R0,R0,#1
+00000148    60A0                       	STR             R0,[R4,#8]
+;000165        psMenuItem = &(psCurrentMenu->psItems[MenuItemIndex]);
+0000014A    6920                       	LDR             R0,[R4,#16]
+0000014C    6841                       	LDR             R1,[R0,#4]
+0000014E    68A0                       	LDR             R0,[R4,#8]
+00000150    1007FB00                   	MLA             R0,R0,R7,R1
+00000154    61A0                       	STR             R0,[R4,#24]
+;000168        CurrentMethod = MET_NOT_XOR;
+00000156    2003                       	MOVS            R0,#3
+00000158    4E58                       	LDR             R6,?lr0002	; CurrentMethod
+0000015A    6030                       	STR             R0,[R6,#0]
+;000169        LCD_PUTS(0, (MenuItemIndex * (CurrentFont->Height + 2) + CurrentFont->Height + 4), "                                        ");
+0000015C    6828                       	LDR             R0,[R5,#0]
+0000015E    7800                       	LDRB            R0,[R0,#0]
+00000160    1C82                       	ADDS            R2,R0,#2
+00000162    7A21                       	LDRB            R1,[R4,#8]
+00000164    6828                       	LDR             R0,[R5,#0]
+00000166    7800                       	LDRB            R0,[R0,#0]
+00000168    0001FB02                   	MLA             R0,R2,R1,R0
+0000016C    1D00                       	ADDS            R0,R0,#4
+0000016E    B2C1                       	UXTB            R1,R0
+00000170    2000                       	MOVS            R0,#0
+00000172    4A54                       	LDR             R2,?lr0004	; ?lit00000
+00000174    FF44F7FF                   	BLF             LCD_PUTS
+;000171        ItemNumb[nMenuLevel] = MenuItemIndex;
+00000178    68E1                       	LDR             R1,[R4,#12]
+0000017A    68A0                       	LDR             R0,[R4,#8]
+0000017C    0021F844                   	STR             R0,[R4,R1,LSL #2]
+;000172    }
+00000180    BDF0                       	POP             {R4-R7,R15} 
+.ENDF
+               ReturnFunc??T:
+;000176    void ReturnFunc(void) {
+00000182    B500                       	PUSH            {R14} 
+;000177        if(nMenuLevel == 0)
+00000184    480A                       	LDR             R0,?lr0001	; ItemNumb
+00000186    68C1                       	LDR             R1,[R0,#12]
+00000188    B909                       	CBNZ            R1,??_4_ELSE
+;000178            nMenuLevel++;
+0000018A    1C49                       	ADDS            R1,R1,#1
+0000018C    60C1                       	STR             R1,[R0,#12]
+                   ??_4_ELSE:
+;000180        psCurrentMenu = psPrevMenu[nMenuLevel-1];
+0000018E    0181EB00                   	ADD             R1,R0,R1,LSL #2
+00000192    6989                       	LDR             R1,[R1,#24]
+00000194    6101                       	STR             R1,[R0,#16]
+;000181        psMenuItem = &psCurrentMenu->psItems[0];
+00000196    6849                       	LDR             R1,[R1,#4]
+00000198    6181                       	STR             R1,[R0,#24]
+;000182        ItemNumb[nMenuLevel] = 0;
+0000019A    68C2                       	LDR             R2,[R0,#12]
+0000019C    2100                       	MOVS            R1,#0
+0000019E    1022F840                   	STR             R1,[R0,R2,LSL #2]
+;000183        MenuItemIndex = 0;
+000001A2    6081                       	STR             R1,[R0,#8]
+;000184        nMenuLevel--;
+000001A4    68C1                       	LDR             R1,[R0,#12]
+000001A6    1E49                       	SUBS            R1,R1,#1
+000001A8    60C1                       	STR             R1,[R0,#12]
+;000186        DisplayMenu();
+000001AA    F835F000                   	BLF             DisplayMenu??T
+;000187    }
+000001AE    BD00                       	POP             {R15} 
+
+000001B0    00000000	?lr0001	.DCD	ItemNumb	; used 5 time(s)
+
+.ENDF
+         DisplayMenuTitle??T:
+;000192    void DisplayMenuTitle(uc8 *ptr) {
+000001B4    B530                       	PUSH            {R4,R5,R14} 
+000001B6    4605                       	MOV             R5,R0
+;000195        x = (MAX_X - (CurrentFont->Width * strlen(ptr))) / 2;
+000001B8    FF22F7FF                   	BLF             strlen
+000001BC    4C40                       	LDR             R4,?lr0003	; CurrentFont
+000001BE    6821                       	LDR             x?DisplayMenuTitle,[R4,#0]
+000001C0    6849                       	LDR             x?DisplayMenuTitle,[x?DisplayMenuTitle,#4]
+000001C2    227F                       	MOVS            R2,#127
+000001C4    2111FB00                   	MLS             x?DisplayMenuTitle,R0,x?DisplayMenuTitle,R2
+000001C8    0849                       	LSRS            x?DisplayMenuTitle,x?DisplayMenuTitle,#1
+;000196        LCD_PUTS(x, 0, ptr);
+000001CA    B2C8                       	UXTB            R0,x?DisplayMenuTitle
+000001CC    2100                       	MOVS            x?DisplayMenuTitle,#0
+000001CE    462A                       	MOV             R2,ptr?DisplayMenuTitle
+000001D0    FF16F7FF                   	BLF             LCD_PUTS
+;000198        y = CurrentFont->Height + 1;
+000001D4    6821                       	LDR             R1,[R4,#0]
+000001D6    6809                       	LDR             R1,[R1,#0]
+000001D8    1C4B                       	ADDS            y?DisplayMenuTitle,R1,#1
+;000199        CurrentMethod = MET_OR;
+000001DA    2200                       	MOVS            R2,#0
+000001DC    4937                       	LDR             R1,?lr0002	; CurrentMethod
+000001DE    600A                       	STR             R2,[R1,#0]
+;000200        LCD_Line(0, y, MAX_X, y);
+000001E0    2000                       	MOVS            R0,#0
+000001E2    4619                       	MOV             R1,y?DisplayMenuTitle
+000001E4    227F                       	MOVS            R2,#127
+000001E6    FF0BF7FF                   	BLF             LCD_Line
+;000201    }
+000001EA    BD30                       	POP             {R4,R5,R15} 
+.ENDF
+                Menu_Init??T:
+;000204    void Menu_Init(void) {
+;000205        psCurrentMenu = &MainMenu;
+000001EC    4A07                       	LDR             R2,?lr0005	; MainMenu
+000001EE    4808                       	LDR             R0,?lr0006	; nMenuLevel
+000001F0    6042                       	STR             R2,[R0,#4]
+;000206        psPrevMenu[nMenuLevel] = psCurrentMenu;
+000001F2    6801                       	LDR             R1,[R0,#0]
+000001F4    0381EB00                   	ADD             R3,R0,R1,LSL #2
+000001F8    6841                       	LDR             R1,[R0,#4]
+000001FA    6119                       	STR             R1,[R3,#16]
+;000207        psMenuItem = MainMenuItems;
+000001FC    010CF102                   	ADD             R1,R2,#12
+00000200    60C1                       	STR             R1,[R0,#12]
+;000208        CurrentFont = &Font_6x8;
+00000202    4904                       	LDR             R1,?lr0007	; Font_6x8
+00000204    482E                       	LDR             R0,?lr0003	; CurrentFont
+00000206    6001                       	STR             R1,[R0,#0]
+;000209    }
+00000208    4770                       	BX              R14
+
+.ALIGN	2
+0000020C    00000054	?lr0005	.DCD	MainMenu	; used 1 time(s)
+00000210    0000000C	?lr0006	.DCD	nMenuLevel	; used 1 time(s)
+00000214    00000000	?lr0007	.DCD	Font_6x8	; used 1 time(s)
+
+.ENDF
+              DisplayMenu??T:
+;000212    void DisplayMenu(void) {
+00000218    43F0E92D                   	PUSH            {R4-R9,R14} 
+;000216        LCD_CLS();
+0000021C    FEF0F7FF                   	BLF             LCD_CLS
+;000217        CurrentMethod = MET_AND;
+00000220    2004                       	MOVS            R0,#4
+00000222    4F26                       	LDR             R7,?lr0002	; CurrentMethod
+00000224    6038                       	STR             R0,[R7,#0]
+;000220        DisplayMenuTitle(psCurrentMenu->psTitle);
+00000226    4C24                       	LDR             R4,?lr0000	; MenuItemIndex
+00000228    68A0                       	LDR             R0,[R4,#8]
+0000022A    6800                       	LDR             R0,[R0,#0]
+0000022C    FFC2F7FF                   	BLF             DisplayMenuTitle??T
+;000222        for (index = 0, y = CurrentFont->Height + 4;
+;000223                    index < psCurrentMenu->nItems;
+;000224                    index++, y += CurrentFont->Height + 2) {
+00000230    2700                       	MOVS            index?DisplayMenu,#0
+00000232    4D23                       	LDR             R5,?lr0003	; CurrentFont
+00000234    6828                       	LDR             R0,[R5,#0]
+00000236    6800                       	LDR             R0,[R0,#0]
+00000238    1D06                       	ADDS            y?DisplayMenu,R0,#4
+;000222        for (index = 0, y = CurrentFont->Height + 4;
+;000223                    index < psCurrentMenu->nItems;
+;000224                    index++, y += CurrentFont->Height + 2) {
+0000023A    E01E                       	B.N             ??_5_CHECK
+                   ??_5_LOOP:
+;000225            psMenuItem2 = &(psCurrentMenu->psItems[index]);
+0000023C    6840                       	LDR             psMenuItem2?DisplayMenu,[psMenuItem2?DisplayMenu,#4]
+0000023E    210C                       	MOVS            R1,#12
+00000240    0001FB07                   	MLA             psMenuItem2?DisplayMenu,index?DisplayMenu,R1,psMenuItem2?DisplayMenu
+;000103        LCD_PUTS(x, y, ptr);
+00000244    6800                       	LDR             psMenuItem2?DisplayMenu,[psMenuItem2?DisplayMenu,#0]
+00000246    4680                       	MOV             R8,psMenuItem2?DisplayMenu
+00000248    B2F1                       	UXTB            R1,y?DisplayMenu
+0000024A    4689                       	MOV             R9,R1
+0000024C    2000                       	MOVS            psMenuItem2?DisplayMenu,#0
+0000024E    4A1D                       	LDR             R2,?lr0004	; ?lit00000
+00000250    FED6F7FF                   	BLF             LCD_PUTS
+00000254    4640                       	MOV             psMenuItem2?DisplayMenu,R8
+00000256    FED3F7FF                   	BLF             strlen
+0000025A    6829                       	LDR             R1,[R5,#0]
+0000025C    6849                       	LDR             R1,[R1,#4]
+0000025E    227F                       	MOVS            R2,#127
+00000260    2011FB00                   	MLS             psMenuItem2?DisplayMenu,psMenuItem2?DisplayMenu,R1,R2
+00000264    0840                       	LSRS            psMenuItem2?DisplayMenu,psMenuItem2?DisplayMenu,#1
+00000266    B2C0                       	UXTB            psMenuItem2?DisplayMenu,psMenuItem2?DisplayMenu
+00000268    4649                       	MOV             R1,R9
+0000026A    4642                       	MOV             R2,R8
+0000026C    FEC8F7FF                   	BLF             LCD_PUTS
+;000227        }
+00000270    1C7F                       	ADDS            index?DisplayMenu,index?DisplayMenu,#1
+00000272    6828                       	LDR             R0,[R5,#0]
+00000274    6800                       	LDR             R0,[R0,#0]
+00000276    4406                       	ADD             y?DisplayMenu,R0
+00000278    1CB6                       	ADDS            y?DisplayMenu,y?DisplayMenu,#2
+                  ??_5_CHECK:
+0000027A    68A0                       	LDR             R0,[R4,#8]
+0000027C    6880                       	LDR             R0,[R0,#8]
+0000027E    4287                       	CMP             index?DisplayMenu,R0
+00000280    68A0                       	LDR             R0,[R4,#8]
+00000282    D3DB                       	BCC.N           ??_5_LOOP
+;000230        psMenuItem = &(psCurrentMenu->psItems[MenuItemIndex]);
+00000284    6841                       	LDR             R1,[R0,#4]
+00000286    6820                       	LDR             R0,[R4,#0]
+00000288    220C                       	MOVS            R2,#12
+0000028A    1002FB00                   	MLA             R0,R0,R2,R1
+0000028E    6120                       	STR             R0,[R4,#16]
+;000231        CurrentMethod = MET_NOT_XOR;
+00000290    2003                       	MOVS            R0,#3
+00000292    4F0A                       	LDR             R7,?lr0002	; CurrentMethod
+00000294    6038                       	STR             R0,[R7,#0]
+;000232        LCD_PUTS(0, (MenuItemIndex * (CurrentFont->Height + 2) + CurrentFont->Height + 4), "                                        ");
+00000296    6828                       	LDR             R0,[R5,#0]
+00000298    7800                       	LDRB            R0,[R0,#0]
+0000029A    1C82                       	ADDS            R2,R0,#2
+0000029C    7821                       	LDRB            R1,[R4,#0]
+0000029E    6828                       	LDR             R0,[R5,#0]
+000002A0    7800                       	LDRB            R0,[R0,#0]
+000002A2    0001FB02                   	MLA             R0,R2,R1,R0
+000002A6    1D00                       	ADDS            R0,R0,#4
+000002A8    B2C1                       	UXTB            R1,R0
+000002AA    2000                       	MOVS            R0,#0
+000002AC    4A05                       	LDR             R2,?lr0004	; ?lit00000
+000002AE    FEA7F7FF                   	BLF             LCD_PUTS
+;000234    }
+000002B2    83F0E8BD                   	POP             {R4-R9,R15} 
+
+.ALIGN	2
+000002B8    00000008	?lr0000	.DCD	MenuItemIndex	; used 2 time(s)
+000002BC    00000000	?lr0002	.DCD	CurrentMethod	; used 7 time(s)
+000002C0    00000000	?lr0003	.DCD	CurrentFont	; used 5 time(s)
+000002C4    00000000	?lr0004	.DCD	?lit00000	; used 6 time(s)
+
+.ENDF
+          BackToMenuOnSel??T:
+;000238    void BackToMenuOnSel(void) {
+000002C8    B500                       	PUSH            {R14} 
+;000239      WAIT_UNTIL_KEY_PRESSED(SEL);
+                     ??_6_DO:
+000002CA    FE99F7FF                   	BLF             GetKey
+000002CE    2801                       	CMP             R0,#1
+000002D0    D1FB                       	BNE.N           ??_6_DO
+;000240      DisplayMenu();
+000002D2    FFA1F7FF                   	BLF             DisplayMenu??T
+;000241    }
+000002D6    BD00                       	POP             {R15} 
+.ENDF
+                  ReadKey??T:
+;000245    void ReadKey(void) {
+000002D8    B510                       	PUSH            {R4,R14} 
+;000248        while (1) {
+                     ??_7_DO:
+;000249            key = GetKey();
+000002DA    FE91F7FF                   	BLF             GetKey
+000002DE    4604                       	MOV             key?ReadKey,R0
+;000250            switch (key) {
+000002E0    2804                       	CMP             R0,#4
+000002E2    D006                       	BEQ.N           ??_8_CASE_4
+000002E4    2C05                       	CMP             key?ReadKey,#5
+000002E6    D007                       	BEQ.N           ??_8_CASE_5
+000002E8    2C01                       	CMP             key?ReadKey,#1
+000002EA    D107                       	BNE.N           ??_8_BREAK
+;000251                case SEL:   SelFunc();  break;
+000002EC    FE89F7FF                   	BLF             SelFunc??T
+000002F0    E004                       	B.N             ??_8_BREAK
+                 ??_8_CASE_4:
+;000252                case UP:    UpFunc();   break;
+000002F2    FEA4F7FF                   	BLF             UpFunc??T
+000002F6    E001                       	B.N             ??_8_BREAK
+                 ??_8_CASE_5:
+;000253                case DOWN:  DownFunc(); break;
+000002F8    FEF0F7FF                   	BLF             DownFunc??T
+;000254            }
+                  ??_8_BREAK:
+;000255            WAIT_UNTIL_KEY_RELEASED(key);
+                     ??_9_DO:
+000002FC    FE80F7FF                   	BLF             GetKey
+00000300    42A0                       	CMP             R0,key?ReadKey
+00000302    D0FB                       	BEQ.N           ??_9_DO
+;000256        }
+00000304    E7E9                       	B.N             ??_7_DO
+;000257    }
+.ENDF
+
+..\src\Menu.c: 774 byte(s), 6143 line(s), 0 error(s), 0 warning(s)
+

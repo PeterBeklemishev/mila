@@ -1,0 +1,1308 @@
+*******************************************************************************
+*                                                                             *
+*             UNIVERSAL CROSS LINKER Version 1.13.121030 Limited              *
+*                    Copyright (C) 2004-2012 Phyton, Inc.                     *
+*                                                                             *
+*******************************************************************************
+
+                 * * *  O P T I O N S   A T   S T A R T  * * *
+
+    -O C:\Program Files\Phyton CodeMaster-ARM\2_32_00\CMC-ARM\Lib
+    -E Debug\Exe\1986BE91T_DEMO
+    -M 10
+    -M 20
+    -M 21
+    -M 60
+    -M 80
+    -F MIE
+    -m
+    -t
+    -A (code)CODE(08000000H-0801FFFFH)
+    -A (data)DATA(020000000H-020007FFFH)
+    -Z CSTACK(1024)
+
+            * * *  A D D I N G   P R O G R A M   M O D U L E S  * * *
+
+  Module:                ?STARTUP_DEVICE                         
+
+  Module:                TEXT                                    
+
+  Module:                GL                                      
+
+  Module:                JOYSTICK                                
+
+  Module:                LCD                                     
+
+  Module:                LEDS                                    
+
+  Module:                MAIN                                    
+
+  Module:                MENU                                    
+
+  Module:                MENU_GL                                 
+
+  Module:                MENU_LEDS                               
+
+  Module:                MENU_TEXT                               
+
+  Module:                SYSTICK                                 
+
+  Module:                FONT_12X16                              
+
+  Module:                FONT_6X8                                
+
+  Module:                FONT_7X10_BOLD                          
+
+  Module:                FONT_7X10_THIN                          
+
+  Module:                MENU_TECHNOLOGY                         
+
+            * * *  A D D I N G   L I B R A R Y   M O D U L E S  * * *
+
+  Module:                ?RESET_HANDLER           low-priority   
+
+  Module:                ?NMI_HANDLER             low-priority   
+
+  Module:                ?HARDFAULT_HANDLER       low-priority   
+
+  Module:                ?MEMMANAGE_HANDLER       low-priority   
+
+  Module:                ?BUSFAULT_HANDLER        low-priority   
+
+  Module:                ?USAGEFAULT_HANDLER      low-priority   
+
+  Module:                ?SVC_HANDLER             low-priority   
+
+  Module:                ?DEBUGMON_HANDLER        low-priority   
+
+  Module:                ?PENDSV_HANDLER          low-priority   
+
+  Module:                ?CAN1_IRQHANDLER         low-priority   
+
+  Module:                ?CAN2_IRQHANDLER         low-priority   
+
+  Module:                ?USB_IRQHANDLER          low-priority   
+
+  Module:                ?DMA_IRQHANDLER          low-priority   
+
+  Module:                ?UART1_IRQHANDLER        low-priority   
+
+  Module:                ?UART2_IRQHANDLER        low-priority   
+
+  Module:                ?SSP1_IRQHANDLER         low-priority   
+
+  Module:                ?I2C_IRQHANDLER          low-priority   
+
+  Module:                ?POWER_IRQHANDLER        low-priority   
+
+  Module:                ?WWDG_IRQHANDLER         low-priority   
+
+  Module:                ?TIMER1_IRQHANDLER       low-priority   
+
+  Module:                ?TIMER2_IRQHANDLER       low-priority   
+
+  Module:                ?TIMER3_IRQHANDLER       low-priority   
+
+  Module:                ?ADC_IRQHANDLER          low-priority   
+
+  Module:                ?COMPARATOR_IRQHANDLER   low-priority   
+
+  Module:                ?SSP2_IRQHANDLER         low-priority   
+
+  Module:                ?BACKUP_IRQHANDLER       low-priority   
+
+  Module:                ?EXT_INT1_IRQHANDLER     low-priority   
+
+  Module:                ?EXT_INT2_IRQHANDLER     low-priority   
+
+  Module:                ?EXT_INT3_IRQHANDLER     low-priority   
+
+  Module:                ?EXT_INT4_IRQHANDLER     low-priority   
+
+  Module:                ??SYSTEMINIT             low-priority   
+
+  Module:                ??CSTARTUP               low-priority   
+
+  Module:                ??CEXIT                  low-priority   
+
+  Module:                STRLEN                   low-priority   
+
+              * * *  F U L L   S E T   O F   O P T I O N S  * * *
+
+    -O C:\Program Files\Phyton CodeMaster-ARM\2_32_00\CMC-ARM\Lib
+    -E Debug\Exe\1986BE91T_DEMO
+    -M 10
+    -M 20
+    -M 21
+    -M 60
+    -M 80
+    -F MIE
+    -m
+    -t
+    -A (code)CODE(08000000H-0801FFFFH)
+    -A (data)DATA(020000000H-020007FFFH)
+    -Z CSTACK(1024)
+    -K code(8000000H-80000BFH)
+
+               * * *  B U I L D I N G   S E G M E N T S  * * *
+
+  Segment: ??CODE_CLIB                             code    REL
+  ------------------------------------------------------------
+  Module                      Size        Align        Offset 
+  ============================================================
+  ??SYSTEMINIT              00000002        01        00000000
+  ??CSTARTUP                00000070        02        00000004
+  ??CEXIT                   00000002        01        00000074
+  ============================================================
+  Total:                    00000076        02
+
+
+  Segment: ??DATA_SEGMENT_ADDRESSES                code    REL
+  ------------------------------------------------------------
+  Module                      Size        Align        Offset 
+  ============================================================
+  TEXT                      00000008        02        00000000
+  LCD                       00000008        02        00000008
+  LEDS                      00000008        02        00000010
+  MAIN                      00000008        02        00000018
+  MENU                      00000008        02        00000020
+  SYSTICK                   00000008        02        00000028
+  ============================================================
+  Total:                    00000030        02
+
+
+  Segment: ??DEFAULT_HANDLERS                      code    REL
+  ------------------------------------------------------------
+  Module                      Size        Align        Offset 
+  ============================================================
+  ?RESET_HANDLER            0000001C        02        00000000
+  ?NMI_HANDLER              00000002        01        0000001C
+  ?HARDFAULT_HANDLER        00000002        01        0000001E
+  ?MEMMANAGE_HANDLER        00000002        01        00000020
+  ?BUSFAULT_HANDLER         00000002        01        00000022
+  ?USAGEFAULT_HANDLER       00000002        01        00000024
+  ?SVC_HANDLER              00000002        01        00000026
+  ?DEBUGMON_HANDLER         00000002        01        00000028
+  ?PENDSV_HANDLER           00000002        01        0000002A
+  ?CAN1_IRQHANDLER          00000002        01        0000002C
+  ?CAN2_IRQHANDLER          00000002        01        0000002E
+  ?USB_IRQHANDLER           00000002        01        00000030
+  ?DMA_IRQHANDLER           00000002        01        00000032
+  ?UART1_IRQHANDLER         00000002        01        00000034
+  ?UART2_IRQHANDLER         00000002        01        00000036
+  ?SSP1_IRQHANDLER          00000002        01        00000038
+  ?I2C_IRQHANDLER           00000002        01        0000003A
+  ?POWER_IRQHANDLER         00000002        01        0000003C
+  ?WWDG_IRQHANDLER          00000002        01        0000003E
+  ?TIMER1_IRQHANDLER        00000002        01        00000040
+  ?TIMER2_IRQHANDLER        00000002        01        00000042
+  ?TIMER3_IRQHANDLER        00000002        01        00000044
+  ?ADC_IRQHANDLER           00000002        01        00000046
+  ?COMPARATOR_IRQHANDLER    00000002        01        00000048
+  ?SSP2_IRQHANDLER          00000002        01        0000004A
+  ?BACKUP_IRQHANDLER        00000002        01        0000004C
+  ?EXT_INT1_IRQHANDLER      00000002        01        0000004E
+  ?EXT_INT2_IRQHANDLER      00000002        01        00000050
+  ?EXT_INT3_IRQHANDLER      00000002        01        00000052
+  ?EXT_INT4_IRQHANDLER      00000002        01        00000054
+  ============================================================
+  Total:                    00000056        02
+
+
+  Segment: ??INIT_DATA_SEGMENT_ADDRESSES           code    REL
+  ------------------------------------------------------------
+  Module                      Size        Align        Offset 
+  ============================================================
+  MAIN                      0000000C        02        00000000
+  MENU                      0000000C        02        0000000C
+  MENU_TEXT                 0000000C        02        00000018
+  FONT_12X16                0000000C        02        00000024
+  FONT_6X8                  0000000C        02        00000030
+  FONT_7X10_BOLD            0000000C        02        0000003C
+  FONT_7X10_THIN            0000000C        02        00000048
+  MENU_TECHNOLOGY           0000000C        02        00000054
+  ============================================================
+  Total:                    00000060        02
+
+
+  Segment: CDATA__LCD                              code    REL
+  ------------------------------------------------------------
+  Module                      Size        Align        Offset 
+  ============================================================
+  LCD                       00000010        02        00000000
+  ============================================================
+  Total:                    00000010        02
+
+
+  Segment: CSTACK                                  data    REL
+  ------------------------------------------------------------
+  Module                      Size        Align        Offset 
+  ============================================================
+  ============================================================
+  Total:        (increased) 00000400        03
+
+
+  Segment: FUN_CODE__GL                            code    REL
+  ------------------------------------------------------------
+  Module                      Size        Align        Offset 
+  ============================================================
+  GL                        0000019A        02        00000000
+  ============================================================
+  Total:                    0000019A        02
+
+
+  Segment: FUN_CODE__JOYSTICK                      code    REL
+  ------------------------------------------------------------
+  Module                      Size        Align        Offset 
+  ============================================================
+  JOYSTICK                  000000D4        02        00000000
+  ============================================================
+  Total:                    000000D4        02
+
+
+  Segment: FUN_CODE__LCD                           code    REL
+  ------------------------------------------------------------
+  Module                      Size        Align        Offset 
+  ============================================================
+  LCD                       000003C2        02        00000000
+  ============================================================
+  Total:                    000003C2        02
+
+
+  Segment: FUN_CODE__LEDS                          code    REL
+  ------------------------------------------------------------
+  Module                      Size        Align        Offset 
+  ============================================================
+  LEDS                      0000005C        02        00000000
+  ============================================================
+  Total:                    0000005C        02
+
+
+  Segment: FUN_CODE__MAIN                          code    REL
+  ------------------------------------------------------------
+  Module                      Size        Align        Offset 
+  ============================================================
+  MAIN                      00000214        02        00000000
+  ============================================================
+  Total:                    00000214        02
+
+
+  Segment: FUN_CODE__MENU                          code    REL
+  ------------------------------------------------------------
+  Module                      Size        Align        Offset 
+  ============================================================
+  MENU                      00000306        02        00000000
+  ============================================================
+  Total:                    00000306        02
+
+
+  Segment: FUN_CODE__MENU_GL                       code    REL
+  ------------------------------------------------------------
+  Module                      Size        Align        Offset 
+  ============================================================
+  MENU_GL                   00000248        02        00000000
+  ============================================================
+  Total:                    00000248        02
+
+
+  Segment: FUN_CODE__MENU_LEDS                     code    REL
+  ------------------------------------------------------------
+  Module                      Size        Align        Offset 
+  ============================================================
+  MENU_LEDS                 00000080        02        00000000
+  ============================================================
+  Total:                    00000080        02
+
+
+  Segment: FUN_CODE__MENU_TECHNOLOGY               code    REL
+  ------------------------------------------------------------
+  Module                      Size        Align        Offset 
+  ============================================================
+  MENU_TECHNOLOGY           000000F4        02        00000000
+  ============================================================
+  Total:                    000000F4        02
+
+
+  Segment: FUN_CODE__MENU_TEXT                     code    REL
+  ------------------------------------------------------------
+  Module                      Size        Align        Offset 
+  ============================================================
+  MENU_TEXT                 00000258        02        00000000
+  ============================================================
+  Total:                    00000258        02
+
+
+  Segment: FUN_CODE__STRLEN                        code    REL
+  ------------------------------------------------------------
+  Module                      Size        Align        Offset 
+  ============================================================
+  STRLEN                    00000010        01        00000000
+  ============================================================
+  Total:                    00000010        01
+
+
+  Segment: FUN_CODE__SYSTICK                       code    REL
+  ------------------------------------------------------------
+  Module                      Size        Align        Offset 
+  ============================================================
+  SYSTICK                   0000004C        02        00000000
+  ============================================================
+  Total:                    0000004C        02
+
+
+  Segment: FUN_CODE__TEXT                          code    REL
+  ------------------------------------------------------------
+  Module                      Size        Align        Offset 
+  ============================================================
+  TEXT                      000003BC        02        00000000
+  ============================================================
+  Total:                    000003BC        02
+
+
+  Segment: IDATA_INI__FONT_12X16                   code    REL
+  ------------------------------------------------------------
+  Module                      Size        Align        Offset 
+  ============================================================
+  FONT_12X16                00001810        00        00000000
+  ============================================================
+  Total:                    00001810        00
+
+
+  Segment: IDATA_INI__FONT_6X8                     code    REL
+  ------------------------------------------------------------
+  Module                      Size        Align        Offset 
+  ============================================================
+  FONT_6X8                  00000610        00        00000000
+  ============================================================
+  Total:                    00000610        00
+
+
+  Segment: IDATA_INI__FONT_7X10_BOLD               code    REL
+  ------------------------------------------------------------
+  Module                      Size        Align        Offset 
+  ============================================================
+  FONT_7X10_BOLD            00000E10        00        00000000
+  ============================================================
+  Total:                    00000E10        00
+
+
+  Segment: IDATA_INI__FONT_7X10_THIN               code    REL
+  ------------------------------------------------------------
+  Module                      Size        Align        Offset 
+  ============================================================
+  FONT_7X10_THIN            00000E10        00        00000000
+  ============================================================
+  Total:                    00000E10        00
+
+
+  Segment: IDATA_INI__MAIN                         code    REL
+  ------------------------------------------------------------
+  Module                      Size        Align        Offset 
+  ============================================================
+  MAIN                      00000C60        00        00000000
+  ============================================================
+  Total:                    00000C60        00
+
+
+  Segment: IDATA_INI__MENU                         code    REL
+  ------------------------------------------------------------
+  Module                      Size        Align        Offset 
+  ============================================================
+  MENU                      00000120        00        00000000
+  ============================================================
+  Total:                    00000120        00
+
+
+  Segment: IDATA_INI__MENU_TECHNOLOGY              code    REL
+  ------------------------------------------------------------
+  Module                      Size        Align        Offset 
+  ============================================================
+  MENU_TECHNOLOGY           0000059A        00        00000000
+  ============================================================
+  Total:                    0000059A        00
+
+
+  Segment: IDATA_INI__MENU_TEXT                    code    REL
+  ------------------------------------------------------------
+  Module                      Size        Align        Offset 
+  ============================================================
+  MENU_TEXT                 000000DD        00        00000000
+  ============================================================
+  Total:                    000000DD        00
+
+
+  Segment: IDATA__FONT_12X16                       data    REL
+  ------------------------------------------------------------
+  Module                      Size        Align        Offset 
+  ============================================================
+  FONT_12X16                00001810        02        00000000
+  ============================================================
+  Total:                    00001810        02
+
+
+  Segment: IDATA__FONT_6X8                         data    REL
+  ------------------------------------------------------------
+  Module                      Size        Align        Offset 
+  ============================================================
+  FONT_6X8                  00000610        02        00000000
+  ============================================================
+  Total:                    00000610        02
+
+
+  Segment: IDATA__FONT_7X10_BOLD                   data    REL
+  ------------------------------------------------------------
+  Module                      Size        Align        Offset 
+  ============================================================
+  FONT_7X10_BOLD            00000E10        02        00000000
+  ============================================================
+  Total:                    00000E10        02
+
+
+  Segment: IDATA__FONT_7X10_THIN                   data    REL
+  ------------------------------------------------------------
+  Module                      Size        Align        Offset 
+  ============================================================
+  FONT_7X10_THIN            00000E10        02        00000000
+  ============================================================
+  Total:                    00000E10        02
+
+
+  Segment: IDATA__MAIN                             data    REL
+  ------------------------------------------------------------
+  Module                      Size        Align        Offset 
+  ============================================================
+  MAIN                      00000C60        02        00000000
+  ============================================================
+  Total:                    00000C60        02
+
+
+  Segment: IDATA__MENU                             data    REL
+  ------------------------------------------------------------
+  Module                      Size        Align        Offset 
+  ============================================================
+  MENU                      00000120        02        00000000
+  ============================================================
+  Total:                    00000120        02
+
+
+  Segment: IDATA__MENU_TECHNOLOGY                  data    REL
+  ------------------------------------------------------------
+  Module                      Size        Align        Offset 
+  ============================================================
+  MENU_TECHNOLOGY           0000059A        00        00000000
+  ============================================================
+  Total:                    0000059A        00
+
+
+  Segment: IDATA__MENU_TEXT                        data    REL
+  ------------------------------------------------------------
+  Module                      Size        Align        Offset 
+  ============================================================
+  MENU_TEXT                 000000DD        00        00000000
+  ============================================================
+  Total:                    000000DD        00
+
+
+  Segment: INTVEC                                  code    ABS
+  ------------------------------------------------------------
+  Module                     Start         End          Size  
+  ============================================================
+  ?STARTUP_DEVICE           00000000     080000BF     080000C0
+  ============================================================
+  Total:                min:00000000 max:080000BF     080000C0
+
+
+  Segment: STRINGS__MENU                           code    REL
+  ------------------------------------------------------------
+  Module                      Size        Align        Offset 
+  ============================================================
+  MENU                      000000D5        01        00000000
+  ============================================================
+  Total:                    000000D5        01
+
+
+  Segment: STRINGS__MENU_GL                        code    REL
+  ------------------------------------------------------------
+  Module                      Size        Align        Offset 
+  ============================================================
+  MENU_GL                   0000001B        01        00000000
+  ============================================================
+  Total:                    0000001B        01
+
+
+  Segment: STRINGS__MENU_LEDS                      code    REL
+  ------------------------------------------------------------
+  Module                      Size        Align        Offset 
+  ============================================================
+  MENU_LEDS                 0000002A        01        00000000
+  ============================================================
+  Total:                    0000002A        01
+
+
+  Segment: STRINGS__MENU_TEXT                      code    REL
+  ------------------------------------------------------------
+  Module                      Size        Align        Offset 
+  ============================================================
+  MENU_TEXT                 00000108        01        00000000
+  ============================================================
+  Total:                    00000108        01
+
+
+  Segment: UDATA__LCD                              data    REL
+  ------------------------------------------------------------
+  Module                      Size        Align        Offset 
+  ============================================================
+  LCD                       00000008        02        00000000
+  ============================================================
+  Total:                    00000008        02
+
+
+  Segment: UDATA__LEDS                             data    REL
+  ------------------------------------------------------------
+  Module                      Size        Align        Offset 
+  ============================================================
+  LEDS                      00000004        02        00000000
+  ============================================================
+  Total:                    00000004        02
+
+
+  Segment: UDATA__MAIN                             data    REL
+  ------------------------------------------------------------
+  Module                      Size        Align        Offset 
+  ============================================================
+  MAIN                      00000004        02        00000000
+  ============================================================
+  Total:                    00000004        02
+
+
+  Segment: UDATA__MENU                             data    REL
+  ------------------------------------------------------------
+  Module                      Size        Align        Offset 
+  ============================================================
+  MENU                      00000024        02        00000000
+  ============================================================
+  Total:                    00000024        02
+
+
+  Segment: UDATA__SYSTICK                          data    REL
+  ------------------------------------------------------------
+  Module                      Size        Align        Offset 
+  ============================================================
+  SYSTICK                   00000004        02        00000000
+  ============================================================
+  Total:                    00000004        02
+
+
+  Segment: UDATA__TEXT                             data    REL
+  ------------------------------------------------------------
+  Module                      Size        Align        Offset 
+  ============================================================
+  TEXT                      00000004        02        00000000
+  ============================================================
+  Total:                    00000004        02
+
+         * * *  A D D R E S S   A R E A S   D E F I N I T I O N  * * *
+
+  Name:                          CODE
+  Allocation:                    code
+  Ranges:                        080000C0 0801FFFF
+  Reserved for abs segments:     08000000 080000BF
+
+  Name:                          DATA
+  Allocation:                    data
+  Ranges:                        20000000 20007FFF
+
+     * * *  P L A C I N G   R E L O C A T A B L E   S E G M E N T S  * * *
+
+  Segment:                       ??CODE_CLIB
+  Allocation:                    code
+  Size:                          00000076
+  Align:                         02
+  Address area:                  CODE
+  Border:                        >00000000
+  Placed at:                     080000C0
+  Ends at:                       08000135
+
+
+  Segment:                       ??DEFAULT_HANDLERS
+  Allocation:                    code
+  Size:                          00000056
+  Align:                         02
+  Address area:                  CODE
+  Border:                        >00000000
+  Placed at:                     08000138
+  Ends at:                       0800018D
+
+
+  Segment:                       FUN_CODE__STRLEN
+  Allocation:                    code
+  Size:                          00000010
+  Align:                         01
+  Address area:                  CODE
+  Border:                        >00000000
+  Placed at:                     0800018E
+  Ends at:                       0800019D
+
+
+  Segment:                       ??DATA_SEGMENT_ADDRESSES
+  Allocation:                    code
+  Size:                          00000030
+  Align:                         02
+  Address area:                  CODE
+  Border:                        >00000000
+  Placed at:                     080001A0
+  Ends at:                       080001CF
+
+
+  Segment:                       ??INIT_DATA_SEGMENT_ADDRESSES
+  Allocation:                    code
+  Size:                          00000060
+  Align:                         02
+  Address area:                  CODE
+  Border:                        >00000000
+  Placed at:                     080001D0
+  Ends at:                       0800022F
+
+
+  Segment:                       CDATA__LCD
+  Allocation:                    code
+  Size:                          00000010
+  Align:                         02
+  Address area:                  CODE
+  Border:                        >00000000
+  Placed at:                     08000230
+  Ends at:                       0800023F
+
+
+  Segment:                       FUN_CODE__GL
+  Allocation:                    code
+  Size:                          0000019A
+  Align:                         02
+  Address area:                  CODE
+  Border:                        >00000000
+  Placed at:                     08000240
+  Ends at:                       080003D9
+
+
+  Segment:                       FUN_CODE__JOYSTICK
+  Allocation:                    code
+  Size:                          000000D4
+  Align:                         02
+  Address area:                  CODE
+  Border:                        >00000000
+  Placed at:                     080003DC
+  Ends at:                       080004AF
+
+
+  Segment:                       FUN_CODE__LCD
+  Allocation:                    code
+  Size:                          000003B2
+  Align:                         02
+  Address area:                  CODE
+  Border:                        >00000000
+  Placed at:                     080004B0
+  Ends at:                       08000861
+
+
+  Segment:                       FUN_CODE__LEDS
+  Allocation:                    code
+  Size:                          0000005C
+  Align:                         02
+  Address area:                  CODE
+  Border:                        >00000000
+  Placed at:                     08000864
+  Ends at:                       080008BF
+
+
+  Segment:                       FUN_CODE__MAIN
+  Allocation:                    code
+  Size:                          00000200
+  Align:                         02
+  Address area:                  CODE
+  Border:                        >00000000
+  Placed at:                     080008C0
+  Ends at:                       08000ABF
+
+
+  Segment:                       FUN_CODE__MENU
+  Allocation:                    code
+  Size:                          00000306
+  Align:                         02
+  Address area:                  CODE
+  Border:                        >00000000
+  Placed at:                     08000AC0
+  Ends at:                       08000DC5
+
+
+  Segment:                       FUN_CODE__MENU_GL
+  Allocation:                    code
+  Size:                          00000200
+  Align:                         02
+  Address area:                  CODE
+  Border:                        >00000000
+  Placed at:                     08000DC8
+  Ends at:                       08000FC7
+
+
+  Segment:                       FUN_CODE__MENU_LEDS
+  Allocation:                    code
+  Size:                          00000080
+  Align:                         02
+  Address area:                  CODE
+  Border:                        >00000000
+  Placed at:                     08000FC8
+  Ends at:                       08001047
+
+
+  Segment:                       FUN_CODE__MENU_TECHNOLOGY
+  Allocation:                    code
+  Size:                          000000F4
+  Align:                         02
+  Address area:                  CODE
+  Border:                        >00000000
+  Placed at:                     08001048
+  Ends at:                       0800113B
+
+
+  Segment:                       FUN_CODE__MENU_TEXT
+  Allocation:                    code
+  Size:                          00000220
+  Align:                         02
+  Address area:                  CODE
+  Border:                        >00000000
+  Placed at:                     0800113C
+  Ends at:                       0800135B
+
+
+  Segment:                       FUN_CODE__SYSTICK
+  Allocation:                    code
+  Size:                          00000034
+  Align:                         02
+  Address area:                  CODE
+  Border:                        >00000000
+  Placed at:                     0800135C
+  Ends at:                       0800138F
+
+
+  Segment:                       FUN_CODE__TEXT
+  Allocation:                    code
+  Size:                          000003BC
+  Align:                         02
+  Address area:                  CODE
+  Border:                        >00000000
+  Placed at:                     08001390
+  Ends at:                       0800174B
+
+
+  Segment:                       IDATA_INI__FONT_12X16
+  Allocation:                    code
+  Size:                          00001810
+  Align:                         00
+  Address area:                  CODE
+  Border:                        >00000000
+  Placed at:                     0800174C
+  Ends at:                       08002F5B
+
+
+  Segment:                       IDATA_INI__FONT_6X8
+  Allocation:                    code
+  Size:                          00000610
+  Align:                         00
+  Address area:                  CODE
+  Border:                        >00000000
+  Placed at:                     08002F5C
+  Ends at:                       0800356B
+
+
+  Segment:                       IDATA_INI__FONT_7X10_BOLD
+  Allocation:                    code
+  Size:                          00000E10
+  Align:                         00
+  Address area:                  CODE
+  Border:                        >00000000
+  Placed at:                     0800356C
+  Ends at:                       0800437B
+
+
+  Segment:                       IDATA_INI__FONT_7X10_THIN
+  Allocation:                    code
+  Size:                          00000E10
+  Align:                         00
+  Address area:                  CODE
+  Border:                        >00000000
+  Placed at:                     0800437C
+  Ends at:                       0800518B
+
+
+  Segment:                       IDATA_INI__MAIN
+  Allocation:                    code
+  Size:                          00000C60
+  Align:                         00
+  Address area:                  CODE
+  Border:                        >00000000
+  Placed at:                     0800518C
+  Ends at:                       08005DEB
+
+
+  Segment:                       IDATA_INI__MENU
+  Allocation:                    code
+  Size:                          00000120
+  Align:                         00
+  Address area:                  CODE
+  Border:                        >00000000
+  Placed at:                     08005DEC
+  Ends at:                       08005F0B
+
+
+  Segment:                       IDATA_INI__MENU_TECHNOLOGY
+  Allocation:                    code
+  Size:                          0000059A
+  Align:                         00
+  Address area:                  CODE
+  Border:                        >00000000
+  Placed at:                     08005F0C
+  Ends at:                       080064A5
+
+
+  Segment:                       IDATA_INI__MENU_TEXT
+  Allocation:                    code
+  Size:                          000000DD
+  Align:                         00
+  Address area:                  CODE
+  Border:                        >00000000
+  Placed at:                     080064A6
+  Ends at:                       08006582
+
+
+  Segment:                       STRINGS__MENU
+  Allocation:                    code
+  Size:                          000000D5
+  Align:                         01
+  Address area:                  CODE
+  Border:                        >00000000
+  Placed at:                     08006584
+  Ends at:                       08006658
+
+
+  Segment:                       STRINGS__MENU_GL
+  Allocation:                    code
+  Size:                          0000001B
+  Align:                         01
+  Address area:                  CODE
+  Border:                        >00000000
+  Placed at:                     0800665A
+  Ends at:                       08006674
+
+
+  Segment:                       STRINGS__MENU_LEDS
+  Allocation:                    code
+  Size:                          0000002A
+  Align:                         01
+  Address area:                  CODE
+  Border:                        >00000000
+  Placed at:                     08006676
+  Ends at:                       0800669F
+
+
+  Segment:                       STRINGS__MENU_TEXT
+  Allocation:                    code
+  Size:                          00000108
+  Align:                         01
+  Address area:                  CODE
+  Border:                        >00000000
+  Placed at:                     080066A0
+  Ends at:                       080067A7
+
+
+  Segment:                       CSTACK
+  Allocation:                    data
+  Size:                          00000400
+  Align:                         03
+  Address area:                  DATA
+  Border:                        >00000000
+  Placed at:                     20000000
+  Ends at:                       200003FF
+
+
+  Segment:                       IDATA__FONT_12X16
+  Allocation:                    data
+  Size:                          00001810
+  Align:                         02
+  Address area:                  DATA
+  Border:                        >00000000
+  Placed at:                     20000400
+  Ends at:                       20001C0F
+
+
+  Segment:                       IDATA__FONT_6X8
+  Allocation:                    data
+  Size:                          00000610
+  Align:                         02
+  Address area:                  DATA
+  Border:                        >00000000
+  Placed at:                     20001C10
+  Ends at:                       2000221F
+
+
+  Segment:                       IDATA__FONT_7X10_BOLD
+  Allocation:                    data
+  Size:                          00000E10
+  Align:                         02
+  Address area:                  DATA
+  Border:                        >00000000
+  Placed at:                     20002220
+  Ends at:                       2000302F
+
+
+  Segment:                       IDATA__FONT_7X10_THIN
+  Allocation:                    data
+  Size:                          00000E10
+  Align:                         02
+  Address area:                  DATA
+  Border:                        >00000000
+  Placed at:                     20003030
+  Ends at:                       20003E3F
+
+
+  Segment:                       IDATA__MAIN
+  Allocation:                    data
+  Size:                          00000C60
+  Align:                         02
+  Address area:                  DATA
+  Border:                        >00000000
+  Placed at:                     20003E40
+  Ends at:                       20004A9F
+
+
+  Segment:                       IDATA__MENU
+  Allocation:                    data
+  Size:                          00000120
+  Align:                         02
+  Address area:                  DATA
+  Border:                        >00000000
+  Placed at:                     20004AA0
+  Ends at:                       20004BBF
+
+
+  Segment:                       IDATA__MENU_TECHNOLOGY
+  Allocation:                    data
+  Size:                          0000059A
+  Align:                         00
+  Address area:                  DATA
+  Border:                        >00000000
+  Placed at:                     20004BC0
+  Ends at:                       20005159
+
+
+  Segment:                       IDATA__MENU_TEXT
+  Allocation:                    data
+  Size:                          000000DD
+  Align:                         00
+  Address area:                  DATA
+  Border:                        >00000000
+  Placed at:                     2000515A
+  Ends at:                       20005236
+
+
+  Segment:                       UDATA__LCD
+  Allocation:                    data
+  Size:                          00000008
+  Align:                         02
+  Address area:                  DATA
+  Border:                        >00000000
+  Placed at:                     20005238
+  Ends at:                       2000523F
+
+
+  Segment:                       UDATA__LEDS
+  Allocation:                    data
+  Size:                          00000004
+  Align:                         02
+  Address area:                  DATA
+  Border:                        >00000000
+  Placed at:                     20005240
+  Ends at:                       20005243
+
+
+  Segment:                       UDATA__MAIN
+  Allocation:                    data
+  Size:                          00000004
+  Align:                         02
+  Address area:                  DATA
+  Border:                        >00000000
+  Placed at:                     20005244
+  Ends at:                       20005247
+
+
+  Segment:                       UDATA__MENU
+  Allocation:                    data
+  Size:                          00000024
+  Align:                         02
+  Address area:                  DATA
+  Border:                        >00000000
+  Placed at:                     20005248
+  Ends at:                       2000526B
+
+
+  Segment:                       UDATA__SYSTICK
+  Allocation:                    data
+  Size:                          00000004
+  Align:                         02
+  Address area:                  DATA
+  Border:                        >00000000
+  Placed at:                     2000526C
+  Ends at:                       2000526F
+
+
+  Segment:                       UDATA__TEXT
+  Allocation:                    data
+  Size:                          00000004
+  Align:                         02
+  Address area:                  DATA
+  Border:                        >00000000
+  Placed at:                     20005270
+  Ends at:                       20005273
+
+                * * *  A D D R E S S   A R E A S   M A P  * * *
+
+  Address area: CODE
+  ----------------------------------------------------------------------------
+  Segment                       Align  Starts at   Ends at   Size(hex)   (dec)
+  ----------------------------------------------------------------------------
+  *** RESERVED ***               -     08000000    080000BF  000000C0    192
+  ??CODE_CLIB                    2     080000C0    08000135  00000076    118
+  *** GAP ***                    -     08000136    08000137  00000002    2
+  ??DEFAULT_HANDLERS             2     08000138    0800018D  00000056    86
+  FUN_CODE__STRLEN               1     0800018E    0800019D  00000010    16
+  *** GAP ***                    -     0800019E    0800019F  00000002    2
+  ??DATA_SEGMENT_ADDRESSES       2     080001A0    080001CF  00000030    48
+  ??INIT_DATA_SEGMENT_ADDRESSES  2     080001D0    0800022F  00000060    96
+  CDATA__LCD                     2     08000230    0800023F  00000010    16
+  FUN_CODE__GL                   2     08000240    080003D9  0000019A    410
+  *** GAP ***                    -     080003DA    080003DB  00000002    2
+  FUN_CODE__JOYSTICK             2     080003DC    080004AF  000000D4    212
+  FUN_CODE__LCD                  2     080004B0    08000861  000003B2    946
+  *** GAP ***                    -     08000862    08000863  00000002    2
+  FUN_CODE__LEDS                 2     08000864    080008BF  0000005C    92
+  FUN_CODE__MAIN                 2     080008C0    08000ABF  00000200    512
+  FUN_CODE__MENU                 2     08000AC0    08000DC5  00000306    774
+  *** GAP ***                    -     08000DC6    08000DC7  00000002    2
+  FUN_CODE__MENU_GL              2     08000DC8    08000FC7  00000200    512
+  FUN_CODE__MENU_LEDS            2     08000FC8    08001047  00000080    128
+  FUN_CODE__MENU_TECHNOLOGY      2     08001048    0800113B  000000F4    244
+  FUN_CODE__MENU_TEXT            2     0800113C    0800135B  00000220    544
+  FUN_CODE__SYSTICK              2     0800135C    0800138F  00000034    52
+  FUN_CODE__TEXT                 2     08001390    0800174B  000003BC    956
+  IDATA_INI__FONT_12X16          0     0800174C    08002F5B  00001810    6160
+  IDATA_INI__FONT_6X8            0     08002F5C    0800356B  00000610    1552
+  IDATA_INI__FONT_7X10_BOLD      0     0800356C    0800437B  00000E10    3600
+  IDATA_INI__FONT_7X10_THIN      0     0800437C    0800518B  00000E10    3600
+  IDATA_INI__MAIN                0     0800518C    08005DEB  00000C60    3168
+  IDATA_INI__MENU                0     08005DEC    08005F0B  00000120    288
+  IDATA_INI__MENU_TECHNOLOGY     0     08005F0C    080064A5  0000059A    1434
+  IDATA_INI__MENU_TEXT           0     080064A6    08006582  000000DD    221
+  *** GAP ***                    -     08006583    08006583  00000001    1
+  STRINGS__MENU                  1     08006584    08006658  000000D5    213
+  *** GAP ***                    -     08006659    08006659  00000001    1
+  STRINGS__MENU_GL               1     0800665A    08006674  0000001B    27
+  *** GAP ***                    -     08006675    08006675  00000001    1
+  STRINGS__MENU_LEDS             1     08006676    0800669F  0000002A    42
+  STRINGS__MENU_TEXT             1     080066A0    080067A7  00000108    264
+  *** GAP ***                    -     080067A8    0801FFFF  00019858    104536
+
+
+  Address area: DATA
+  ----------------------------------------------------------------------------
+  Segment                       Align  Starts at   Ends at   Size(hex)   (dec)
+  ----------------------------------------------------------------------------
+  CSTACK                         3     20000000    200003FF  00000400    1024
+  IDATA__FONT_12X16              2     20000400    20001C0F  00001810    6160
+  IDATA__FONT_6X8                2     20001C10    2000221F  00000610    1552
+  IDATA__FONT_7X10_BOLD          2     20002220    2000302F  00000E10    3600
+  IDATA__FONT_7X10_THIN          2     20003030    20003E3F  00000E10    3600
+  IDATA__MAIN                    2     20003E40    20004A9F  00000C60    3168
+  IDATA__MENU                    2     20004AA0    20004BBF  00000120    288
+  IDATA__MENU_TECHNOLOGY         0     20004BC0    20005159  0000059A    1434
+  IDATA__MENU_TEXT               0     2000515A    20005236  000000DD    221
+  *** GAP ***                    -     20005237    20005237  00000001    1
+  UDATA__LCD                     2     20005238    2000523F  00000008    8
+  UDATA__LEDS                    2     20005240    20005243  00000004    4
+  UDATA__MAIN                    2     20005244    20005247  00000004    4
+  UDATA__MENU                    2     20005248    2000526B  00000024    36
+  UDATA__SYSTICK                 2     2000526C    2000526F  00000004    4
+  UDATA__TEXT                    2     20005270    20005273  00000004    4
+  *** GAP ***                    -     20005274    20007FFF  00002D8C    11660
+
+                     * * *  S Y M B O L   T A B L E  * * *
+
+  Name                           Segment          Value       Type info
+
+  ?cstart                        ??CODE_CLIB     080000C4 *** <function>
+  ?start                         ??CODE_CLIB     080000C5     n/a
+  ADC_IRQHandler                 ??DEFAULT_HANDL 0800017F     <function>
+  AboutFunc                      FUN_CODE__MENU_ 080012B5     <function>
+  AboutFunc??T                   FUN_CODE__MENU_ 080012B4 *** <function>
+  BACKUP_IRQHandler              ??DEFAULT_HANDL 08000185     <function>
+  BackToMenuOnSel                FUN_CODE__MENU  08000D89     <function>
+  BackToMenuOnSel??T             FUN_CODE__MENU  08000D88 *** <function>
+  BookFunc                       FUN_CODE__MENU_ 08001229     <function>
+  BookFunc??T                    FUN_CODE__MENU_ 08001228 *** <function>
+  BusFault_Handler               ??DEFAULT_HANDL 0800015B     <function>
+  CAN1_IRQHandler                ??DEFAULT_HANDL 08000165     <function>
+  CAN2_IRQHandler                ??DEFAULT_HANDL 08000167     <function>
+  COMPARATOR_IRQHandler          ??DEFAULT_HANDL 08000181     <function>
+  CrystalPorts                   CDATA__LCD      08000230 *** <array>
+  CurrentCrystal                 UDATA__LCD      20005238 *** n/a
+  CurrentFont                    UDATA__TEXT     20005270     <pointer>
+  CurrentLights                  UDATA__LEDS     20005240     unsigned long
+  CurrentMethod                  UDATA__LCD      2000523C     n/a
+  DMA_IRQHandler                 ??DEFAULT_HANDL 0800016B     <function>
+  DebugMon_Handler               ??DEFAULT_HANDL 08000161     <function>
+  DisplayMenu                    FUN_CODE__MENU  08000CD9     <function>
+  DisplayMenu??T                 FUN_CODE__MENU  08000CD8 *** <function>
+  DisplayMenuTitle               FUN_CODE__MENU  08000C75     <function>
+  DisplayMenuTitle??T            FUN_CODE__MENU  08000C74 *** <function>
+  DisplayRectangle               FUN_CODE__MENU_ 08000DC9 *** <function>
+  DisplayRectangle??T            FUN_CODE__MENU_ 08000DC8 *** <function>
+  EXT_INT1_IRQHandler            ??DEFAULT_HANDL 08000187     <function>
+  EXT_INT2_IRQHandler            ??DEFAULT_HANDL 08000189     <function>
+  EXT_INT3_IRQHandler            ??DEFAULT_HANDL 0800018B     <function>
+  EXT_INT4_IRQHandler            ??DEFAULT_HANDL 0800018D     <function>
+  ElementsFunc                   FUN_CODE__MENU_ 08000E03     <function>
+  ElementsFunc??T                FUN_CODE__MENU_ 08000E02 *** <function>
+  FontFunc                       FUN_CODE__MENU_ 0800113D     <function>
+  FontFunc??T                    FUN_CODE__MENU_ 0800113C *** <function>
+  Font_12x16                     IDATA__FONT_12X 20000400     <struct>
+  Font_6x8                       IDATA__FONT_6X8 20001C10     <struct>
+  Font_7x10_bold                 IDATA__FONT_7X1 20002220     <struct>
+  Font_7x10_thin                 IDATA__FONT_7X1 20003030     <struct>
+  Frequency_CLK_PLL              FUN_CODE__MAIN  080009CD *** <function>
+  Frequency_CLK_PLL??T           FUN_CODE__MAIN  080009CC *** <function>
+  GetKey                         FUN_CODE__JOYST 08000421     <function>
+  GetKey??T                      FUN_CODE__JOYST 08000420 *** <function>
+  GraphicMenu                    IDATA__MENU     20004AA0 *** <struct>
+  GraphicMenuItems               IDATA__MENU     20004AAC *** <array>
+  HardFault_Handler              ??DEFAULT_HANDL 08000157     <function>
+  I2C_IRQHandler                 ??DEFAULT_HANDL 08000173     <function>
+  IndicatorsFunc                 FUN_CODE__MENU_ 08000EA1     <function>
+  IndicatorsFunc??T              FUN_CODE__MENU_ 08000EA0 *** <function>
+  InitPortJoystick               FUN_CODE__JOYST 080003DD     <function>
+  InitPortJoystick??T            FUN_CODE__JOYST 080003DC *** <function>
+  InitPortLCD                    FUN_CODE__LCD   08000533 *** <function>
+  InitPortLCD??T                 FUN_CODE__LCD   08000532 *** <function>
+  InitPortLED                    FUN_CODE__LEDS  08000865     <function>
+  InitPortLED??T                 FUN_CODE__LEDS  08000864 *** <function>
+  LCD_CLS                        FUN_CODE__LCD   08000803     <function>
+  LCD_CLS??T                     FUN_CODE__LCD   08000802 *** <function>
+  LCD_Circle                     FUN_CODE__GL    08000341     <function>
+  LCD_Circle??T                  FUN_CODE__GL    08000340 *** <function>
+  LCD_INIT                       FUN_CODE__LCD   080007B9     <function>
+  LCD_INIT??T                    FUN_CODE__LCD   080007B8 *** <function>
+  LCD_Line                       FUN_CODE__GL    080002A5     <function>
+  LCD_Line??T                    FUN_CODE__GL    080002A4 *** <function>
+  LCD_PUTC                       FUN_CODE__TEXT  080014A5 *** <function>
+  LCD_PUTC??T                    FUN_CODE__TEXT  080014A4 *** <function>
+  LCD_PUTS                       FUN_CODE__TEXT  0800152D     <function>
+  LCD_PUTS??T                    FUN_CODE__TEXT  0800152C *** <function>
+  LCD_PUTS_Ex                    FUN_CODE__TEXT  08001557     <function>
+  LCD_PUTS_Ex??T                 FUN_CODE__TEXT  08001556 *** <function>
+  LCD_PUT_BYTE                   FUN_CODE__TEXT  08001391 *** <function>
+  LCD_PUT_BYTE??T                FUN_CODE__TEXT  08001390 *** <function>
+  LCD_PutPixel                   FUN_CODE__GL    08000241 *** <function>
+  LCD_PutPixel??T                FUN_CODE__GL    08000240 *** <function>
+  LDM                            FUN_CODE__MENU_ 08001049     <function>
+  LDM??T                         FUN_CODE__MENU_ 08001048 *** <function>
+  LEDsMenu                       IDATA__MENU     20004AD0 *** <struct>
+  LEDsMenuItems                  IDATA__MENU     20004ADC *** <array>
+  LightsOnFunc                   FUN_CODE__MENU_ 08000FC9     <function>
+  LightsOnFunc??T                FUN_CODE__MENU_ 08000FC8 *** <function>
+  MELT                           FUN_CODE__MENU_ 0800105D     <function>
+  MELT??T                        FUN_CODE__MENU_ 0800105C *** <function>
+  MILAND                         FUN_CODE__MENU_ 08001053     <function>
+  MILAND??T                      FUN_CODE__MENU_ 08001052 *** <function>
+  MainMenu                       IDATA__MENU     20004AF4 *** <struct>
+  MainMenuItems                  IDATA__MENU     20004B00 *** <array>
+  MemManage_Handler              ??DEFAULT_HANDL 08000159     <function>
+  Menu_Init                      FUN_CODE__MENU  08000CAD     <function>
+  Menu_Init??T                   FUN_CODE__MENU  08000CAC *** <function>
+  NMI_Handler                    ??DEFAULT_HANDL 08000155     <function>
+  PHYTON                         FUN_CODE__MENU_ 08001067     <function>
+  PHYTON??T                      FUN_CODE__MENU_ 08001066 *** <function>
+  POWER_IRQHandler               ??DEFAULT_HANDL 08000175     <function>
+  PauzaSET                       FUN_CODE__MAIN  08000A11 *** <function>
+  PauzaSET??T                    FUN_CODE__MAIN  08000A10 *** <function>
+  PendSV_Handler                 ??DEFAULT_HANDL 08000163     <function>
+  PrintImage                     FUN_CODE__MAIN  080008C1 *** <function>
+  PrintImage??T                  FUN_CODE__MAIN  080008C0 *** <function>
+  READ_DATA                      FUN_CODE__LCD   080004E7 *** <function>
+  READ_DATA??T                   FUN_CODE__LCD   080004E6 *** <function>
+  ReadKey                        FUN_CODE__MENU  08000D99     <function>
+  ReadKey??T                     FUN_CODE__MENU  08000D98 *** <function>
+  ReadLCD_Cmd                    FUN_CODE__LCD   080006CD *** <function>
+  ReadLCD_Cmd??T                 FUN_CODE__LCD   080006CC *** <function>
+  ReadLCD_Data                   FUN_CODE__LCD   08000727     <function>
+  ReadLCD_Data??T                FUN_CODE__LCD   08000726 *** <function>
+  ResetLCD                       FUN_CODE__LCD   08000505 *** <function>
+  ResetLCD??T                    FUN_CODE__LCD   08000504 *** <function>
+  Reset_Handler                  ??DEFAULT_HANDL 08000139     <function>
+  SSP1_IRQHandler                ??DEFAULT_HANDL 08000171     <function>
+  SSP2_IRQHandler                ??DEFAULT_HANDL 08000183     <function>
+  SVC_Handler                    ??DEFAULT_HANDL 0800015F     <function>
+  SetCrystal                     FUN_CODE__LCD   080005E9     <function>
+  SetCrystal??T                  FUN_CODE__LCD   080005E8 *** <function>
+  ShiftLights                    FUN_CODE__LEDS  08000891     <function>
+  ShiftLights??T                 FUN_CODE__LEDS  08000890 *** <function>
+  StyleFunc                      FUN_CODE__MENU_ 080011B5     <function>
+  StyleFunc??T                   FUN_CODE__MENU_ 080011B4 *** <function>
+  SysTickDelay                   FUN_CODE__SYSTI 0800136B     <function>
+  SysTickDelay??T                FUN_CODE__SYSTI 0800136A *** <function>
+  SysTick_Handler                FUN_CODE__SYSTI 0800135D     <function>
+  SysTick_Handler??T             FUN_CODE__SYSTI 0800135C *** <function>
+  SystemInit                     ??CODE_CLIB     080000C1     <function>
+  TechnologyMenu                 IDATA__MENU     20004B3C *** <struct>
+  TechnologyMenuItems            IDATA__MENU     20004B48 *** <array>
+  TechnologyText                 FUN_CODE__MENU_ 08001071 *** <function>
+  TechnologyText??T              FUN_CODE__MENU_ 08001070 *** <function>
+  TextMenu                       IDATA__MENU     20004B84 *** <struct>
+  TextMenuItems                  IDATA__MENU     20004B90 *** <array>
+  Timer1_IRQHandler              ??DEFAULT_HANDL 08000179     <function>
+  Timer2_IRQHandler              ??DEFAULT_HANDL 0800017B     <function>
+  Timer3_IRQHandler              ??DEFAULT_HANDL 0800017D     <function>
+  UART1_IRQHandler               ??DEFAULT_HANDL 0800016D     <function>
+  UART2_IRQHandler               ??DEFAULT_HANDL 0800016F     <function>
+  USB_IRQHandler                 ??DEFAULT_HANDL 08000169     <function>
+  UsageFault_Handler             ??DEFAULT_HANDL 0800015D     <function>
+  WRITE_DATA                     FUN_CODE__LCD   080004B1 *** <function>
+  WRITE_DATA??T                  FUN_CODE__LCD   080004B0 *** <function>
+  WWDG_IRQHandler                ??DEFAULT_HANDL 08000177     <function>
+  WriteLCD_Cmd                   FUN_CODE__LCD   0800061D     <function>
+  WriteLCD_Cmd??T                FUN_CODE__LCD   0800061C *** <function>
+  WriteLCD_Data                  FUN_CODE__LCD   08000675     <function>
+  WriteLCD_Data??T               FUN_CODE__LCD   08000674 *** <function>
+  dddd                           UDATA__MAIN     20005244 *** unsigned int
+  exit                           ??CODE_CLIB     08000135 *** <function>
+  exit??T                        ??CODE_CLIB     08000134 *** n/a
+  main                           FUN_CODE__MAIN  08000A3D     <function>
+  main??T                        FUN_CODE__MAIN  08000A3C *** <function>
+  size_x                         IDATA__MAIN     20003E40 *** <array>
+  strlen                         FUN_CODE__STRLE 0800018F     <function>
+  strlen??T                      FUN_CODE__STRLE 0800018E *** <function>
+
+  ***  These symbols do not resolve any external reference
+
+
+                     * * *  O U T P U T   F I L E S  * * *
+
+  Phyton/MicroCOSM format:
+    Debug\Exe\1986BE91T_DEMO.mce
+
+  Intel Extended HEX format:
+    Debug\Exe\1986BE91T_DEMO.HEX    for Address Area CODE
+
+  ELF format:
+    Debug\Exe\1986BE91T_DEMO.elf
+
+  Generated code is suitable for:  Cortex-M3
+
+  26331 bytes of CODE memory (+192 absolute)
+  21107 bytes of DATA memory

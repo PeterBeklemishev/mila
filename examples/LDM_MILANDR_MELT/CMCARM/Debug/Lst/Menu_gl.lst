@@ -1,0 +1,348 @@
+*******************************************************************************
+*                                                                             *
+*                 ARM C CROSS COMPILER Version 1.03.121111                    *
+*                      Copyright (C) 2009 Phyton, Inc.                        *
+*                                                                             *
+*******************************************************************************
+
+     DisplayFillingCircle??T:
+;FILE: ..\src\Menu_gl.c
+;000044    void DisplayFillingCircle (u32 x, u32 y, u32 radius) {
+00000000    B5F0                       	PUSH            {R4-R7,R14} 
+00000002    4615                       	MOV             R5,R2
+00000004    460E                       	MOV             R6,R1
+00000006    4607                       	MOV             R7,R0
+;000046        for (i = 0; i < radius + 1; i++)
+00000008    2400                       	MOVS            i?DisplayFillingCircle,#0
+0000000A    E005                       	B.N             ??_1_CHECK
+                   ??_1_LOOP:
+;000047            LCD_Circle(x, y, i);
+0000000C    4638                       	MOV             R0,x?DisplayFillingCircle
+0000000E    4631                       	MOV             R1,y?DisplayFillingCircle
+00000010    4622                       	MOV             R2,i?DisplayFillingCircle
+00000012    FFF5F7FF                   	BLF             LCD_Circle
+00000016    1C64                       	ADDS            i?DisplayFillingCircle,i?DisplayFillingCircle,#1
+                  ??_1_CHECK:
+00000018    1C6B                       	ADDS            R3,radius?DisplayFillingCircle,#1
+0000001A    429C                       	CMP             i?DisplayFillingCircle,R3
+0000001C    D3F6                       	BCC.N           ??_1_LOOP
+;000048    }
+0000001E    BDF0                       	POP             {R4-R7,R15} 
+.ENDF
+         DisplayRectangle??T:
+;000052    void DisplayRectangle (u32 x, u32 y, u32 side_x, u32 side_y) {
+00000020    B5F0                       	PUSH            {R4-R7,R14} 
+00000022    461D                       	MOV             R5,R3
+00000024    460E                       	MOV             R6,R1
+00000026    4607                       	MOV             R7,R0
+;000053        LCD_Line(x, y, x + side_x, y);
+00000028    1884                       	ADDS            R4,R0,side_x?DisplayRectangle
+0000002A    4622                       	MOV             side_x?DisplayRectangle,R4
+0000002C    460B                       	MOV             R3,R1
+0000002E    FFE7F7FF                   	BLF             LCD_Line
+;000054        LCD_Line(x, y, x, y + side_y);
+00000032    4435                       	ADD             side_y?DisplayRectangle,y?DisplayRectangle
+00000034    462B                       	MOV             R3,side_y?DisplayRectangle
+00000036    4638                       	MOV             R0,x?DisplayRectangle
+00000038    4631                       	MOV             R1,y?DisplayRectangle
+0000003A    463A                       	MOV             R2,x?DisplayRectangle
+0000003C    FFE0F7FF                   	BLF             LCD_Line
+;000055        LCD_Line(x + side_x, y, x + side_x, y + side_y);
+00000040    4620                       	MOV             R0,R4
+00000042    4631                       	MOV             R1,y?DisplayRectangle
+00000044    4622                       	MOV             R2,R4
+00000046    462B                       	MOV             R3,R5
+00000048    FFDAF7FF                   	BLF             LCD_Line
+;000056        LCD_Line(x, y + side_y, x + side_x, y + side_y);
+0000004C    4638                       	MOV             R0,x?DisplayRectangle
+0000004E    4629                       	MOV             R1,R5
+00000050    4622                       	MOV             R2,R4
+00000052    462B                       	MOV             R3,R5
+00000054    FFD4F7FF                   	BLF             LCD_Line
+;000057    }
+00000058    BDF0                       	POP             {R4-R7,R15} 
+.ENDF
+  DisplayFillingRectangle??T:
+;000061    void DisplayFillingRectangle (u32 x, u32 y, u32 side_x, u32 side_y) {
+0000005A    B5F0                       	PUSH            {R4-R7,R14} 
+0000005C    B081                       	SUB             R13,R13,#4
+0000005E    4615                       	MOV             R5,R2
+00000060    461E                       	MOV             R6,R3
+00000062    4607                       	MOV             R7,R0
+00000064    9100                       	STR             R1,[R13,#0]
+;000063        for (i = 0; i < side_y; i++)
+00000066    2400                       	MOVS            i?DisplayFillingRectangle,#0
+00000068    E007                       	B.N             ??_2_CHECK
+                   ??_2_LOOP:
+;000064            LCD_Line(x, y + i, x + side_x, y + i);
+0000006A    9B00                       	LDR             R3,[R13,#y?DisplayFillingRectangle]
+0000006C    4423                       	ADD             R3,i?DisplayFillingRectangle
+0000006E    197A                       	ADDS            R2,x?DisplayFillingRectangle,side_x?DisplayFillingRectangle
+00000070    4638                       	MOV             R0,x?DisplayFillingRectangle
+00000072    4619                       	MOV             R1,R3
+00000074    FFC4F7FF                   	BLF             LCD_Line
+00000078    1C64                       	ADDS            i?DisplayFillingRectangle,i?DisplayFillingRectangle,#1
+                  ??_2_CHECK:
+0000007A    42B4                       	CMP             i?DisplayFillingRectangle,side_y?DisplayFillingRectangle
+0000007C    D3F5                       	BCC.N           ??_2_LOOP
+;000065    }
+0000007E    B001                       	ADD             R13,R13,#4
+00000080    BDF0                       	POP             {R4-R7,R15} 
+.ENDF
+             ElementsFunc??T:
+;000070    void ElementsFunc(void) {
+00000082    B530                       	PUSH            {R4,R5,R14} 
+;000087        LCD_CLS();
+00000084    FFBCF7FF                   	BLF             LCD_CLS
+;000088        CurrentMethod = MET_OR;
+00000088    2500                       	MOVS            R5,#0
+0000008A    486E                       	LDR             R0,?lr0000	; CurrentMethod
+0000008C    6005                       	STR             R5,[R0,#0]
+;000089        DisplayMenuTitle("Примитивы");
+0000008E    4823                       	LDR             R0,?lr0001	; ?lit00000
+00000090    FFB6F7FF                   	BLF             DisplayMenuTitle
+;000031        LCD_Line(x, y, x + side, y + side);
+00000094    2019                       	MOVS            R0,#25
+00000096    210E                       	MOVS            R1,#14
+00000098    2229                       	MOVS            R2,#41
+0000009A    230E                       	MOVS            R3,#14
+0000009C    FFB0F7FF                   	BLF             LCD_Line
+000000A0    2029                       	MOVS            R0,#41
+000000A2    210E                       	MOVS            R1,#14
+000000A4    2229                       	MOVS            R2,#41
+000000A6    231E                       	MOVS            R3,#30
+000000A8    FFAAF7FF                   	BLF             LCD_Line
+000000AC    2019                       	MOVS            R0,#25
+000000AE    210E                       	MOVS            R1,#14
+000000B0    2229                       	MOVS            R2,#41
+000000B2    231E                       	MOVS            R3,#30
+000000B4    FFA4F7FF                   	BLF             LCD_Line
+;000036    static void DisplayFillingTriangle (u32 x, u32 y, u32 side) {
+;000038        for (i = 0; i < side + 1; i++)
+000000B8    462C                       	MOV             R4,R5
+                   ??_3_LOOP:
+;000039            LCD_Line(x + i, y + i, x + side, y + i);
+000000BA    0323F104                   	ADD             R3,R4,#35
+000000BE    0019F104                   	ADD             R0,R4,#25
+000000C2    4619                       	MOV             R1,R3
+000000C4    2229                       	MOVS            R2,#41
+000000C6    FF9BF7FF                   	BLF             LCD_Line
+000000CA    1C64                       	ADDS            R4,R4,#1
+000000CC    2C11                       	CMP             R4,#17
+000000CE    D3F4                       	BCC.N           ??_3_LOOP
+;000040    }
+;000095        LCD_Circle(circle_x, circle_y, circle_radius);
+000000D0    2039                       	MOVS            R0,#57
+000000D2    2116                       	MOVS            R1,#22
+000000D4    2208                       	MOVS            R2,#8
+000000D6    FF93F7FF                   	BLF             LCD_Circle
+;000044    void DisplayFillingCircle (u32 x, u32 y, u32 radius) {
+;000046        for (i = 0; i < radius + 1; i++)
+000000DA    462C                       	MOV             R4,R5
+                   ??_4_LOOP:
+;000047            LCD_Circle(x, y, i);
+000000DC    2039                       	MOVS            R0,#57
+000000DE    212B                       	MOVS            R1,#43
+000000E0    4622                       	MOV             R2,R4
+000000E2    FF8DF7FF                   	BLF             LCD_Circle
+000000E6    1C64                       	ADDS            R4,R4,#1
+000000E8    2C09                       	CMP             R4,#9
+000000EA    D3F7                       	BCC.N           ??_4_LOOP
+;000048    }
+;000098        DisplayRectangle (rectangle_x, base_y, side * 2, side);
+000000EC    2049                       	MOVS            R0,#73
+000000EE    210E                       	MOVS            R1,#14
+000000F0    2220                       	MOVS            R2,#32
+000000F2    2310                       	MOVS            R3,#16
+000000F4    FF94F7FF                   	BLF             DisplayRectangle??T
+;000061    void DisplayFillingRectangle (u32 x, u32 y, u32 side_x, u32 side_y) {
+;000063        for (i = 0; i < side_y; i++)
+000000F8    462C                       	MOV             R4,R5
+                   ??_5_LOOP:
+;000064            LCD_Line(x, y + i, x + side_x, y + i);
+000000FA    0323F104                   	ADD             R3,R4,#35
+000000FE    2049                       	MOVS            R0,#73
+00000100    4619                       	MOV             R1,R3
+00000102    2269                       	MOVS            R2,#105
+00000104    FF7CF7FF                   	BLF             LCD_Line
+00000108    1C64                       	ADDS            R4,R4,#1
+0000010A    2C10                       	CMP             R4,#16
+0000010C    D3F5                       	BCC.N           ??_5_LOOP
+;000065    }
+;000101        WAIT_UNTIL_KEY_RELEASED(SEL);
+                     ??_6_DO:
+0000010E    FF77F7FF                   	BLF             GetKey
+00000112    2801                       	CMP             R0,#1
+00000114    D0FB                       	BEQ.N           ??_6_DO
+;000104        BackToMenuOnSel();
+00000116    FF73F7FF                   	BLF             BackToMenuOnSel
+;000105    }
+0000011A    BD30                       	POP             {R4,R5,R15} 
+
+0000011C    00000000	?lr0001	.DCD	?lit00000	; used 1 time(s)
+
+.ENDF
+           IndicatorsFunc??T:
+;000108    void IndicatorsFunc(void) {
+00000120    43F0E92D                   	PUSH            {R4-R9,R14} 
+;000114        LCD_CLS();
+00000124    FF6CF7FF                   	BLF             LCD_CLS
+;000115        CurrentMethod = MET_OR;
+00000128    2700                       	MOVS            R7,#0
+0000012A    4C46                       	LDR             R4,?lr0000	; CurrentMethod
+0000012C    6027                       	STR             R7,[R4,#0]
+;000116        DisplayMenuTitle("Индикаторы");
+0000012E    4844                       	LDR             R0,?lr0002	; ?lit00001
+00000130    FF66F7FF                   	BLF             DisplayMenuTitle
+;000117        WAIT_UNTIL_KEY_RELEASED(SEL);
+                     ??_7_DO:
+00000134    FF64F7FF                   	BLF             GetKey
+00000138    2801                       	CMP             R0,#1
+0000013A    D0FB                       	BEQ.N           ??_7_DO
+;000120        LCD_PUTS(24,18,"0");
+0000013C    4A40                       	LDR             R2,?lr0002	; ?lit00001
+0000013E    320B                       	ADDS            R2,#11
+00000140    2018                       	MOVS            R0,#24
+00000142    2112                       	MOVS            R1,#18
+00000144    FF5CF7FF                   	BLF             LCD_PUTS
+;000121        DisplayRectangle (32, 14, 64, 14);
+00000148    2020                       	MOVS            R0,#32
+0000014A    210E                       	MOVS            R1,#14
+0000014C    2240                       	MOVS            R2,#64
+0000014E    230E                       	MOVS            R3,#14
+00000150    FF66F7FF                   	BLF             DisplayRectangle??T
+;000122        LCD_PUTS(97,18,"100");
+00000154    4A3A                       	LDR             R2,?lr0002	; ?lit00001
+00000156    320D                       	ADDS            R2,#13
+00000158    2061                       	MOVS            R0,#97
+0000015A    2112                       	MOVS            R1,#18
+0000015C    FF50F7FF                   	BLF             LCD_PUTS
+;000124        LCD_Circle(63, 63, 30);
+00000160    203F                       	MOVS            R0,#63
+00000162    213F                       	MOVS            R1,#63
+00000164    221E                       	MOVS            R2,#30
+00000166    FF4BF7FF                   	BLF             LCD_Circle
+;000125        LCD_Line(63, 34, 63, 41);
+0000016A    203F                       	MOVS            R0,#63
+0000016C    2122                       	MOVS            R1,#34
+0000016E    223F                       	MOVS            R2,#63
+00000170    2329                       	MOVS            R3,#41
+00000172    FF45F7FF                   	BLF             LCD_Line
+;000126        LCD_Line(35, 53, 42, 56);
+00000176    2023                       	MOVS            R0,#35
+00000178    2135                       	MOVS            R1,#53
+0000017A    222A                       	MOVS            R2,#42
+0000017C    2338                       	MOVS            R3,#56
+0000017E    FF3FF7FF                   	BLF             LCD_Line
+;000127        LCD_Line(91, 53, 84, 56);
+00000182    205B                       	MOVS            R0,#91
+00000184    2135                       	MOVS            R1,#53
+00000186    2254                       	MOVS            R2,#84
+00000188    2338                       	MOVS            R3,#56
+0000018A    FF39F7FF                   	BLF             LCD_Line
+;000128        LCD_Line(45, 39, 51, 45);
+0000018E    202D                       	MOVS            R0,#45
+00000190    2127                       	MOVS            R1,#39
+00000192    2233                       	MOVS            R2,#51
+00000194    232D                       	MOVS            R3,#45
+00000196    FF33F7FF                   	BLF             LCD_Line
+;000129        LCD_Line(81, 39, 75, 45);
+0000019A    2051                       	MOVS            R0,#81
+0000019C    2127                       	MOVS            R1,#39
+0000019E    224B                       	MOVS            R2,#75
+000001A0    232D                       	MOVS            R3,#45
+000001A2    FF2DF7FF                   	BLF             LCD_Line
+;000133        CurrentMethod = MET_XOR;
+000001A6    2001                       	MOVS            R0,#1
+000001A8    6020                       	STR             R0,[R4,#0]
+;000134        for (i = 0, sign = 1; !KEY_PRESSED(SEL); ) {
+000001AA    46B9                       	MOV             i?IndicatorsFunc,R7
+000001AC    4605                       	MOV             sign?IndicatorsFunc,R0
+000001AE    E03F                       	B.N             ??_8_CHECK
+                   ??_8_LOOP:
+;000135            s32 ni = i + side_x * sign;
+000001B0    0885EB09                   	ADD             ni?IndicatorsFunc?0011,i?IndicatorsFunc,sign?IndicatorsFunc,LSL #2
+;000061    void DisplayFillingRectangle (u32 x, u32 y, u32 side_x, u32 side_y) {
+000001B4    0622F109                   	ADD             R6,R9,#34
+;000063        for (i = 0; i < side_y; i++)
+000001B8    463C                       	MOV             R4,R7
+                   ??_9_LOOP:
+;000064            LCD_Line(x, y + i, x + side_x, y + i);
+000001BA    0310F104                   	ADD             R3,R4,#16
+000001BE    1CF2                       	ADDS            R2,R6,#3
+000001C0    4630                       	MOV             R0,R6
+000001C2    4619                       	MOV             R1,R3
+000001C4    FF1CF7FF                   	BLF             LCD_Line
+000001C8    1C64                       	ADDS            R4,R4,#1
+000001CA    2C0B                       	CMP             R4,#11
+000001CC    D3F5                       	BCC.N           ??_9_LOOP
+;000065    }
+;000137            if (ni > 60 || ni < 0)
+000001CE    0F3DF1B8                   	CMP             ni?IndicatorsFunc?0011,#61
+000001D2    DA02                       	BGE.N           ??_10_IF
+000001D4    0F00F1B8                   	CMP             ni?IndicatorsFunc?0011,#0
+000001D8    D501                       	BPL.N           ??_10_ELSE
+                    ??_10_IF:
+;000138                sign = -sign;
+000001DA    426D                       	RSBS            sign?IndicatorsFunc,sign?IndicatorsFunc,#0
+000001DC    E000                       	B.N             ??_10_END
+                  ??_10_ELSE:
+;000140                i = ni;
+000001DE    46C1                       	MOV             i?IndicatorsFunc,ni?IndicatorsFunc?0011
+                   ??_10_END:
+;000141            SysTickDelay(300);
+000001E0    7096F44F                   	MOV             R0,#12Ch
+000001E4    FF0CF7FF                   	BLF             SysTickDelay
+;000144            LCD_Line(86, 46, 63, 63);
+000001E8    2056                       	MOVS            R0,#86
+000001EA    212E                       	MOVS            R1,#46
+000001EC    223F                       	MOVS            R2,#63
+000001EE    233F                       	MOVS            R3,#63
+000001F0    FF06F7FF                   	BLF             LCD_Line
+;000145            SysTickDelay(150);
+000001F4    2096                       	MOVS            R0,#96h
+000001F6    FF03F7FF                   	BLF             SysTickDelay
+;000146            LCD_Line(86, 46, 63, 63);
+000001FA    2056                       	MOVS            R0,#86
+000001FC    212E                       	MOVS            R1,#46
+000001FE    223F                       	MOVS            R2,#63
+00000200    233F                       	MOVS            R3,#63
+00000202    FEFDF7FF                   	BLF             LCD_Line
+;000147            SysTickDelay(150);
+00000206    2096                       	MOVS            R0,#96h
+00000208    FEFAF7FF                   	BLF             SysTickDelay
+;000148            LCD_Line(84, 44, 63, 63);
+0000020C    2054                       	MOVS            R0,#84
+0000020E    212C                       	MOVS            R1,#44
+00000210    223F                       	MOVS            R2,#63
+00000212    233F                       	MOVS            R3,#63
+00000214    FEF4F7FF                   	BLF             LCD_Line
+;000149            SysTickDelay(150);
+00000218    2096                       	MOVS            R0,#96h
+0000021A    FEF1F7FF                   	BLF             SysTickDelay
+;000150            LCD_Line(84, 44, 63, 63);
+0000021E    2054                       	MOVS            R0,#84
+00000220    212C                       	MOVS            R1,#44
+00000222    223F                       	MOVS            R2,#63
+00000224    233F                       	MOVS            R3,#63
+00000226    FEEBF7FF                   	BLF             LCD_Line
+;000151            SysTickDelay(150);
+0000022A    2096                       	MOVS            R0,#96h
+0000022C    FEE8F7FF                   	BLF             SysTickDelay
+;000152        }
+                  ??_8_CHECK:
+00000230    FEE6F7FF                   	BLF             GetKey
+00000234    2801                       	CMP             R0,#1
+00000236    D1BB                       	BNE.N           ??_8_LOOP
+;000155        DisplayMenu();
+00000238    FEE2F7FF                   	BLF             DisplayMenu
+;000156    }
+0000023C    83F0E8BD                   	POP             {R4-R9,R15} 
+
+00000240    0000000A	?lr0002	.DCD	?lit00001	; used 3 time(s)
+00000244    00000000	?lr0000	.DCD	CurrentMethod	; used 2 time(s)
+
+.ENDF
+
+..\src\Menu_gl.c: 584 byte(s), 5890 line(s), 0 error(s), 0 warning(s)
+

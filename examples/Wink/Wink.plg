@@ -1,0 +1,17 @@
+<html>
+<body>
+<pre>
+<h1>µVision Build Log</h1>
+<h2>Project:</h2>
+C:\Project\Wink\Wink.uvproj
+Project File Date:  09/08/2013
+
+<h2>Output:</h2>
+Rebuild target 'Target 1'
+assembling startup_MDR32F9x.s...
+compiling main.c...
+compiling system_MDR32F9x.c...
+linking...
+Program Size: Code=724 RO-data=224 RW-data=4 ZI-data=1636  
+FromELF: creating hex file...
+".\Wink.axf" - 0 Errors, 0 Warning(s).
