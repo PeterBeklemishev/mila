@@ -1,9 +1,9 @@
 <!doctype html public "-//w3c//dtd html 4.0 transitional//en">
 <html><head>
-<title>Static Call Graph - [.\first-ldm.axf]</title></head>
+<title>Static Call Graph - [.\running-led.axf]</title></head>
 <body><HR>
-<H1>Static Call Graph for image .\first-ldm.axf</H1><HR>
-<BR><P>#&#060CALLGRAPH&#062# ARM Linker, 5.03 [Build 76]: Last Updated: Sun Dec 14 20:19:52 2014
+<H1>Static Call Graph for image .\running-led.axf</H1><HR>
+<BR><P>#&#060CALLGRAPH&#062# ARM Linker, 5.03 [Build 76]: Last Updated: Mon Dec 15 01:02:40 2014
 <BR><P>
 <H3>Maximum Stack Usage =          0 bytes + Unknown(Cycles, Untraceable Function Pointers)</H3><H3>
 Call chain for Maximum Stack Depth:</H3>
@@ -50,7 +50,7 @@ Function Pointers
  <LI><a href="#[9]">SVC_Handler</a> from startup_mdr32f9x.o(.text) referenced from startup_mdr32f9x.o(RESET)
  <LI><a href="#[c]">SysTick_Handler</a> from startup_mdr32f9x.o(.text) referenced from startup_mdr32f9x.o(RESET)
  <LI><a href="#[22]">SystemInit</a> from system_mdr32f9qx.o(.text) referenced from startup_mdr32f9x.o(.text)
- <LI><a href="#[17]">Timer1_IRQHandler</a> from startup_mdr32f9x.o(.text) referenced from startup_mdr32f9x.o(RESET)
+ <LI><a href="#[17]">Timer1_IRQHandler</a> from main.o(.text) referenced from startup_mdr32f9x.o(RESET)
  <LI><a href="#[18]">Timer2_IRQHandler</a> from startup_mdr32f9x.o(.text) referenced from startup_mdr32f9x.o(RESET)
  <LI><a href="#[19]">Timer3_IRQHandler</a> from startup_mdr32f9x.o(.text) referenced from startup_mdr32f9x.o(RESET)
  <LI><a href="#[11]">UART1_IRQHandler</a> from startup_mdr32f9x.o(.text) referenced from startup_mdr32f9x.o(RESET)
@@ -109,7 +109,7 @@ Global Symbols
 <LI><a href="#[30]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
 </UL>
 
-<P><STRONG><a name="[39]"></a>__rt_exit</STRONG> (Thumb, 0 bytes, Stack size 0 bytes, rtexit.o(.ARM.Collect$$rtexit$$00000000))
+<P><STRONG><a name="[3b]"></a>__rt_exit</STRONG> (Thumb, 0 bytes, Stack size 0 bytes, rtexit.o(.ARM.Collect$$rtexit$$00000000))
 <BR><BR>[Called By]<UL><LI><a href="#[31]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;exit
 </UL>
 
@@ -232,9 +232,6 @@ Global Symbols
 <P><STRONG><a name="[1c]"></a>SSP2_IRQHandler</STRONG> (Thumb, 0 bytes, Stack size 0 bytes, startup_mdr32f9x.o(.text))
 <BR>[Address Reference Count : 1]<UL><LI> startup_mdr32f9x.o(RESET)
 </UL>
-<P><STRONG><a name="[17]"></a>Timer1_IRQHandler</STRONG> (Thumb, 0 bytes, Stack size 0 bytes, startup_mdr32f9x.o(.text))
-<BR>[Address Reference Count : 1]<UL><LI> startup_mdr32f9x.o(RESET)
-</UL>
 <P><STRONG><a name="[18]"></a>Timer2_IRQHandler</STRONG> (Thumb, 0 bytes, Stack size 0 bytes, startup_mdr32f9x.o(.text))
 <BR>[Address Reference Count : 1]<UL><LI> startup_mdr32f9x.o(RESET)
 </UL>
@@ -261,35 +258,48 @@ Global Symbols
 <BR><BR>[Called By]<UL><LI><a href="#[30]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
 </UL>
 
-<P><STRONG><a name="[30]"></a>main</STRONG> (Thumb, 152 bytes, Stack size 0 bytes, main.o(.text))
-<BR><BR>[Calls]<UL><LI><a href="#[36]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GPIO_Init
+<P><STRONG><a name="[37]"></a>Timer_Init</STRONG> (Thumb, 60 bytes, Stack size 0 bytes, main.o(.text))
+<BR><BR>[Called By]<UL><LI><a href="#[30]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
+</UL>
+
+<P><STRONG><a name="[17]"></a>Timer1_IRQHandler</STRONG> (Thumb, 70 bytes, Stack size 0 bytes, main.o(.text))
+<BR>[Address Reference Count : 1]<UL><LI> startup_mdr32f9x.o(RESET)
+</UL>
+<P><STRONG><a name="[38]"></a>delay</STRONG> (Thumb, 20 bytes, Stack size 0 bytes, main.o(.text))
+<BR><BR>[Called By]<UL><LI><a href="#[30]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
+</UL>
+
+<P><STRONG><a name="[30]"></a>main</STRONG> (Thumb, 80 bytes, Stack size 0 bytes, main.o(.text))
+<BR><BR>[Calls]<UL><LI><a href="#[38]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;delay
+<LI><a href="#[37]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Timer_Init
+<LI><a href="#[36]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GPIO_Init
 </UL>
 <BR>[Called By]<UL><LI><a href="#[2f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__rt_entry_main
 </UL>
 
-<P><STRONG><a name="[37]"></a>SystemCoreClockUpdate</STRONG> (Thumb, 130 bytes, Stack size 0 bytes, system_mdr32f9qx.o(.text))
+<P><STRONG><a name="[39]"></a>SystemCoreClockUpdate</STRONG> (Thumb, 130 bytes, Stack size 0 bytes, system_mdr32f9qx.o(.text))
 <BR><BR>[Called By]<UL><LI><a href="#[22]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SystemInit
 </UL>
 
 <P><STRONG><a name="[22]"></a>SystemInit</STRONG> (Thumb, 54 bytes, Stack size 0 bytes, system_mdr32f9qx.o(.text))
-<BR><BR>[Calls]<UL><LI><a href="#[37]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SystemCoreClockUpdate
+<BR><BR>[Calls]<UL><LI><a href="#[39]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SystemCoreClockUpdate
 </UL>
 <BR>[Address Reference Count : 1]<UL><LI> startup_mdr32f9x.o(.text)
 </UL>
 <P><STRONG><a name="[2c]"></a>__user_setup_stackheap</STRONG> (Thumb, 74 bytes, Stack size 0 bytes, sys_stackheap_outer.o(.text))
-<BR><BR>[Calls]<UL><LI><a href="#[38]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__user_perproc_libspace
+<BR><BR>[Calls]<UL><LI><a href="#[3a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__user_perproc_libspace
 <LI><a href="#[26]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__user_initial_stackheap
 </UL>
 <BR>[Called By]<UL><LI><a href="#[2b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__rt_entry_sh
 </UL>
 
 <P><STRONG><a name="[31]"></a>exit</STRONG> (Thumb, 12 bytes, Stack size 0 bytes, exit.o(.text))
-<BR><BR>[Calls]<UL><LI><a href="#[39]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__rt_exit
+<BR><BR>[Calls]<UL><LI><a href="#[3b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__rt_exit
 </UL>
 <BR>[Called By]<UL><LI><a href="#[2f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__rt_entry_main
 </UL>
 
-<P><STRONG><a name="[38]"></a>__user_perproc_libspace</STRONG> (Thumb, 0 bytes, Stack size 0 bytes, libspace.o(.text))
+<P><STRONG><a name="[3a]"></a>__user_perproc_libspace</STRONG> (Thumb, 0 bytes, Stack size 0 bytes, libspace.o(.text))
 <BR><BR>[Called By]<UL><LI><a href="#[2c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__user_setup_stackheap
 </UL>
 

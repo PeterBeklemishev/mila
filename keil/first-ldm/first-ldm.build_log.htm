@@ -10,27 +10,29 @@ Project File Date:  12/14/2014
 Rebuild target 'Target 1'
 assembling startup_MDR32F9x.s...
 compiling main.c...
-main.c(6): warning:  #951-D: return type of function "main" must be "int"
+main.c(71): warning:  #951-D: return type of function "main" must be "int"
   void main (void)
 main.c: 1 warning, 0 errors
 compiling system_MDR32F9Qx.c...
 linking...
-Program Size: Code=672 RO-data=224 RW-data=4 ZI-data=1636  
+Program Size: Code=816 RO-data=224 RW-data=4 ZI-data=1636  
 FromELF: creating hex file...
 ".\first-ldm.axf" - 0 Error(s), 1 Warning(s).
-tem_MDR32F9Qx.c: 0 warnings, 1 error
-".\first-ldm.axf" - 1 Error(s), 1 Warning(s).
-Target not created
-urn type of function "main" must be "int"
-  void main (void)
-main.c(39): warning:  #111-D: statement is unreachable
-        return 0;
-main.c(39): error:  #118: a void function may not return a value
-        return 0;
-main.c: 2 warnings, 1 error
-"main.c" - 1 Error(s), 2 Warning(s).
-compiling main.c...
-main.c(6): warning:  #951-D: return type of function "main" must be "int"
+</pre>
+</body>
+</html>
+l\\first-ldm\\first-ldm.axf" 
+Internal DLL Error
+Error: Flash Download failed  -  Target DLL has been cancelled
+3-D: function "GPIO_Init" declared implicitly
+        GPIO_Init();
+main.c(29): error:  #159: declaration is incompatible with previous "GPIO_Init" (declared at line 13)
+  void GPIO_Init(){
+main.c(47): warning:  #1-D: last line of file ends without a newline
+  }
+main.c: 3 warnings, 1 error
+"main.c" - 1 Error(s), 3 Warning(s).
+ust be "int"
   void main (void)
 main.c: 1 warning, 0 errors
 "main.c" - 0 Error(s), 1 Warning(s).
