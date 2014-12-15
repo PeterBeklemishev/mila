@@ -88,8 +88,8 @@ void Timer1_IRQHandler(void){ //DOESN'T WORK!!!! :(:(:(:(:(:(:(:(:(:(
 //	if (count==4)count=0;
 	count+=1;
 	if (count==2)count=0;
-	MDR_PORTB->RXTX = 0xFFFF*count;
-	MDR_PORTB->RXTX = 0x0000;
+	MDR_PORTB->RXTX = 0xFFFF;
+	//MDR_PORTB->RXTX = 0x0000;
   MDR_TIMER1->CNT = 0x0000;
   MDR_TIMER1->STATUS &= ~(1 << 1);
   NVIC_ClearPendingIRQ(Timer1_IRQn);
@@ -114,17 +114,22 @@ int main (void)
 	GPIO_Init();
 	Timer_Init();
 	
+
+//	__enable_irq(void);
+	__ASM volatile ("cpsie i");
+//	sei();
+	
 	while(1) 
 	{
-		int i=0;
-		for(i=0;i<4;i++){
-			MDR_PORTB->RXTX |= leds[i]; 
-			delay(100000);
-		}
-		for(i=0;i<4;i++){
-			MDR_PORTB->RXTX &= ~leds[i]; 
-			delay(100000);
-		}
+	//	int i=0;
+//		for(i=0;i<4;i++){
+//			MDR_PORTB->RXTX |= leds[i]; 
+//			delay(100000);
+//		}
+//		for(i=0;i<4;i++){
+//			MDR_PORTB->RXTX &= ~leds[i]; 
+//			delay(100000);
+//		}
 //	MDR_PORTB->RXTX = 0xFFFF;
 
 //__delay(1000);
