@@ -1,0 +1,26 @@
+TARGET = $(CURDIR)
+include target.cfg
+
+all:
+#   $(CXX) -c -std=c++98 $(CFLAGS) -o main.o    ../src/main.c
+#   $(CC) -c $(CFLAGS) -o core_cm3.o    core_cm3.c
+   $(CC) -c $(CFLAGS) -o system_MDR32F9Qx.o    ../src/system_MDR32F9Qx.c
+   $(CC) -c $(CFLAGS) -o startup.o $(STARTUP)
+#   $(CXX) -c -std=c++98 $(CFLAGS) -o GlcdTestMdr.o    ../src/GlcdTestMdr.cpp
+#   $(CXX) -c -std=c++98 $(CFLAGS) -o demo.o           ../common/demo.cpp
+#   $(CXX) -c -std=c++98 $(CFLAGS) -o resources.o      ../common/resources.cpp
+#   $(CXX) -c -std=c++98 $(CFLAGS) -o main.o    ../src/main.c
+
+   $(CXX) $(LDFLAGS) $(LIBS) startup.o system_MDR32F9Qx.o GlcdTestMdr.o demo.o resources.o -o demo.elf
+
+   $(OBJCOPY) -O ihex demo.elf demo.hex
+
+   $(SIZE) demo.elf demo.hex
+
+   $(OBJDUMP) -D -S .\demo.elf > .\dump_elf.asm
+#   $(CC) -E $(CFLAGS) -o pre_board.c   uac_board.c
+
+clean:
+   del main.o uac.elf uac.srec
+
+
