@@ -1,5 +1,8 @@
-Understanding Make -- Background
-================================
+Understanding Make
+==================
+
+Background
+==========
 
 If you've used make before, you can safely skip this section, which contains a bit of background on using make. 
 
