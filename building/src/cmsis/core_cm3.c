@@ -373,11 +373,13 @@ uint8_t __LDREXB(uint8_t *addr)
  *
  * Exclusive LDR command for 16 bit values
  */
+
 uint16_t __LDREXH(uint16_t *addr)
 {
   __ASM("ldrexh r0, [r0]");
   __ASM("bx lr");
 }
+
 
 /**
  * @brief  LDR Exclusive (32 bit)
@@ -417,11 +419,21 @@ uint32_t __STREXB(uint8_t value, uint8_t *addr)
  *
  * Exclusive STR command for 16 bit values
  */
+/////////////////////////PATCH BEGINS HERE///////////////////////
+//uint32_t __STREXH(uint16_t value, uint16_t *addr)
+//{
+//  __ASM("strexh r0, r0, [r1]");
+//  __ASM("bx lr");
+//}
+//
 uint32_t __STREXH(uint16_t value, uint16_t *addr)
 {
-  __ASM("strexh r0, r0, [r1]");
-  __ASM("bx lr");
+   uint32_t result=0;
+   __ASM volatile ("strexh %0, %2, [%1]" : "=&r" (result) : "r" (addr), "r" (value));
+   return(result);
 }
+//
+///////////////////////PATCH ENDS HERE///////////////////////////
 
 /**
  * @brief  STR Exclusive (32 bit)
@@ -741,13 +753,23 @@ uint32_t __LDREXW(uint32_t *addr)
  *
  * Exclusive STR command for 8 bit values
  */
-uint32_t __STREXB(uint8_t value, uint8_t *addr)
+///////////////PATCH BEGINS HERE///////////////////////////////////
+//uint32_t __STREXB(uint8_t value, uint8_t *addr)
+//{
+//   uint32_t result=0;
+//
+//   __ASM volatile ("strexb %0, %2, [%1]" : "=r" (result) : "r" (addr), "r" (value) );
+//   return(result);
+//}
+//
+uint32_t __STREXB(uint16_t value, uint16_t *addr)
 {
    uint32_t result=0;
-
-   __ASM volatile ("strexb %0, %2, [%1]" : "=r" (result) : "r" (addr), "r" (value) );
+   __ASM volatile ("strexb %0, %2, [%1]" : "=&r" (result) : "r" (addr), "r" (value));
    return(result);
 }
+//
+///////////////////PATCH ENDS HERE////////////////////////////
 
 /**
  * @brief  STR Exclusive (16 bit)
@@ -758,13 +780,22 @@ uint32_t __STREXB(uint8_t value, uint8_t *addr)
  *
  * Exclusive STR command for 16 bit values
  */
+/////////////////////////PATCH BEGINS HERE/////////////////////////
+//uint32_t __STREXH(uint16_t value, uint16_t *addr)
+//{
+//   uint32_t result=0;
+//
+//   __ASM volatile ("strexh %0, %2, [%1]" : "=r" (result) : "r" (addr), "r" (value) );
+//   return(result);
+//}
+//
 uint32_t __STREXH(uint16_t value, uint16_t *addr)
 {
    uint32_t result=0;
-
-   __ASM volatile ("strexh %0, %2, [%1]" : "=r" (result) : "r" (addr), "r" (value) );
+   __ASM volatile ("strexh %0, %2, [%1]" : "=&r" (result) : "r" (addr), "r" (value));
    return(result);
 }
+///////////////////////PATCH ENDS HERE////////////////////////////
 
 /**
  * @brief  STR Exclusive (32 bit)
