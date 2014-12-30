@@ -3,12 +3,12 @@ TARGET = $(CURDIR)
 PROG_NAME = second
 
 ARCH = cortex-m3
-TOOLS_PATH = /sbin
+TOOLS_PATH = /usr/bin
 TOOLS_PREFIX = arm-none-eabi-
-TOOLS_VERSION = 4.9.2
+TOOLS_VERSION = 4.8.2
 
-CC		=	$(TOOLS_PATH)/$(TOOLS_PREFIX)gcc-$(TOOLS_VERSION)
-CXX		=	$(TOOLS_PATH)/$(TOOLS_PREFIX)g++
+CC		=	$(TOOLS_PATH)/$(TOOLS_PREFIX)gcc-$(TOOLS_VERSION) -Wall
+CXX		=	$(TOOLS_PATH)/$(TOOLS_PREFIX)g++ -Wall
 #AS		=	$(TOOLS_PATH)/$(TOOLS_PREFIX)as
 AS		=	$(TOOLS_PATH)/$(TOOLS_PREFIX)gcc-$(TOOLS_VERSION) -x assembler-with-cpp
 SIZE		=	$(TOOLS_PATH)/$(TOOLS_PREFIX)size
@@ -31,20 +31,20 @@ CFLAGS   += -DKHZ=8000 -DF_CPU=8000000
 CFLAGS   += -DKHZ_CLKIN=8000
 
 LDFLAGS  = -nostdlib -nostartfiles -ffreestanding -Wl,--gc-sections -T $(LDS)/mem.ld -T $(LDS)/sections.ld
-LIBS     = -L$(TARGET) -lgcc
+LIBS     = -L$(TARGET) -lgcc -lc -lnosys
 
 all:
 	$(CC) -c $(CFLAGS) -o $(PROG_NAME).o main.c
 	$(CC) -c $(CFLAGS) -o core_cm3.o $(CORECM3).c
-	$(CC) -c $(CFLAGS) -o system_MDR32F9Qx.o $(SYSSRC).c
-	$(AS) -c $(ASFLAGS) -o startup_MDR32F9Qx.o $(STARTUP).S
-	$(CXX) $(LDFLAGS) $(LIBS) system_MDR32F9Qx.o core_cm3.o $(STARTUP).S $(PROG_NAME).o -o $(PROG_NAME).elf
+	$(CC) -c $(CFLAGS) -o system.o $(SYSSRC).c
+	$(AS) -c $(ASFLAGS) -o startup.o $(STARTUP).S
+	$(CXX) $(LDFLAGS) $(LIBS) system.o core_cm3.o startup.o $(PROG_NAME).o -o $(PROG_NAME).elf
 
 	$(OBJCOPY) -O ihex $(PROG_NAME).elf $(PROG_NAME).hex
 	$(SIZE) $(PROG_NAME).elf $(PROG_NAME).hex
 	$(OBJDUMP) -D -S $(PROG_NAME).elf > .\dump_elf.asm
 
 clean:
-	del main.o
-
+	rm startup.o system.o core_cm3.o
+#	rm main.o
 
