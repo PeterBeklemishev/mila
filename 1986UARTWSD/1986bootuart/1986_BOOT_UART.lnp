@@ -1,4 +1,0 @@
---device DLM "startup_1986bootuart.o" "bootuart.o" --strict --scatter "1986_BOOT_UART.sct" 
---autoat --summary_stderr --info summarysizes --map --xref --callgraph --symbols 
---info sizes --info totals --info unused --info veneers 
- --list ".\1986_BOOT_UART.map" -o "1986_BOOT_UART.axf"

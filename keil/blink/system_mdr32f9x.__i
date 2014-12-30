@@ -1,5 +1,0 @@
--c --cpu Cortex-M3 -D__EVAL -g -O0 --apcs=interwork 
--I C:\devel\Keil\ARM\RV31\INC
--I C:\devel\Keil\ARM\CMSIS\Include
--I C:\devel\Keil\ARM\Inc\Milandr\MDR32F9x
--o .\system_mdr32f9x.o --omf_browse .\system_mdr32f9x.crf --depend .\system_mdr32f9x.d "system_MDR32F9x.c"

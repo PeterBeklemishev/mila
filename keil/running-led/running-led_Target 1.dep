@@ -1,17 +1,0 @@
-Dependencies for Project 'running-led', Target 'Target 1': (DO NOT MODIFY !)
-F (.\startup_MDR32F9x.s)(0x532BF31A)(--cpu Cortex-M3 --pd "__EVAL SETA 1" --apcs=interwork -I C:\devel\keil\ARM\RV31\INC-I C:\devel\keil\ARM\CMSIS\Include-I C:\devel\keil\ARM\Inc\Milandr\MDR32F9x--list .\startup_mdr32f9x.lst --xref -o .\startup_mdr32f9x.o --depend .\startup_mdr32f9x.d)
-F (.\main.c)(0x548DE651)(-c --cpu Cortex-M3 -D__EVAL -O0 --apcs=interwork -I C:\devel\keil\ARM\RV31\INC-I C:\devel\keil\ARM\CMSIS\Include-I C:\devel\keil\ARM\Inc\Milandr\MDR32F9x-o .\main.o --depend .\main.d)
-I (C:\devel\keil\ARM\Inc\Milandr\MDR32F9x\MDR32F9x.h)(0x532BF35A)
-I (C:\devel\keil\ARM\CMSIS\Include\core_cm3.h)(0x532BF7C2)
-I (C:\devel\keil\ARM\ARMCC\include\stdint.h)(0x51C7C554)
-I (C:\devel\keil\ARM\CMSIS\Include\core_cmInstr.h)(0x532BF7C2)
-I (C:\devel\keil\ARM\CMSIS\Include\core_cmFunc.h)(0x532BF7C2)
-I (C:\devel\keil\ARM\Inc\Milandr\MDR32F9x\system_MDR32F9x.h)(0x532BF35A)
-F (.\system_MDR32F9Qx.c)(0x548D68C2)(-c --cpu Cortex-M3 -D__EVAL -O0 --apcs=interwork -I C:\devel\keil\ARM\RV31\INC-I C:\devel\keil\ARM\CMSIS\Include-I C:\devel\keil\ARM\Inc\Milandr\MDR32F9x-o .\system_mdr32f9qx.o --depend .\system_mdr32f9qx.d)
-I (C:\devel\keil\ARM\Inc\Milandr\MDR32F9x\MDR32F9x.h)(0x532BF35A)
-I (C:\devel\keil\ARM\CMSIS\Include\core_cm3.h)(0x532BF7C2)
-I (C:\devel\keil\ARM\ARMCC\include\stdint.h)(0x51C7C554)
-I (C:\devel\keil\ARM\CMSIS\Include\core_cmInstr.h)(0x532BF7C2)
-I (C:\devel\keil\ARM\CMSIS\Include\core_cmFunc.h)(0x532BF7C2)
-I (C:\devel\keil\ARM\Inc\Milandr\MDR32F9x\system_MDR32F9x.h)(0x532BF35A)
-I (C:\devel\keil\ARM\Inc\Milandr\MDR32F9x\MDR32F9x_config.h)(0x532BF35A)

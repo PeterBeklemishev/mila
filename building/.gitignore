@@ -1,4 +1,0 @@
-*.hex
-*.elf
-*.o
-src/objs/*.o

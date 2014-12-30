@@ -1,5 +1,0 @@
---cpu Cortex-M3 --pd "__EVAL SETA 1" -g --apcs=interwork 
--I C:\devel\Keil\ARM\RV31\INC
--I C:\devel\Keil\ARM\CMSIS\Include
--I C:\devel\Keil\ARM\Inc\Milandr\MDR32F9x
---list .\startup_mdr32f9x.lst --xref -o .\startup_mdr32f9x.o --depend .\startup_mdr32f9x.d "startup_MDR32F9x.s"
