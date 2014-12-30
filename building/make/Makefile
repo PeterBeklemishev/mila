@@ -3,10 +3,12 @@ TARGET = $(CURDIR)
 PROG_NAME = test
 
 ARCH = cortex-m3
-TOOLS_PATH = /usr/bin
+TC_PATH = ~/devel/mila/linux-tc
+TOOLS_PATH = $(TC_PATH)/bin
 TOOLS_PREFIX = arm-none-eabi-
-TOOLS_VERSION = 4.9.3
-NEWLIB_PATH = /usr/lib/arm-none-eabi/newlib
+TOOLS_VERSION = 4.8.2
+LIB_PATH = $(TC_PATH)/lib
+NEWLIB_PATH = $(LIB_PATH)/newlib
 
 #CC		=	$(TOOLS_PATH)/$(TOOLS_PREFIX)gcc-$(TOOLS_VERSION) -Wall
 CC		=	$(TOOLS_PATH)/$(TOOLS_PREFIX)gcc -Wall
@@ -33,7 +35,8 @@ CFLAGS   = -O1 -mcpu=$(ARCH) -mthumb -g -fsigned-char -msoft-float -DARM1986_BE9
 CFLAGS	 += -I$(NEWLIB_PATH)	
 CFLAGS   += -DKHZ=8000 -DF_CPU=8000000
 CFLAGS   += -DKHZ_CLKIN=8000
-CFLAGS	+= -I/usr/arm-none-eabi/include/
+CFLAGS	+= -I$(LIB_PATH)
+CFLAGS  += -B $(TC_PATH)/$(TOOLS_VERSION)
 CFLAGS	+= -I$(SRC)/../mila/
 
 LDFLAGS  = -nostdlib -nostartfiles -ffreestanding -Wl,--gc-sections -T $(LDS)/sections.ld
@@ -41,16 +44,15 @@ LIBS     = -L$(TARGET) -lgcc -lc -specs=nosys.specs -lnosys
 
 all:
 #	$(CC) -c $(CFLAGS) -o $(PROG_NAME).o $(PROG_NAME).c
-	$(CXX) -c -std=c++98 $(CFLAGS) -o $(OBJS)/timer.o ../mila/timer.c
+	$(CXX) -c $(CFLAGS) -o $(OBJS)/timer.o ../mila/timer.c
 	$(CXX) -c -std=c++98 $(CFLAGS) -o $(OBJS)/gpio.o ../mila/gpio.c
 #	$(CXX) -c -std=c++98 $(CFLAGS) -o $(OBJS)/MDR_timer.o $(SRC)/periph/src/MDR32F9Qx_timer.c
 	$(CXX) -c -std=c++98 $(CFLAGS) -o $(OBJS)/milasrv.o ../mila/milasrv.c
 	$(CXX) -c -std=c++98 $(CFLAGS) -o $(OBJS)/main.o ../mila/main.c
 	$(CXX) -c -std=c++98 $(CFLAGS) -o $(OBJS)/$(PROG_NAME).o ../$(PROG_NAME).c
-	$(CC) -c $(CFLAGS) -o $(OBJS)/core_cm3.o $(CORECM3).c
-	$(CC) -c $(CFLAGS) -o $(OBJS)/system.o $(SYSSRC).c
+	$(CXX) -c $(CFLAGS) -o $(OBJS)/core_cm3.o $(CORECM3).c
+	$(CXX) -c $(CFLAGS) -o $(OBJS)/system.o $(SYSSRC).c
 	$(AS) -c $(CFLAGS) -o $(OBJS)/startup.o $(STARTUP).S
-#	$(AS) -c $(CFLAGS) -o $(OBJS)/stubstart.o $(SRC)/startup/stubstart.S
 
 	$(CXX) $(LDFLAGS) $(LIBS) $(OBJS)/test.o $(OBJS)/timer.o $(OBJS)/gpio.o $(OBJS)/milasrv.o $(OBJS)/system.o $(OBJS)/startup.o $(OBJS)/core_cm3.o $(OBJS)/main.o -o ../$(PROG_NAME).elf
 
@@ -60,5 +62,3 @@ all:
 
 clean:
 	rm $(PROG_NAME).elf $(PROG_NAME).hex
-#	rm main.o
-
