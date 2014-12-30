@@ -1,0 +1,17 @@
+Dependencies for Project 'Wink', Target 'Target 1': (DO NOT MODIFY !)
+F (.\startup_MDR32F9x.s)(0x51C7E7BC)(--cpu Cortex-M3 --pd "__EVAL SETA 1" -g --apcs=interwork -I C:\Keil\ARM\RV31\INC-I C:\Keil\ARM\CMSIS\Include-I C:\Keil\ARM\Inc\Milandr\MDR32F9x--list .\startup_mdr32f9x.lst --xref -o .\startup_mdr32f9x.o --depend .\startup_mdr32f9x.d)
+F (.\main.c)(0x522C58A2)(-c --cpu Cortex-M3 -D__EVAL -g -O0 --apcs=interwork -I C:\Keil\ARM\RV31\INC-I C:\Keil\ARM\CMSIS\Include-I C:\Keil\ARM\Inc\Milandr\MDR32F9x-o .\main.o --omf_browse .\main.crf --depend .\main.d)
+I (C:\Keil\ARM\Inc\Milandr\MDR32F9x\MDR32F9x.h)(0x51C7E828)
+I (C:\Keil\ARM\CMSIS\Include\core_cm3.h)(0x51C7ED8A)
+I (C:\Keil\ARM\ARMCC\include\stdint.h)(0x51C7EF84)
+I (C:\Keil\ARM\CMSIS\Include\core_cmInstr.h)(0x51C7ED8A)
+I (C:\Keil\ARM\CMSIS\Include\core_cmFunc.h)(0x51C7ED8A)
+I (C:\Keil\ARM\Inc\Milandr\MDR32F9x\system_MDR32F9x.h)(0x51C7E828)
+F (.\system_MDR32F9x.c)(0x51C7E7BC)(-c --cpu Cortex-M3 -D__EVAL -g -O0 --apcs=interwork -I C:\Keil\ARM\RV31\INC-I C:\Keil\ARM\CMSIS\Include-I C:\Keil\ARM\Inc\Milandr\MDR32F9x-o .\system_mdr32f9x.o --omf_browse .\system_mdr32f9x.crf --depend .\system_mdr32f9x.d)
+I (C:\Keil\ARM\Inc\Milandr\MDR32F9x\MDR32F9x.h)(0x51C7E828)
+I (C:\Keil\ARM\CMSIS\Include\core_cm3.h)(0x51C7ED8A)
+I (C:\Keil\ARM\ARMCC\include\stdint.h)(0x51C7EF84)
+I (C:\Keil\ARM\CMSIS\Include\core_cmInstr.h)(0x51C7ED8A)
+I (C:\Keil\ARM\CMSIS\Include\core_cmFunc.h)(0x51C7ED8A)
+I (C:\Keil\ARM\Inc\Milandr\MDR32F9x\system_MDR32F9x.h)(0x51C7E828)
+I (C:\Keil\ARM\Inc\Milandr\MDR32F9x\MDR32F9x_config.h)(0x51C7E828)

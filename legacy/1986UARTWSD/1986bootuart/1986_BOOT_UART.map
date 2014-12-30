@@ -1,0 +1,2424 @@
+ARM Linker, RVCT4.0 [Build 524] for uVision [Standard]
+
+==============================================================================
+
+Section Cross References
+
+    startup_1986bootuart.o(RESET) refers to startup_1986bootuart.o(STACK) for __initial_sp
+    startup_1986bootuart.o(RESET) refers to startup_1986bootuart.o(.text) for Reset_Handler
+    startup_1986bootuart.o(.text) refers to bootuart.o(.text) for bootuart
+    bootuart.o(.text) refers to startup_1986bootuart.o(.text) for Run_Flash
+    bootuart.o(.text) refers to bootuart.o(.ARM.__AT_0x40038018) for UART2_FR
+    bootuart.o(.text) refers to bootuart.o(.ARM.__AT_0x40038000) for UART2_DR
+    bootuart.o(.text) refers to bootuart.o(.data) for ks
+    bootuart.o(.text) refers to bootuart.o(.bss) for bufdata
+    bootuart.o(.text) refers to bootuart.o(.ARM.__AT_0x42400380) for PER_CLOCK
+    bootuart.o(.text) refers to bootuart.o(.constdata) for id_str
+
+
+==============================================================================
+
+Image Symbol Table
+
+    Local Symbols
+
+    Symbol Name                              Value     Ov Type        Size  Object(Section)
+
+    bootuart.c                               0x00000000   Number         0  bootuart.o ABSOLUTE
+    startup_1986bootuart.s                   0x00000000   Number         0  startup_1986bootuart.o ABSOLUTE
+    RESET                                    0x20007800   Section        8  startup_1986bootuart.o(RESET)
+    .text                                    0x20007808   Section       32  startup_1986bootuart.o(.text)
+    .text                                    0x20007828   Section      924  bootuart.o(.text)
+    .constdata                               0x20007bc4   Section       12  bootuart.o(.constdata)
+    .data                                    0x20007c00   Section        9  bootuart.o(.data)
+    .bss                                     0x20007c0c   Section      256  bootuart.o(.bss)
+    STACK                                    0x20007d10   Section      128  startup_1986bootuart.o(STACK)
+    __initial_sp                             0x20007d90   Data           0  startup_1986bootuart.o(STACK)
+    .ARM.__AT_0x40020000                     0x40020000   Section        1  bootuart.o(.ARM.__AT_0x40020000)
+    .ARM.__AT_0x40020004                     0x40020004   Section        2  bootuart.o(.ARM.__AT_0x40020004)
+    .ARM.__AT_0x40020008                     0x40020008   Section        1  bootuart.o(.ARM.__AT_0x40020008)
+    .ARM.__AT_0x4002000C                     0x4002000c   Section        2  bootuart.o(.ARM.__AT_0x4002000C)
+    .ARM.__AT_0x40020010                     0x40020010   Section        2  bootuart.o(.ARM.__AT_0x40020010)
+    .ARM.__AT_0x40020014                     0x40020014   Section        2  bootuart.o(.ARM.__AT_0x40020014)
+    .ARM.__AT_0x40020018                     0x40020018   Section        2  bootuart.o(.ARM.__AT_0x40020018)
+    .ARM.__AT_0x40020020                     0x40020020   Section        4  bootuart.o(.ARM.__AT_0x40020020)
+    .ARM.__AT_0x40020024                     0x40020024   Section        4  bootuart.o(.ARM.__AT_0x40020024)
+    .ARM.__AT_0x40020028                     0x40020028   Section        4  bootuart.o(.ARM.__AT_0x40020028)
+    .ARM.__AT_0x4002002C                     0x4002002c   Section        4  bootuart.o(.ARM.__AT_0x4002002C)
+    .ARM.__AT_0x40028000                     0x40028000   Section        4  bootuart.o(.ARM.__AT_0x40028000)
+    .ARM.__AT_0x40028004                     0x40028004   Section        1  bootuart.o(.ARM.__AT_0x40028004)
+    .ARM.__AT_0x40028008                     0x40028008   Section        4  bootuart.o(.ARM.__AT_0x40028008)
+    .ARM.__AT_0x4002800C                     0x4002800c   Section        4  bootuart.o(.ARM.__AT_0x4002800C)
+    .ARM.__AT_0x40030000                     0x40030000   Section        2  bootuart.o(.ARM.__AT_0x40030000)
+    .ARM.__AT_0x40030004                     0x40030004   Section        1  bootuart.o(.ARM.__AT_0x40030004)
+    .ARM.__AT_0x40030018                     0x40030018   Section        2  bootuart.o(.ARM.__AT_0x40030018)
+    .ARM.__AT_0x40030020                     0x40030020   Section        1  bootuart.o(.ARM.__AT_0x40030020)
+    .ARM.__AT_0x40030024                     0x40030024   Section        2  bootuart.o(.ARM.__AT_0x40030024)
+    .ARM.__AT_0x40030028                     0x40030028   Section        1  bootuart.o(.ARM.__AT_0x40030028)
+    .ARM.__AT_0x4003002C                     0x4003002c   Section        1  bootuart.o(.ARM.__AT_0x4003002C)
+    .ARM.__AT_0x40030030                     0x40030030   Section        2  bootuart.o(.ARM.__AT_0x40030030)
+    .ARM.__AT_0x40030034                     0x40030034   Section        1  bootuart.o(.ARM.__AT_0x40030034)
+    .ARM.__AT_0x40030038                     0x40030038   Section        2  bootuart.o(.ARM.__AT_0x40030038)
+    .ARM.__AT_0x4003003C                     0x4003003c   Section        2  bootuart.o(.ARM.__AT_0x4003003C)
+    .ARM.__AT_0x40030040                     0x40030040   Section        2  bootuart.o(.ARM.__AT_0x40030040)
+    .ARM.__AT_0x40030044                     0x40030044   Section        2  bootuart.o(.ARM.__AT_0x40030044)
+    .ARM.__AT_0x40030048                     0x40030048   Section        1  bootuart.o(.ARM.__AT_0x40030048)
+    .ARM.__AT_0x40038000                     0x40038000   Section        2  bootuart.o(.ARM.__AT_0x40038000)
+    .ARM.__AT_0x40038004                     0x40038004   Section        1  bootuart.o(.ARM.__AT_0x40038004)
+    .ARM.__AT_0x40038018                     0x40038018   Section        2  bootuart.o(.ARM.__AT_0x40038018)
+    .ARM.__AT_0x40038020                     0x40038020   Section        1  bootuart.o(.ARM.__AT_0x40038020)
+    .ARM.__AT_0x40038024                     0x40038024   Section        2  bootuart.o(.ARM.__AT_0x40038024)
+    .ARM.__AT_0x40038028                     0x40038028   Section        1  bootuart.o(.ARM.__AT_0x40038028)
+    .ARM.__AT_0x4003802C                     0x4003802c   Section        1  bootuart.o(.ARM.__AT_0x4003802C)
+    .ARM.__AT_0x40038030                     0x40038030   Section        2  bootuart.o(.ARM.__AT_0x40038030)
+    .ARM.__AT_0x40038034                     0x40038034   Section        1  bootuart.o(.ARM.__AT_0x40038034)
+    .ARM.__AT_0x40038038                     0x40038038   Section        2  bootuart.o(.ARM.__AT_0x40038038)
+    .ARM.__AT_0x4003803C                     0x4003803c   Section        2  bootuart.o(.ARM.__AT_0x4003803C)
+    .ARM.__AT_0x40038040                     0x40038040   Section        2  bootuart.o(.ARM.__AT_0x40038040)
+    .ARM.__AT_0x40038044                     0x40038044   Section        2  bootuart.o(.ARM.__AT_0x40038044)
+    .ARM.__AT_0x40038048                     0x40038048   Section        1  bootuart.o(.ARM.__AT_0x40038048)
+    .ARM.__AT_0x40040000                     0x40040000   Section        2  bootuart.o(.ARM.__AT_0x40040000)
+    .ARM.__AT_0x40040004                     0x40040004   Section        1  bootuart.o(.ARM.__AT_0x40040004)
+    .ARM.__AT_0x40040008                     0x40040008   Section        2  bootuart.o(.ARM.__AT_0x40040008)
+    .ARM.__AT_0x4004000C                     0x4004000c   Section        1  bootuart.o(.ARM.__AT_0x4004000C)
+    .ARM.__AT_0x40040010                     0x40040010   Section        2  bootuart.o(.ARM.__AT_0x40040010)
+    .ARM.__AT_0x40040014                     0x40040014   Section        1  bootuart.o(.ARM.__AT_0x40040014)
+    .ARM.__AT_0x40040018                     0x40040018   Section        1  bootuart.o(.ARM.__AT_0x40040018)
+    .ARM.__AT_0x4004001C                     0x4004001c   Section        1  bootuart.o(.ARM.__AT_0x4004001C)
+    .ARM.__AT_0x40040020                     0x40040020   Section        1  bootuart.o(.ARM.__AT_0x40040020)
+    .ARM.__AT_0x40040024                     0x40040024   Section        1  bootuart.o(.ARM.__AT_0x40040024)
+    .ARM.__AT_0x40050000                     0x40050000   Section        1  bootuart.o(.ARM.__AT_0x40050000)
+    .ARM.__AT_0x40050004                     0x40050004   Section        1  bootuart.o(.ARM.__AT_0x40050004)
+    .ARM.__AT_0x40050008                     0x40050008   Section        1  bootuart.o(.ARM.__AT_0x40050008)
+    .ARM.__AT_0x4005000C                     0x4005000c   Section        1  bootuart.o(.ARM.__AT_0x4005000C)
+    .ARM.__AT_0x40050010                     0x40050010   Section        1  bootuart.o(.ARM.__AT_0x40050010)
+    .ARM.__AT_0x40050014                     0x40050014   Section        1  bootuart.o(.ARM.__AT_0x40050014)
+    .ARM.__AT_0x40050018                     0x40050018   Section        1  bootuart.o(.ARM.__AT_0x40050018)
+    .ARM.__AT_0x40070000                     0x40070000   Section        2  bootuart.o(.ARM.__AT_0x40070000)
+    .ARM.__AT_0x40070004                     0x40070004   Section        2  bootuart.o(.ARM.__AT_0x40070004)
+    .ARM.__AT_0x40070008                     0x40070008   Section        2  bootuart.o(.ARM.__AT_0x40070008)
+    .ARM.__AT_0x4007000C                     0x4007000c   Section        2  bootuart.o(.ARM.__AT_0x4007000C)
+    .ARM.__AT_0x40070010                     0x40070010   Section       16  bootuart.o(.ARM.__AT_0x40070010)
+    .ARM.__AT_0x40070020                     0x40070020   Section       16  bootuart.o(.ARM.__AT_0x40070020)
+    .ARM.__AT_0x40070030                     0x40070030   Section       16  bootuart.o(.ARM.__AT_0x40070030)
+    .ARM.__AT_0x40070040                     0x40070040   Section       16  bootuart.o(.ARM.__AT_0x40070040)
+    .ARM.__AT_0x40070050                     0x40070050   Section        1  bootuart.o(.ARM.__AT_0x40070050)
+    .ARM.__AT_0x40070054                     0x40070054   Section        4  bootuart.o(.ARM.__AT_0x40070054)
+    .ARM.__AT_0x40070058                     0x40070058   Section        4  bootuart.o(.ARM.__AT_0x40070058)
+    .ARM.__AT_0x4007005C                     0x4007005c   Section        4  bootuart.o(.ARM.__AT_0x4007005C)
+    .ARM.__AT_0x40070060                     0x40070060   Section       16  bootuart.o(.ARM.__AT_0x40070060)
+    .ARM.__AT_0x40070070                     0x40070070   Section       16  bootuart.o(.ARM.__AT_0x40070070)
+    .ARM.__AT_0x40078000                     0x40078000   Section        2  bootuart.o(.ARM.__AT_0x40078000)
+    .ARM.__AT_0x40078004                     0x40078004   Section        2  bootuart.o(.ARM.__AT_0x40078004)
+    .ARM.__AT_0x40078008                     0x40078008   Section        2  bootuart.o(.ARM.__AT_0x40078008)
+    .ARM.__AT_0x4007800C                     0x4007800c   Section        2  bootuart.o(.ARM.__AT_0x4007800C)
+    .ARM.__AT_0x40078010                     0x40078010   Section       16  bootuart.o(.ARM.__AT_0x40078010)
+    .ARM.__AT_0x40078020                     0x40078020   Section       16  bootuart.o(.ARM.__AT_0x40078020)
+    .ARM.__AT_0x40078030                     0x40078030   Section       16  bootuart.o(.ARM.__AT_0x40078030)
+    .ARM.__AT_0x40078040                     0x40078040   Section       16  bootuart.o(.ARM.__AT_0x40078040)
+    .ARM.__AT_0x40078050                     0x40078050   Section        1  bootuart.o(.ARM.__AT_0x40078050)
+    .ARM.__AT_0x40078054                     0x40078054   Section        4  bootuart.o(.ARM.__AT_0x40078054)
+    .ARM.__AT_0x40078058                     0x40078058   Section        4  bootuart.o(.ARM.__AT_0x40078058)
+    .ARM.__AT_0x4007805C                     0x4007805c   Section        4  bootuart.o(.ARM.__AT_0x4007805C)
+    .ARM.__AT_0x40078060                     0x40078060   Section       16  bootuart.o(.ARM.__AT_0x40078060)
+    .ARM.__AT_0x40078070                     0x40078070   Section       16  bootuart.o(.ARM.__AT_0x40078070)
+    .ARM.__AT_0x40080000                     0x40080000   Section        2  bootuart.o(.ARM.__AT_0x40080000)
+    .ARM.__AT_0x40080004                     0x40080004   Section        2  bootuart.o(.ARM.__AT_0x40080004)
+    .ARM.__AT_0x40080008                     0x40080008   Section        2  bootuart.o(.ARM.__AT_0x40080008)
+    .ARM.__AT_0x4008000C                     0x4008000c   Section        2  bootuart.o(.ARM.__AT_0x4008000C)
+    .ARM.__AT_0x40080010                     0x40080010   Section       16  bootuart.o(.ARM.__AT_0x40080010)
+    .ARM.__AT_0x40080020                     0x40080020   Section       16  bootuart.o(.ARM.__AT_0x40080020)
+    .ARM.__AT_0x40080030                     0x40080030   Section       16  bootuart.o(.ARM.__AT_0x40080030)
+    .ARM.__AT_0x40080040                     0x40080040   Section       16  bootuart.o(.ARM.__AT_0x40080040)
+    .ARM.__AT_0x40080050                     0x40080050   Section        1  bootuart.o(.ARM.__AT_0x40080050)
+    .ARM.__AT_0x40080054                     0x40080054   Section        4  bootuart.o(.ARM.__AT_0x40080054)
+    .ARM.__AT_0x40080058                     0x40080058   Section        4  bootuart.o(.ARM.__AT_0x40080058)
+    .ARM.__AT_0x4008005C                     0x4008005c   Section        4  bootuart.o(.ARM.__AT_0x4008005C)
+    .ARM.__AT_0x40080060                     0x40080060   Section       16  bootuart.o(.ARM.__AT_0x40080060)
+    .ARM.__AT_0x40080070                     0x40080070   Section       16  bootuart.o(.ARM.__AT_0x40080070)
+    .ARM.__AT_0x40090000                     0x40090000   Section        1  bootuart.o(.ARM.__AT_0x40090000)
+    .ARM.__AT_0x40090004                     0x40090004   Section        4  bootuart.o(.ARM.__AT_0x40090004)
+    .ARM.__AT_0x40090008                     0x40090008   Section        4  bootuart.o(.ARM.__AT_0x40090008)
+    .ARM.__AT_0x400A0000                     0x400a0000   Section        2  bootuart.o(.ARM.__AT_0x400A0000)
+    .ARM.__AT_0x400A0004                     0x400a0004   Section        1  bootuart.o(.ARM.__AT_0x400A0004)
+    .ARM.__AT_0x400A0008                     0x400a0008   Section        2  bootuart.o(.ARM.__AT_0x400A0008)
+    .ARM.__AT_0x400A000C                     0x400a000c   Section        1  bootuart.o(.ARM.__AT_0x400A000C)
+    .ARM.__AT_0x400A0010                     0x400a0010   Section        2  bootuart.o(.ARM.__AT_0x400A0010)
+    .ARM.__AT_0x400A0014                     0x400a0014   Section        1  bootuart.o(.ARM.__AT_0x400A0014)
+    .ARM.__AT_0x400A0018                     0x400a0018   Section        1  bootuart.o(.ARM.__AT_0x400A0018)
+    .ARM.__AT_0x400A001C                     0x400a001c   Section        1  bootuart.o(.ARM.__AT_0x400A001C)
+    .ARM.__AT_0x400A0020                     0x400a0020   Section        1  bootuart.o(.ARM.__AT_0x400A0020)
+    .ARM.__AT_0x400A0024                     0x400a0024   Section        1  bootuart.o(.ARM.__AT_0x400A0024)
+    .ARM.__AT_0x400A8008                     0x400a8008   Section        4  bootuart.o(.ARM.__AT_0x400A8008)
+    .ARM.__AT_0x400A8018                     0x400a8018   Section        4  bootuart.o(.ARM.__AT_0x400A8018)
+    .ARM.__AT_0x400B0008                     0x400b0008   Section        4  bootuart.o(.ARM.__AT_0x400B0008)
+    .ARM.__AT_0x400B0018                     0x400b0018   Section        4  bootuart.o(.ARM.__AT_0x400B0018)
+    .ARM.__AT_0x400B8008                     0x400b8008   Section        4  bootuart.o(.ARM.__AT_0x400B8008)
+    .ARM.__AT_0x400B8018                     0x400b8018   Section        4  bootuart.o(.ARM.__AT_0x400B8018)
+    .ARM.__AT_0x400C0008                     0x400c0008   Section        4  bootuart.o(.ARM.__AT_0x400C0008)
+    .ARM.__AT_0x400C0018                     0x400c0018   Section        4  bootuart.o(.ARM.__AT_0x400C0018)
+    .ARM.__AT_0x400C8008                     0x400c8008   Section        4  bootuart.o(.ARM.__AT_0x400C8008)
+    .ARM.__AT_0x400C8018                     0x400c8018   Section        4  bootuart.o(.ARM.__AT_0x400C8018)
+    .ARM.__AT_0x400E8008                     0x400e8008   Section        4  bootuart.o(.ARM.__AT_0x400E8008)
+    .ARM.__AT_0x400E8018                     0x400e8018   Section        4  bootuart.o(.ARM.__AT_0x400E8018)
+    .ARM.__AT_0x400F0050                     0x400f0050   Section        4  bootuart.o(.ARM.__AT_0x400F0050)
+    .ARM.__AT_0x400F0054                     0x400f0054   Section        2  bootuart.o(.ARM.__AT_0x400F0054)
+    .ARM.__AT_0x42400380                     0x42400380   Section      128  bootuart.o(.ARM.__AT_0x42400380)
+    .ARM.__AT_0x42500200                     0x42500200   Section      128  bootuart.o(.ARM.__AT_0x42500200)
+    .ARM.__AT_0x42500280                     0x42500280   Section      128  bootuart.o(.ARM.__AT_0x42500280)
+    .ARM.__AT_0x42500300                     0x42500300   Section      128  bootuart.o(.ARM.__AT_0x42500300)
+    .ARM.__AT_0x42500380                     0x42500380   Section      128  bootuart.o(.ARM.__AT_0x42500380)
+    .ARM.__AT_0x42500400                     0x42500400   Section      128  bootuart.o(.ARM.__AT_0x42500400)
+    .ARM.__AT_0x42500480                     0x42500480   Section      128  bootuart.o(.ARM.__AT_0x42500480)
+    .ARM.__AT_0x42500500                     0x42500500   Section      128  bootuart.o(.ARM.__AT_0x42500500)
+    .ARM.__AT_0x42500580                     0x42500580   Section      128  bootuart.o(.ARM.__AT_0x42500580)
+    .ARM.__AT_0x42500600                     0x42500600   Section      128  bootuart.o(.ARM.__AT_0x42500600)
+    .ARM.__AT_0x42500680                     0x42500680   Section      128  bootuart.o(.ARM.__AT_0x42500680)
+    .ARM.__AT_0x42500700                     0x42500700   Section      128  bootuart.o(.ARM.__AT_0x42500700)
+    .ARM.__AT_0x42500780                     0x42500780   Section      128  bootuart.o(.ARM.__AT_0x42500780)
+    .ARM.__AT_0x42500980                     0x42500980   Section        4  bootuart.o(.ARM.__AT_0x42500980)
+    .ARM.__AT_0x43500000                     0x43500000   Section       64  bootuart.o(.ARM.__AT_0x43500000)
+    .ARM.__AT_0x43500080                     0x43500080   Section       64  bootuart.o(.ARM.__AT_0x43500080)
+    .ARM.__AT_0x43500180                     0x43500180   Section       64  bootuart.o(.ARM.__AT_0x43500180)
+    .ARM.__AT_0x43500200                     0x43500200   Section       64  bootuart.o(.ARM.__AT_0x43500200)
+    .ARM.__AT_0x43500240                     0x43500240   Section       64  bootuart.o(.ARM.__AT_0x43500240)
+    .ARM.__AT_0x43500280                     0x43500280   Section       64  bootuart.o(.ARM.__AT_0x43500280)
+    .ARM.__AT_0x435002C0                     0x435002c0   Section       64  bootuart.o(.ARM.__AT_0x435002C0)
+    .ARM.__AT_0x43500380                     0x43500380   Section       64  bootuart.o(.ARM.__AT_0x43500380)
+    .ARM.__AT_0x43600000                     0x43600000   Section       64  bootuart.o(.ARM.__AT_0x43600000)
+    .ARM.__AT_0x43600080                     0x43600080   Section       64  bootuart.o(.ARM.__AT_0x43600080)
+    .ARM.__AT_0x43600180                     0x43600180   Section       64  bootuart.o(.ARM.__AT_0x43600180)
+    .ARM.__AT_0x43600200                     0x43600200   Section       64  bootuart.o(.ARM.__AT_0x43600200)
+    .ARM.__AT_0x43600240                     0x43600240   Section       64  bootuart.o(.ARM.__AT_0x43600240)
+    .ARM.__AT_0x43600280                     0x43600280   Section       64  bootuart.o(.ARM.__AT_0x43600280)
+    .ARM.__AT_0x436002C0                     0x436002c0   Section       64  bootuart.o(.ARM.__AT_0x436002C0)
+    .ARM.__AT_0x43600380                     0x43600380   Section       64  bootuart.o(.ARM.__AT_0x43600380)
+    .ARM.__AT_0x43700000                     0x43700000   Section       64  bootuart.o(.ARM.__AT_0x43700000)
+    .ARM.__AT_0x43700080                     0x43700080   Section       64  bootuart.o(.ARM.__AT_0x43700080)
+    .ARM.__AT_0x43700180                     0x43700180   Section       64  bootuart.o(.ARM.__AT_0x43700180)
+    .ARM.__AT_0x43700200                     0x43700200   Section       64  bootuart.o(.ARM.__AT_0x43700200)
+    .ARM.__AT_0x43700240                     0x43700240   Section       64  bootuart.o(.ARM.__AT_0x43700240)
+    .ARM.__AT_0x43700280                     0x43700280   Section       64  bootuart.o(.ARM.__AT_0x43700280)
+    .ARM.__AT_0x437002C0                     0x437002c0   Section       64  bootuart.o(.ARM.__AT_0x437002C0)
+    .ARM.__AT_0x43700380                     0x43700380   Section       64  bootuart.o(.ARM.__AT_0x43700380)
+    .ARM.__AT_0x43800000                     0x43800000   Section       64  bootuart.o(.ARM.__AT_0x43800000)
+    .ARM.__AT_0x43800080                     0x43800080   Section       64  bootuart.o(.ARM.__AT_0x43800080)
+    .ARM.__AT_0x43800180                     0x43800180   Section       64  bootuart.o(.ARM.__AT_0x43800180)
+    .ARM.__AT_0x43800200                     0x43800200   Section       64  bootuart.o(.ARM.__AT_0x43800200)
+    .ARM.__AT_0x43800240                     0x43800240   Section       64  bootuart.o(.ARM.__AT_0x43800240)
+    .ARM.__AT_0x43800280                     0x43800280   Section       64  bootuart.o(.ARM.__AT_0x43800280)
+    .ARM.__AT_0x438002C0                     0x438002c0   Section       64  bootuart.o(.ARM.__AT_0x438002C0)
+    .ARM.__AT_0x43800380                     0x43800380   Section       64  bootuart.o(.ARM.__AT_0x43800380)
+    .ARM.__AT_0x43900000                     0x43900000   Section       64  bootuart.o(.ARM.__AT_0x43900000)
+    .ARM.__AT_0x43900080                     0x43900080   Section       64  bootuart.o(.ARM.__AT_0x43900080)
+    .ARM.__AT_0x43900180                     0x43900180   Section       64  bootuart.o(.ARM.__AT_0x43900180)
+    .ARM.__AT_0x43900200                     0x43900200   Section       64  bootuart.o(.ARM.__AT_0x43900200)
+    .ARM.__AT_0x43900240                     0x43900240   Section       64  bootuart.o(.ARM.__AT_0x43900240)
+    .ARM.__AT_0x43900280                     0x43900280   Section       64  bootuart.o(.ARM.__AT_0x43900280)
+    .ARM.__AT_0x439002C0                     0x439002c0   Section       64  bootuart.o(.ARM.__AT_0x439002C0)
+    .ARM.__AT_0x43900380                     0x43900380   Section       64  bootuart.o(.ARM.__AT_0x43900380)
+    .ARM.__AT_0x43D00000                     0x43d00000   Section       64  bootuart.o(.ARM.__AT_0x43D00000)
+    .ARM.__AT_0x43D00080                     0x43d00080   Section       64  bootuart.o(.ARM.__AT_0x43D00080)
+    .ARM.__AT_0x43D00180                     0x43d00180   Section       64  bootuart.o(.ARM.__AT_0x43D00180)
+    .ARM.__AT_0x43D00200                     0x43d00200   Section       64  bootuart.o(.ARM.__AT_0x43D00200)
+    .ARM.__AT_0x43D00240                     0x43d00240   Section       64  bootuart.o(.ARM.__AT_0x43D00240)
+    .ARM.__AT_0x43D00280                     0x43d00280   Section       64  bootuart.o(.ARM.__AT_0x43D00280)
+    .ARM.__AT_0x43D002C0                     0x43d002c0   Section       64  bootuart.o(.ARM.__AT_0x43D002C0)
+    .ARM.__AT_0x43D00380                     0x43d00380   Section       64  bootuart.o(.ARM.__AT_0x43D00380)
+
+    Global Symbols
+
+    Symbol Name                              Value     Ov Type        Size  Object(Section)
+
+    BuildAttributes$$THM_ISAv4$P$D$K$B$S$PE$A:L22UL41UL21$X:L11$S22US41US21$IEEE1$IW$USESV6$~STKCKD$USESV7$~SHL$OSPACE$EBA8$STANDARDLIB$REQ8$PRES8$EABIv2 0x00000000   Number         0  anon$$obj.o ABSOLUTE
+    __Vectors_Size                           0x00000008   Number         0  startup_1986bootuart.o ABSOLUTE
+    __Vectors                                0x20007800   Data           4  startup_1986bootuart.o(RESET)
+    Reset_Handler                            0x20007809   Thumb Code     4  startup_1986bootuart.o(.text)
+    __Vectors_End                            0x20007808   Data           0  startup_1986bootuart.o(RESET)
+    Run_Flash                                0x2000780d   Thumb Code    18  startup_1986bootuart.o(.text)
+    sleep                                    0x20007829   Thumb Code    12  bootuart.o(.text)
+    OutByteTX                                0x20007835   Thumb Code    20  bootuart.o(.text)
+    GetByteRX                                0x20007849   Thumb Code    22  bootuart.o(.text)
+    GetIntRX                                 0x2000785f   Thumb Code    40  bootuart.o(.text)
+    OutIntTX                                 0x20007887   Thumb Code    24  bootuart.o(.text)
+    Getbufdata                               0x2000789f   Thumb Code   116  bootuart.o(.text)
+    Verify                                   0x20007913   Thumb Code    46  bootuart.o(.text)
+    Program                                  0x20007941   Thumb Code   248  bootuart.o(.text)
+    Erase                                    0x20007a39   Thumb Code   212  bootuart.o(.text)
+    bootuart                                 0x20007b0d   Thumb Code   136  bootuart.o(.text)
+    id_str                                   0x20007bc4   Data          12  bootuart.o(.constdata)
+    adr                                      0x20007c00   Data           4  bootuart.o(.data)
+    ibuf                                     0x20007c04   Data           4  bootuart.o(.data)
+    ks                                       0x20007c08   Data           1  bootuart.o(.data)
+    bufdata                                  0x20007c0c   Data         256  bootuart.o(.bss)
+    CLOCK_STATUS                             0x40020000   Data           1  bootuart.o(.ARM.__AT_0x40020000)
+    PLL_CONTROL                              0x40020004   Data           2  bootuart.o(.ARM.__AT_0x40020004)
+    HS_CONTROL                               0x40020008   Data           1  bootuart.o(.ARM.__AT_0x40020008)
+    CPU_CLOCK                                0x4002000c   Data           2  bootuart.o(.ARM.__AT_0x4002000C)
+    USB_CLOCK                                0x40020010   Data           2  bootuart.o(.ARM.__AT_0x40020010)
+    ADC_CLOCK                                0x40020014   Data           2  bootuart.o(.ARM.__AT_0x40020014)
+    RTC_CLOCK                                0x40020018   Data           2  bootuart.o(.ARM.__AT_0x40020018)
+    CAN_CLOCK                                0x40020020   Data           4  bootuart.o(.ARM.__AT_0x40020020)
+    TIM_CLOCK                                0x40020024   Data           4  bootuart.o(.ARM.__AT_0x40020024)
+    UART_CLOCK                               0x40020028   Data           4  bootuart.o(.ARM.__AT_0x40020028)
+    SSP_CLOCK                                0x4002002c   Data           4  bootuart.o(.ARM.__AT_0x4002002C)
+    DMA_STATUS                               0x40028000   Data           4  bootuart.o(.ARM.__AT_0x40028000)
+    DMA_CONFIG                               0x40028004   Data           1  bootuart.o(.ARM.__AT_0x40028004)
+    PRI_CTRL_BASE_PTR                        0x40028008   Data           4  bootuart.o(.ARM.__AT_0x40028008)
+    ALT_CTRL_BASE_PTR                        0x4002800c   Data           4  bootuart.o(.ARM.__AT_0x4002800C)
+    UART1_DR                                 0x40030000   Data           2  bootuart.o(.ARM.__AT_0x40030000)
+    UART1_SR                                 0x40030004   Data           1  bootuart.o(.ARM.__AT_0x40030004)
+    UART1_FR                                 0x40030018   Data           2  bootuart.o(.ARM.__AT_0x40030018)
+    UART1_ILPR                               0x40030020   Data           1  bootuart.o(.ARM.__AT_0x40030020)
+    UART1_IBRD                               0x40030024   Data           2  bootuart.o(.ARM.__AT_0x40030024)
+    UART1_FBRD                               0x40030028   Data           1  bootuart.o(.ARM.__AT_0x40030028)
+    UART1_LCR                                0x4003002c   Data           1  bootuart.o(.ARM.__AT_0x4003002C)
+    UART1_CR                                 0x40030030   Data           2  bootuart.o(.ARM.__AT_0x40030030)
+    UART1_IFLS                               0x40030034   Data           1  bootuart.o(.ARM.__AT_0x40030034)
+    UART1_IMR                                0x40030038   Data           2  bootuart.o(.ARM.__AT_0x40030038)
+    UART1_IFR                                0x4003003c   Data           2  bootuart.o(.ARM.__AT_0x4003003C)
+    UART1_IMFR                               0x40030040   Data           2  bootuart.o(.ARM.__AT_0x40030040)
+    UART1_ICR                                0x40030044   Data           2  bootuart.o(.ARM.__AT_0x40030044)
+    UART1_DMAEN                              0x40030048   Data           1  bootuart.o(.ARM.__AT_0x40030048)
+    UART2_DR                                 0x40038000   Data           2  bootuart.o(.ARM.__AT_0x40038000)
+    UART2_SR                                 0x40038004   Data           1  bootuart.o(.ARM.__AT_0x40038004)
+    UART2_FR                                 0x40038018   Data           2  bootuart.o(.ARM.__AT_0x40038018)
+    UART2_ILPR                               0x40038020   Data           1  bootuart.o(.ARM.__AT_0x40038020)
+    UART2_IBRD                               0x40038024   Data           2  bootuart.o(.ARM.__AT_0x40038024)
+    UART2_FBRD                               0x40038028   Data           1  bootuart.o(.ARM.__AT_0x40038028)
+    UART2_LCR                                0x4003802c   Data           1  bootuart.o(.ARM.__AT_0x4003802C)
+    UART2_CR                                 0x40038030   Data           2  bootuart.o(.ARM.__AT_0x40038030)
+    UART2_IFLS                               0x40038034   Data           1  bootuart.o(.ARM.__AT_0x40038034)
+    UART2_IMR                                0x40038038   Data           2  bootuart.o(.ARM.__AT_0x40038038)
+    UART2_IFR                                0x4003803c   Data           2  bootuart.o(.ARM.__AT_0x4003803C)
+    UART2_IMFR                               0x40038040   Data           2  bootuart.o(.ARM.__AT_0x40038040)
+    UART2_ICR                                0x40038044   Data           2  bootuart.o(.ARM.__AT_0x40038044)
+    UART2_DMAEN                              0x40038048   Data           1  bootuart.o(.ARM.__AT_0x40038048)
+    SSP1_CR0                                 0x40040000   Data           2  bootuart.o(.ARM.__AT_0x40040000)
+    SSP1_CR1                                 0x40040004   Data           1  bootuart.o(.ARM.__AT_0x40040004)
+    SSP1_DR                                  0x40040008   Data           2  bootuart.o(.ARM.__AT_0x40040008)
+    SSP1_SR                                  0x4004000c   Data           1  bootuart.o(.ARM.__AT_0x4004000C)
+    SSP1_PSCR                                0x40040010   Data           2  bootuart.o(.ARM.__AT_0x40040010)
+    SSP1_IMR                                 0x40040014   Data           1  bootuart.o(.ARM.__AT_0x40040014)
+    SSP1_IFR                                 0x40040018   Data           1  bootuart.o(.ARM.__AT_0x40040018)
+    SSP1_IMFR                                0x4004001c   Data           1  bootuart.o(.ARM.__AT_0x4004001C)
+    SSP1_ICR                                 0x40040020   Data           1  bootuart.o(.ARM.__AT_0x40040020)
+    SSP1_DMAE                                0x40040024   Data           1  bootuart.o(.ARM.__AT_0x40040024)
+    I2C_PRL                                  0x40050000   Data           1  bootuart.o(.ARM.__AT_0x40050000)
+    I2C_PRH                                  0x40050004   Data           1  bootuart.o(.ARM.__AT_0x40050004)
+    I2C_CTRL                                 0x40050008   Data           1  bootuart.o(.ARM.__AT_0x40050008)
+    I2C_RXD                                  0x4005000c   Data           1  bootuart.o(.ARM.__AT_0x4005000C)
+    I2C_STAF                                 0x40050010   Data           1  bootuart.o(.ARM.__AT_0x40050010)
+    I2C_TXD                                  0x40050014   Data           1  bootuart.o(.ARM.__AT_0x40050014)
+    I2C_CMD                                  0x40050018   Data           1  bootuart.o(.ARM.__AT_0x40050018)
+    TIM1_CNT                                 0x40070000   Data           2  bootuart.o(.ARM.__AT_0x40070000)
+    TIM1_PSC                                 0x40070004   Data           2  bootuart.o(.ARM.__AT_0x40070004)
+    TIM1_ARR                                 0x40070008   Data           2  bootuart.o(.ARM.__AT_0x40070008)
+    TIM1_CTRL                                0x4007000c   Data           2  bootuart.o(.ARM.__AT_0x4007000C)
+    TIM1_ICHR                                0x40070010   Data          16  bootuart.o(.ARM.__AT_0x40070010)
+    TIM1_CH_CTRL                             0x40070020   Data          16  bootuart.o(.ARM.__AT_0x40070020)
+    TIM1_CH_CTRL1                            0x40070030   Data          16  bootuart.o(.ARM.__AT_0x40070030)
+    TIM1_CH_DTG                              0x40070040   Data          16  bootuart.o(.ARM.__AT_0x40070040)
+    TIM1_BRKETR_CTRL                         0x40070050   Data           1  bootuart.o(.ARM.__AT_0x40070050)
+    TIM1_INTF                                0x40070054   Data           4  bootuart.o(.ARM.__AT_0x40070054)
+    TIM1_INTE                                0x40070058   Data           4  bootuart.o(.ARM.__AT_0x40070058)
+    TIM1_DMAE                                0x4007005c   Data           4  bootuart.o(.ARM.__AT_0x4007005C)
+    TIM1_CH_CTRL2                            0x40070060   Data          16  bootuart.o(.ARM.__AT_0x40070060)
+    TIM1_ICHR1                               0x40070070   Data          16  bootuart.o(.ARM.__AT_0x40070070)
+    TIM2_CNT                                 0x40078000   Data           2  bootuart.o(.ARM.__AT_0x40078000)
+    TIM2_PSC                                 0x40078004   Data           2  bootuart.o(.ARM.__AT_0x40078004)
+    TIM2_ARR                                 0x40078008   Data           2  bootuart.o(.ARM.__AT_0x40078008)
+    TIM2_CTRL                                0x4007800c   Data           2  bootuart.o(.ARM.__AT_0x4007800C)
+    TIM2_ICHR                                0x40078010   Data          16  bootuart.o(.ARM.__AT_0x40078010)
+    TIM2_CH_CTRL                             0x40078020   Data          16  bootuart.o(.ARM.__AT_0x40078020)
+    TIM2_CH_CTRL1                            0x40078030   Data          16  bootuart.o(.ARM.__AT_0x40078030)
+    TIM2_CH_DTG                              0x40078040   Data          16  bootuart.o(.ARM.__AT_0x40078040)
+    TIM2_BRKETR_CTRL                         0x40078050   Data           1  bootuart.o(.ARM.__AT_0x40078050)
+    TIM2_INTF                                0x40078054   Data           4  bootuart.o(.ARM.__AT_0x40078054)
+    TIM2_INTE                                0x40078058   Data           4  bootuart.o(.ARM.__AT_0x40078058)
+    TIM2_DMAE                                0x4007805c   Data           4  bootuart.o(.ARM.__AT_0x4007805C)
+    TIM2_CH_CTRL2                            0x40078060   Data          16  bootuart.o(.ARM.__AT_0x40078060)
+    TIM2_ICHR1                               0x40078070   Data          16  bootuart.o(.ARM.__AT_0x40078070)
+    TIM3_CNT                                 0x40080000   Data           2  bootuart.o(.ARM.__AT_0x40080000)
+    TIM3_PSC                                 0x40080004   Data           2  bootuart.o(.ARM.__AT_0x40080004)
+    TIM3_ARR                                 0x40080008   Data           2  bootuart.o(.ARM.__AT_0x40080008)
+    TIM3_CTRL                                0x4008000c   Data           2  bootuart.o(.ARM.__AT_0x4008000C)
+    TIM3_ICHR                                0x40080010   Data          16  bootuart.o(.ARM.__AT_0x40080010)
+    TIM3_CH_CTRL                             0x40080020   Data          16  bootuart.o(.ARM.__AT_0x40080020)
+    TIM3_CH_CTRL1                            0x40080030   Data          16  bootuart.o(.ARM.__AT_0x40080030)
+    TIM3_CH_DTG                              0x40080040   Data          16  bootuart.o(.ARM.__AT_0x40080040)
+    TIM3_BRKETR_CTRL                         0x40080050   Data           1  bootuart.o(.ARM.__AT_0x40080050)
+    TIM3_INTF                                0x40080054   Data           4  bootuart.o(.ARM.__AT_0x40080054)
+    TIM3_INTE                                0x40080058   Data           4  bootuart.o(.ARM.__AT_0x40080058)
+    TIM3_DMAE                                0x4008005c   Data           4  bootuart.o(.ARM.__AT_0x4008005C)
+    TIM3_CH_CTRL2                            0x40080060   Data          16  bootuart.o(.ARM.__AT_0x40080060)
+    TIM3_ICHR1                               0x40080070   Data          16  bootuart.o(.ARM.__AT_0x40080070)
+    DAC_CONFIG                               0x40090000   Data           1  bootuart.o(.ARM.__AT_0x40090000)
+    DAC0                                     0x40090004   Data           4  bootuart.o(.ARM.__AT_0x40090004)
+    DAC1                                     0x40090008   Data           4  bootuart.o(.ARM.__AT_0x40090008)
+    SSP2_CR0                                 0x400a0000   Data           2  bootuart.o(.ARM.__AT_0x400A0000)
+    SSP2_CR1                                 0x400a0004   Data           1  bootuart.o(.ARM.__AT_0x400A0004)
+    SSP2_DR                                  0x400a0008   Data           2  bootuart.o(.ARM.__AT_0x400A0008)
+    SSP2_SR                                  0x400a000c   Data           1  bootuart.o(.ARM.__AT_0x400A000C)
+    SSP2_PSCR                                0x400a0010   Data           2  bootuart.o(.ARM.__AT_0x400A0010)
+    SSP2_IMR                                 0x400a0014   Data           1  bootuart.o(.ARM.__AT_0x400A0014)
+    SSP2_IFR                                 0x400a0018   Data           1  bootuart.o(.ARM.__AT_0x400A0018)
+    SSP2_IMFR                                0x400a001c   Data           1  bootuart.o(.ARM.__AT_0x400A001C)
+    SSP2_ICR                                 0x400a0020   Data           1  bootuart.o(.ARM.__AT_0x400A0020)
+    SSP2_DMAE                                0x400a0024   Data           1  bootuart.o(.ARM.__AT_0x400A0024)
+    GPIOA_FUNC                               0x400a8008   Data           4  bootuart.o(.ARM.__AT_0x400A8008)
+    GPIOA_PWR                                0x400a8018   Data           4  bootuart.o(.ARM.__AT_0x400A8018)
+    GPIOB_FUNC                               0x400b0008   Data           4  bootuart.o(.ARM.__AT_0x400B0008)
+    GPIOB_PWR                                0x400b0018   Data           4  bootuart.o(.ARM.__AT_0x400B0018)
+    GPIOC_FUNC                               0x400b8008   Data           4  bootuart.o(.ARM.__AT_0x400B8008)
+    GPIOC_PWR                                0x400b8018   Data           4  bootuart.o(.ARM.__AT_0x400B8018)
+    GPIOD_FUNC                               0x400c0008   Data           4  bootuart.o(.ARM.__AT_0x400C0008)
+    GPIOD_PWR                                0x400c0018   Data           4  bootuart.o(.ARM.__AT_0x400C0018)
+    GPIOE_FUNC                               0x400c8008   Data           4  bootuart.o(.ARM.__AT_0x400C8008)
+    GPIOE_PWR                                0x400c8018   Data           4  bootuart.o(.ARM.__AT_0x400C8018)
+    GPIOF_FUNC                               0x400e8008   Data           4  bootuart.o(.ARM.__AT_0x400E8008)
+    GPIOF_PWR                                0x400e8018   Data           4  bootuart.o(.ARM.__AT_0x400E8018)
+    NAND_CYCLES                              0x400f0050   Data           4  bootuart.o(.ARM.__AT_0x400F0050)
+    EXT_BUS_CTRL                             0x400f0054   Data           2  bootuart.o(.ARM.__AT_0x400F0054)
+    PER_CLOCK                                0x42400380   Data         128  bootuart.o(.ARM.__AT_0x42400380)
+    WAITONREQ_STATUS                         0x42500200   Data         128  bootuart.o(.ARM.__AT_0x42500200)
+    CHNL_SW_REQUEST                          0x42500280   Data         128  bootuart.o(.ARM.__AT_0x42500280)
+    CHNL_SREQ_DISABLE                        0x42500300   Data         128  bootuart.o(.ARM.__AT_0x42500300)
+    CHNL_SREQ_ENABLE                         0x42500380   Data         128  bootuart.o(.ARM.__AT_0x42500380)
+    CHNL_REQ_DISABLE                         0x42500400   Data         128  bootuart.o(.ARM.__AT_0x42500400)
+    CHNL_REQ_ENABLE                          0x42500480   Data         128  bootuart.o(.ARM.__AT_0x42500480)
+    CHNL_ENABLE                              0x42500500   Data         128  bootuart.o(.ARM.__AT_0x42500500)
+    CHNL_DISABLE                             0x42500580   Data         128  bootuart.o(.ARM.__AT_0x42500580)
+    CHNL_ALT_ENABLE                          0x42500600   Data         128  bootuart.o(.ARM.__AT_0x42500600)
+    CHNL_ALT_DISABLE                         0x42500680   Data         128  bootuart.o(.ARM.__AT_0x42500680)
+    CHNL_PRIORITY_SET                        0x42500700   Data         128  bootuart.o(.ARM.__AT_0x42500700)
+    CHNL_PRIORITY_CLR                        0x42500780   Data         128  bootuart.o(.ARM.__AT_0x42500780)
+    DMA_ERROR_CLR                            0x42500980   Data           4  bootuart.o(.ARM.__AT_0x42500980)
+    GPIOA_RXTX                               0x43500000   Data          64  bootuart.o(.ARM.__AT_0x43500000)
+    GPIOA_DDR                                0x43500080   Data          64  bootuart.o(.ARM.__AT_0x43500080)
+    GPIOA_DIGEN                              0x43500180   Data          64  bootuart.o(.ARM.__AT_0x43500180)
+    GPIOA_RGND                               0x43500200   Data          64  bootuart.o(.ARM.__AT_0x43500200)
+    GPIOA_RVCC                               0x43500240   Data          64  bootuart.o(.ARM.__AT_0x43500240)
+    GPIOA_OCEN                               0x43500280   Data          64  bootuart.o(.ARM.__AT_0x43500280)
+    GPIOA_TREN                               0x435002c0   Data          64  bootuart.o(.ARM.__AT_0x435002C0)
+    GPIOA_GFEN                               0x43500380   Data          64  bootuart.o(.ARM.__AT_0x43500380)
+    GPIOB_RXTX                               0x43600000   Data          64  bootuart.o(.ARM.__AT_0x43600000)
+    GPIOB_DDR                                0x43600080   Data          64  bootuart.o(.ARM.__AT_0x43600080)
+    GPIOB_DIGEN                              0x43600180   Data          64  bootuart.o(.ARM.__AT_0x43600180)
+    GPIOB_RDGN                               0x43600200   Data          64  bootuart.o(.ARM.__AT_0x43600200)
+    GPIOB_RVCC                               0x43600240   Data          64  bootuart.o(.ARM.__AT_0x43600240)
+    GPIOB_OCEN                               0x43600280   Data          64  bootuart.o(.ARM.__AT_0x43600280)
+    GPIOB_TREN                               0x436002c0   Data          64  bootuart.o(.ARM.__AT_0x436002C0)
+    GPIOB_GFEN                               0x43600380   Data          64  bootuart.o(.ARM.__AT_0x43600380)
+    GPIOC_RXTX                               0x43700000   Data          64  bootuart.o(.ARM.__AT_0x43700000)
+    GPIOC_DDR                                0x43700080   Data          64  bootuart.o(.ARM.__AT_0x43700080)
+    GPIOC_DIGEN                              0x43700180   Data          64  bootuart.o(.ARM.__AT_0x43700180)
+    GPIOC_RDGN                               0x43700200   Data          64  bootuart.o(.ARM.__AT_0x43700200)
+    GPIOC_RVCC                               0x43700240   Data          64  bootuart.o(.ARM.__AT_0x43700240)
+    GPIOC_OCEN                               0x43700280   Data          64  bootuart.o(.ARM.__AT_0x43700280)
+    GPIOC_TREN                               0x437002c0   Data          64  bootuart.o(.ARM.__AT_0x437002C0)
+    GPIOC_GFEN                               0x43700380   Data          64  bootuart.o(.ARM.__AT_0x43700380)
+    GPIOD_RXTX                               0x43800000   Data          64  bootuart.o(.ARM.__AT_0x43800000)
+    GPIOD_DDR                                0x43800080   Data          64  bootuart.o(.ARM.__AT_0x43800080)
+    GPIOD_DIGEN                              0x43800180   Data          64  bootuart.o(.ARM.__AT_0x43800180)
+    GPIOD_RDGN                               0x43800200   Data          64  bootuart.o(.ARM.__AT_0x43800200)
+    GPIOD_RVCC                               0x43800240   Data          64  bootuart.o(.ARM.__AT_0x43800240)
+    GPIOD_OCEN                               0x43800280   Data          64  bootuart.o(.ARM.__AT_0x43800280)
+    GPIOD_TREN                               0x438002c0   Data          64  bootuart.o(.ARM.__AT_0x438002C0)
+    GPIOD_GFEN                               0x43800380   Data          64  bootuart.o(.ARM.__AT_0x43800380)
+    GPIOE_RXTX                               0x43900000   Data          64  bootuart.o(.ARM.__AT_0x43900000)
+    GPIOE_DDR                                0x43900080   Data          64  bootuart.o(.ARM.__AT_0x43900080)
+    GPIOE_DIGEN                              0x43900180   Data          64  bootuart.o(.ARM.__AT_0x43900180)
+    GPIOE_RDGN                               0x43900200   Data          64  bootuart.o(.ARM.__AT_0x43900200)
+    GPIOE_RVCC                               0x43900240   Data          64  bootuart.o(.ARM.__AT_0x43900240)
+    GPIOE_OCEN                               0x43900280   Data          64  bootuart.o(.ARM.__AT_0x43900280)
+    GPIOE_TREN                               0x439002c0   Data          64  bootuart.o(.ARM.__AT_0x439002C0)
+    GPIOE_GFEN                               0x43900380   Data          64  bootuart.o(.ARM.__AT_0x43900380)
+    GPIOF_RXTX                               0x43d00000   Data          64  bootuart.o(.ARM.__AT_0x43D00000)
+    GPIOF_DDR                                0x43d00080   Data          64  bootuart.o(.ARM.__AT_0x43D00080)
+    GPIOF_DIGEN                              0x43d00180   Data          64  bootuart.o(.ARM.__AT_0x43D00180)
+    GPIOF_RDGN                               0x43d00200   Data          64  bootuart.o(.ARM.__AT_0x43D00200)
+    GPIOF_RVCC                               0x43d00240   Data          64  bootuart.o(.ARM.__AT_0x43D00240)
+    GPIOF_OCEN                               0x43d00280   Data          64  bootuart.o(.ARM.__AT_0x43D00280)
+    GPIOF_TREN                               0x43d002c0   Data          64  bootuart.o(.ARM.__AT_0x43D002C0)
+    GPIOF_GFEN                               0x43d00380   Data          64  bootuart.o(.ARM.__AT_0x43D00380)
+
+
+
+==============================================================================
+
+Memory Map of the image
+
+  Image entry point : Not specified.
+
+  Load Region LR_IROM1 (Base: 0x20007800, Size: 0x000003dc, Max: 0x00000400, ABSOLUTE)
+
+    Execution Region ER_IROM1 (Base: 0x20007800, Size: 0x000003d0, Max: 0x00000400, ABSOLUTE)
+
+    Base Addr    Size         Type   Attr      Idx    E Section Name        Object
+
+    0x20007800   0x00000008   Data   RO            2    RESET               startup_1986bootuart.o
+    0x20007808   0x00000020   Code   RO            3    .text               startup_1986bootuart.o
+    0x20007828   0x0000039c   Code   RO            9    .text               bootuart.o
+    0x20007bc4   0x0000000c   Data   RO          202    .constdata          bootuart.o
+
+
+    Execution Region RW_IRAM1 (Base: 0x20007c00, Size: 0x00000190, Max: 0x00000400, ABSOLUTE)
+
+    Base Addr    Size         Type   Attr      Idx    E Section Name        Object
+
+    0x20007c00   0x00000009   Data   RW          203    .data               bootuart.o
+    0x20007c09   0x00000003   PAD
+    0x20007c0c   0x00000100   Zero   RW          201    .bss                bootuart.o
+    0x20007d0c   0x00000004   PAD
+    0x20007d10   0x00000080   Zero   RW            1    STACK               startup_1986bootuart.o
+
+
+
+  Load Region LR$$.ARM.__AT_0x40020000 (Base: 0x40020000, Size: 0x00000000, Max: 0x00000004, ABSOLUTE)
+
+    Execution Region ER$$.ARM.__AT_0x40020000 (Base: 0x40020000, Size: 0x00000004, Max: 0x00000004, ABSOLUTE, UNINIT)
+
+    Base Addr    Size         Type   Attr      Idx    E Section Name        Object
+
+    0x40020000   0x00000001   Zero   RW           10    .ARM.__AT_0x40020000  bootuart.o
+
+
+
+  Load Region LR$$.ARM.__AT_0x40020004 (Base: 0x40020004, Size: 0x00000000, Max: 0x00000004, ABSOLUTE)
+
+    Execution Region ER$$.ARM.__AT_0x40020004 (Base: 0x40020004, Size: 0x00000004, Max: 0x00000004, ABSOLUTE, UNINIT)
+
+    Base Addr    Size         Type   Attr      Idx    E Section Name        Object
+
+    0x40020004   0x00000002   Zero   RW           11    .ARM.__AT_0x40020004  bootuart.o
+
+
+
+  Load Region LR$$.ARM.__AT_0x40020008 (Base: 0x40020008, Size: 0x00000000, Max: 0x00000004, ABSOLUTE)
+
+    Execution Region ER$$.ARM.__AT_0x40020008 (Base: 0x40020008, Size: 0x00000004, Max: 0x00000004, ABSOLUTE, UNINIT)
+
+    Base Addr    Size         Type   Attr      Idx    E Section Name        Object
+
+    0x40020008   0x00000001   Zero   RW           12    .ARM.__AT_0x40020008  bootuart.o
+
+
+
+  Load Region LR$$.ARM.__AT_0x4002000C (Base: 0x4002000c, Size: 0x00000000, Max: 0x00000004, ABSOLUTE)
+
+    Execution Region ER$$.ARM.__AT_0x4002000C (Base: 0x4002000c, Size: 0x00000004, Max: 0x00000004, ABSOLUTE, UNINIT)
+
+    Base Addr    Size         Type   Attr      Idx    E Section Name        Object
+
+    0x4002000c   0x00000002   Zero   RW           13    .ARM.__AT_0x4002000C  bootuart.o
+
+
+
+  Load Region LR$$.ARM.__AT_0x40020010 (Base: 0x40020010, Size: 0x00000000, Max: 0x00000004, ABSOLUTE)
+
+    Execution Region ER$$.ARM.__AT_0x40020010 (Base: 0x40020010, Size: 0x00000004, Max: 0x00000004, ABSOLUTE, UNINIT)
+
+    Base Addr    Size         Type   Attr      Idx    E Section Name        Object
+
+    0x40020010   0x00000002   Zero   RW           14    .ARM.__AT_0x40020010  bootuart.o
+
+
+
+  Load Region LR$$.ARM.__AT_0x40020014 (Base: 0x40020014, Size: 0x00000000, Max: 0x00000004, ABSOLUTE)
+
+    Execution Region ER$$.ARM.__AT_0x40020014 (Base: 0x40020014, Size: 0x00000004, Max: 0x00000004, ABSOLUTE, UNINIT)
+
+    Base Addr    Size         Type   Attr      Idx    E Section Name        Object
+
+    0x40020014   0x00000002   Zero   RW           15    .ARM.__AT_0x40020014  bootuart.o
+
+
+
+  Load Region LR$$.ARM.__AT_0x40020018 (Base: 0x40020018, Size: 0x00000000, Max: 0x00000004, ABSOLUTE)
+
+    Execution Region ER$$.ARM.__AT_0x40020018 (Base: 0x40020018, Size: 0x00000004, Max: 0x00000004, ABSOLUTE, UNINIT)
+
+    Base Addr    Size         Type   Attr      Idx    E Section Name        Object
+
+    0x40020018   0x00000002   Zero   RW           16    .ARM.__AT_0x40020018  bootuart.o
+
+
+
+  Load Region LR$$.ARM.__AT_0x40020020 (Base: 0x40020020, Size: 0x00000000, Max: 0x00000004, ABSOLUTE)
+
+    Execution Region ER$$.ARM.__AT_0x40020020 (Base: 0x40020020, Size: 0x00000004, Max: 0x00000004, ABSOLUTE, UNINIT)
+
+    Base Addr    Size         Type   Attr      Idx    E Section Name        Object
+
+    0x40020020   0x00000004   Zero   RW           17    .ARM.__AT_0x40020020  bootuart.o
+
+
+
+  Load Region LR$$.ARM.__AT_0x40020024 (Base: 0x40020024, Size: 0x00000000, Max: 0x00000004, ABSOLUTE)
+
+    Execution Region ER$$.ARM.__AT_0x40020024 (Base: 0x40020024, Size: 0x00000004, Max: 0x00000004, ABSOLUTE, UNINIT)
+
+    Base Addr    Size         Type   Attr      Idx    E Section Name        Object
+
+    0x40020024   0x00000004   Zero   RW           18    .ARM.__AT_0x40020024  bootuart.o
+
+
+
+  Load Region LR$$.ARM.__AT_0x40020028 (Base: 0x40020028, Size: 0x00000000, Max: 0x00000004, ABSOLUTE)
+
+    Execution Region ER$$.ARM.__AT_0x40020028 (Base: 0x40020028, Size: 0x00000004, Max: 0x00000004, ABSOLUTE, UNINIT)
+
+    Base Addr    Size         Type   Attr      Idx    E Section Name        Object
+
+    0x40020028   0x00000004   Zero   RW           19    .ARM.__AT_0x40020028  bootuart.o
+
+
+
+  Load Region LR$$.ARM.__AT_0x4002002C (Base: 0x4002002c, Size: 0x00000000, Max: 0x00000004, ABSOLUTE)
+
+    Execution Region ER$$.ARM.__AT_0x4002002C (Base: 0x4002002c, Size: 0x00000004, Max: 0x00000004, ABSOLUTE, UNINIT)
+
+    Base Addr    Size         Type   Attr      Idx    E Section Name        Object
+
+    0x4002002c   0x00000004   Zero   RW           20    .ARM.__AT_0x4002002C  bootuart.o
+
+
+
+  Load Region LR$$.ARM.__AT_0x40028000 (Base: 0x40028000, Size: 0x00000000, Max: 0x00000004, ABSOLUTE)
+
+    Execution Region ER$$.ARM.__AT_0x40028000 (Base: 0x40028000, Size: 0x00000004, Max: 0x00000004, ABSOLUTE, UNINIT)
+
+    Base Addr    Size         Type   Attr      Idx    E Section Name        Object
+
+    0x40028000   0x00000004   Zero   RW           21    .ARM.__AT_0x40028000  bootuart.o
+
+
+
+  Load Region LR$$.ARM.__AT_0x40028004 (Base: 0x40028004, Size: 0x00000000, Max: 0x00000004, ABSOLUTE)
+
+    Execution Region ER$$.ARM.__AT_0x40028004 (Base: 0x40028004, Size: 0x00000004, Max: 0x00000004, ABSOLUTE, UNINIT)
+
+    Base Addr    Size         Type   Attr      Idx    E Section Name        Object
+
+    0x40028004   0x00000001   Zero   RW           22    .ARM.__AT_0x40028004  bootuart.o
+
+
+
+  Load Region LR$$.ARM.__AT_0x40028008 (Base: 0x40028008, Size: 0x00000000, Max: 0x00000004, ABSOLUTE)
+
+    Execution Region ER$$.ARM.__AT_0x40028008 (Base: 0x40028008, Size: 0x00000004, Max: 0x00000004, ABSOLUTE, UNINIT)
+
+    Base Addr    Size         Type   Attr      Idx    E Section Name        Object
+
+    0x40028008   0x00000004   Zero   RW           23    .ARM.__AT_0x40028008  bootuart.o
+
+
+
+  Load Region LR$$.ARM.__AT_0x4002800C (Base: 0x4002800c, Size: 0x00000000, Max: 0x00000004, ABSOLUTE)
+
+    Execution Region ER$$.ARM.__AT_0x4002800C (Base: 0x4002800c, Size: 0x00000004, Max: 0x00000004, ABSOLUTE, UNINIT)
+
+    Base Addr    Size         Type   Attr      Idx    E Section Name        Object
+
+    0x4002800c   0x00000004   Zero   RW           24    .ARM.__AT_0x4002800C  bootuart.o
+
+
+
+  Load Region LR$$.ARM.__AT_0x40030000 (Base: 0x40030000, Size: 0x00000000, Max: 0x00000004, ABSOLUTE)
+
+    Execution Region ER$$.ARM.__AT_0x40030000 (Base: 0x40030000, Size: 0x00000004, Max: 0x00000004, ABSOLUTE, UNINIT)
+
+    Base Addr    Size         Type   Attr      Idx    E Section Name        Object
+
+    0x40030000   0x00000002   Zero   RW           25    .ARM.__AT_0x40030000  bootuart.o
+
+
+
+  Load Region LR$$.ARM.__AT_0x40030004 (Base: 0x40030004, Size: 0x00000000, Max: 0x00000004, ABSOLUTE)
+
+    Execution Region ER$$.ARM.__AT_0x40030004 (Base: 0x40030004, Size: 0x00000004, Max: 0x00000004, ABSOLUTE, UNINIT)
+
+    Base Addr    Size         Type   Attr      Idx    E Section Name        Object
+
+    0x40030004   0x00000001   Zero   RW           26    .ARM.__AT_0x40030004  bootuart.o
+
+
+
+  Load Region LR$$.ARM.__AT_0x40030018 (Base: 0x40030018, Size: 0x00000000, Max: 0x00000004, ABSOLUTE)
+
+    Execution Region ER$$.ARM.__AT_0x40030018 (Base: 0x40030018, Size: 0x00000004, Max: 0x00000004, ABSOLUTE, UNINIT)
+
+    Base Addr    Size         Type   Attr      Idx    E Section Name        Object
+
+    0x40030018   0x00000002   Zero   RW           27    .ARM.__AT_0x40030018  bootuart.o
+
+
+
+  Load Region LR$$.ARM.__AT_0x40030020 (Base: 0x40030020, Size: 0x00000000, Max: 0x00000004, ABSOLUTE)
+
+    Execution Region ER$$.ARM.__AT_0x40030020 (Base: 0x40030020, Size: 0x00000004, Max: 0x00000004, ABSOLUTE, UNINIT)
+
+    Base Addr    Size         Type   Attr      Idx    E Section Name        Object
+
+    0x40030020   0x00000001   Zero   RW           28    .ARM.__AT_0x40030020  bootuart.o
+
+
+
+  Load Region LR$$.ARM.__AT_0x40030024 (Base: 0x40030024, Size: 0x00000000, Max: 0x00000004, ABSOLUTE)
+
+    Execution Region ER$$.ARM.__AT_0x40030024 (Base: 0x40030024, Size: 0x00000004, Max: 0x00000004, ABSOLUTE, UNINIT)
+
+    Base Addr    Size         Type   Attr      Idx    E Section Name        Object
+
+    0x40030024   0x00000002   Zero   RW           29    .ARM.__AT_0x40030024  bootuart.o
+
+
+
+  Load Region LR$$.ARM.__AT_0x40030028 (Base: 0x40030028, Size: 0x00000000, Max: 0x00000004, ABSOLUTE)
+
+    Execution Region ER$$.ARM.__AT_0x40030028 (Base: 0x40030028, Size: 0x00000004, Max: 0x00000004, ABSOLUTE, UNINIT)
+
+    Base Addr    Size         Type   Attr      Idx    E Section Name        Object
+
+    0x40030028   0x00000001   Zero   RW           30    .ARM.__AT_0x40030028  bootuart.o
+
+
+
+  Load Region LR$$.ARM.__AT_0x4003002C (Base: 0x4003002c, Size: 0x00000000, Max: 0x00000004, ABSOLUTE)
+
+    Execution Region ER$$.ARM.__AT_0x4003002C (Base: 0x4003002c, Size: 0x00000004, Max: 0x00000004, ABSOLUTE, UNINIT)
+
+    Base Addr    Size         Type   Attr      Idx    E Section Name        Object
+
+    0x4003002c   0x00000001   Zero   RW           31    .ARM.__AT_0x4003002C  bootuart.o
+
+
+
+  Load Region LR$$.ARM.__AT_0x40030030 (Base: 0x40030030, Size: 0x00000000, Max: 0x00000004, ABSOLUTE)
+
+    Execution Region ER$$.ARM.__AT_0x40030030 (Base: 0x40030030, Size: 0x00000004, Max: 0x00000004, ABSOLUTE, UNINIT)
+
+    Base Addr    Size         Type   Attr      Idx    E Section Name        Object
+
+    0x40030030   0x00000002   Zero   RW           32    .ARM.__AT_0x40030030  bootuart.o
+
+
+
+  Load Region LR$$.ARM.__AT_0x40030034 (Base: 0x40030034, Size: 0x00000000, Max: 0x00000004, ABSOLUTE)
+
+    Execution Region ER$$.ARM.__AT_0x40030034 (Base: 0x40030034, Size: 0x00000004, Max: 0x00000004, ABSOLUTE, UNINIT)
+
+    Base Addr    Size         Type   Attr      Idx    E Section Name        Object
+
+    0x40030034   0x00000001   Zero   RW           33    .ARM.__AT_0x40030034  bootuart.o
+
+
+
+  Load Region LR$$.ARM.__AT_0x40030038 (Base: 0x40030038, Size: 0x00000000, Max: 0x00000004, ABSOLUTE)
+
+    Execution Region ER$$.ARM.__AT_0x40030038 (Base: 0x40030038, Size: 0x00000004, Max: 0x00000004, ABSOLUTE, UNINIT)
+
+    Base Addr    Size         Type   Attr      Idx    E Section Name        Object
+
+    0x40030038   0x00000002   Zero   RW           34    .ARM.__AT_0x40030038  bootuart.o
+
+
+
+  Load Region LR$$.ARM.__AT_0x4003003C (Base: 0x4003003c, Size: 0x00000000, Max: 0x00000004, ABSOLUTE)
+
+    Execution Region ER$$.ARM.__AT_0x4003003C (Base: 0x4003003c, Size: 0x00000004, Max: 0x00000004, ABSOLUTE, UNINIT)
+
+    Base Addr    Size         Type   Attr      Idx    E Section Name        Object
+
+    0x4003003c   0x00000002   Zero   RW           35    .ARM.__AT_0x4003003C  bootuart.o
+
+
+
+  Load Region LR$$.ARM.__AT_0x40030040 (Base: 0x40030040, Size: 0x00000000, Max: 0x00000004, ABSOLUTE)
+
+    Execution Region ER$$.ARM.__AT_0x40030040 (Base: 0x40030040, Size: 0x00000004, Max: 0x00000004, ABSOLUTE, UNINIT)
+
+    Base Addr    Size         Type   Attr      Idx    E Section Name        Object
+
+    0x40030040   0x00000002   Zero   RW           36    .ARM.__AT_0x40030040  bootuart.o
+
+
+
+  Load Region LR$$.ARM.__AT_0x40030044 (Base: 0x40030044, Size: 0x00000000, Max: 0x00000004, ABSOLUTE)
+
+    Execution Region ER$$.ARM.__AT_0x40030044 (Base: 0x40030044, Size: 0x00000004, Max: 0x00000004, ABSOLUTE, UNINIT)
+
+    Base Addr    Size         Type   Attr      Idx    E Section Name        Object
+
+    0x40030044   0x00000002   Zero   RW           37    .ARM.__AT_0x40030044  bootuart.o
+
+
+
+  Load Region LR$$.ARM.__AT_0x40030048 (Base: 0x40030048, Size: 0x00000000, Max: 0x00000004, ABSOLUTE)
+
+    Execution Region ER$$.ARM.__AT_0x40030048 (Base: 0x40030048, Size: 0x00000004, Max: 0x00000004, ABSOLUTE, UNINIT)
+
+    Base Addr    Size         Type   Attr      Idx    E Section Name        Object
+
+    0x40030048   0x00000001   Zero   RW           38    .ARM.__AT_0x40030048  bootuart.o
+
+
+
+  Load Region LR$$.ARM.__AT_0x40038000 (Base: 0x40038000, Size: 0x00000000, Max: 0x00000004, ABSOLUTE)
+
+    Execution Region ER$$.ARM.__AT_0x40038000 (Base: 0x40038000, Size: 0x00000004, Max: 0x00000004, ABSOLUTE, UNINIT)
+
+    Base Addr    Size         Type   Attr      Idx    E Section Name        Object
+
+    0x40038000   0x00000002   Zero   RW           39    .ARM.__AT_0x40038000  bootuart.o
+
+
+
+  Load Region LR$$.ARM.__AT_0x40038004 (Base: 0x40038004, Size: 0x00000000, Max: 0x00000004, ABSOLUTE)
+
+    Execution Region ER$$.ARM.__AT_0x40038004 (Base: 0x40038004, Size: 0x00000004, Max: 0x00000004, ABSOLUTE, UNINIT)
+
+    Base Addr    Size         Type   Attr      Idx    E Section Name        Object
+
+    0x40038004   0x00000001   Zero   RW           40    .ARM.__AT_0x40038004  bootuart.o
+
+
+
+  Load Region LR$$.ARM.__AT_0x40038018 (Base: 0x40038018, Size: 0x00000000, Max: 0x00000004, ABSOLUTE)
+
+    Execution Region ER$$.ARM.__AT_0x40038018 (Base: 0x40038018, Size: 0x00000004, Max: 0x00000004, ABSOLUTE, UNINIT)
+
+    Base Addr    Size         Type   Attr      Idx    E Section Name        Object
+
+    0x40038018   0x00000002   Zero   RW           41    .ARM.__AT_0x40038018  bootuart.o
+
+
+
+  Load Region LR$$.ARM.__AT_0x40038020 (Base: 0x40038020, Size: 0x00000000, Max: 0x00000004, ABSOLUTE)
+
+    Execution Region ER$$.ARM.__AT_0x40038020 (Base: 0x40038020, Size: 0x00000004, Max: 0x00000004, ABSOLUTE, UNINIT)
+
+    Base Addr    Size         Type   Attr      Idx    E Section Name        Object
+
+    0x40038020   0x00000001   Zero   RW           42    .ARM.__AT_0x40038020  bootuart.o
+
+
+
+  Load Region LR$$.ARM.__AT_0x40038024 (Base: 0x40038024, Size: 0x00000000, Max: 0x00000004, ABSOLUTE)
+
+    Execution Region ER$$.ARM.__AT_0x40038024 (Base: 0x40038024, Size: 0x00000004, Max: 0x00000004, ABSOLUTE, UNINIT)
+
+    Base Addr    Size         Type   Attr      Idx    E Section Name        Object
+
+    0x40038024   0x00000002   Zero   RW           43    .ARM.__AT_0x40038024  bootuart.o
+
+
+
+  Load Region LR$$.ARM.__AT_0x40038028 (Base: 0x40038028, Size: 0x00000000, Max: 0x00000004, ABSOLUTE)
+
+    Execution Region ER$$.ARM.__AT_0x40038028 (Base: 0x40038028, Size: 0x00000004, Max: 0x00000004, ABSOLUTE, UNINIT)
+
+    Base Addr    Size         Type   Attr      Idx    E Section Name        Object
+
+    0x40038028   0x00000001   Zero   RW           44    .ARM.__AT_0x40038028  bootuart.o
+
+
+
+  Load Region LR$$.ARM.__AT_0x4003802C (Base: 0x4003802c, Size: 0x00000000, Max: 0x00000004, ABSOLUTE)
+
+    Execution Region ER$$.ARM.__AT_0x4003802C (Base: 0x4003802c, Size: 0x00000004, Max: 0x00000004, ABSOLUTE, UNINIT)
+
+    Base Addr    Size         Type   Attr      Idx    E Section Name        Object
+
+    0x4003802c   0x00000001   Zero   RW           45    .ARM.__AT_0x4003802C  bootuart.o
+
+
+
+  Load Region LR$$.ARM.__AT_0x40038030 (Base: 0x40038030, Size: 0x00000000, Max: 0x00000004, ABSOLUTE)
+
+    Execution Region ER$$.ARM.__AT_0x40038030 (Base: 0x40038030, Size: 0x00000004, Max: 0x00000004, ABSOLUTE, UNINIT)
+
+    Base Addr    Size         Type   Attr      Idx    E Section Name        Object
+
+    0x40038030   0x00000002   Zero   RW           46    .ARM.__AT_0x40038030  bootuart.o
+
+
+
+  Load Region LR$$.ARM.__AT_0x40038034 (Base: 0x40038034, Size: 0x00000000, Max: 0x00000004, ABSOLUTE)
+
+    Execution Region ER$$.ARM.__AT_0x40038034 (Base: 0x40038034, Size: 0x00000004, Max: 0x00000004, ABSOLUTE, UNINIT)
+
+    Base Addr    Size         Type   Attr      Idx    E Section Name        Object
+
+    0x40038034   0x00000001   Zero   RW           47    .ARM.__AT_0x40038034  bootuart.o
+
+
+
+  Load Region LR$$.ARM.__AT_0x40038038 (Base: 0x40038038, Size: 0x00000000, Max: 0x00000004, ABSOLUTE)
+
+    Execution Region ER$$.ARM.__AT_0x40038038 (Base: 0x40038038, Size: 0x00000004, Max: 0x00000004, ABSOLUTE, UNINIT)
+
+    Base Addr    Size         Type   Attr      Idx    E Section Name        Object
+
+    0x40038038   0x00000002   Zero   RW           48    .ARM.__AT_0x40038038  bootuart.o
+
+
+
+  Load Region LR$$.ARM.__AT_0x4003803C (Base: 0x4003803c, Size: 0x00000000, Max: 0x00000004, ABSOLUTE)
+
+    Execution Region ER$$.ARM.__AT_0x4003803C (Base: 0x4003803c, Size: 0x00000004, Max: 0x00000004, ABSOLUTE, UNINIT)
+
+    Base Addr    Size         Type   Attr      Idx    E Section Name        Object
+
+    0x4003803c   0x00000002   Zero   RW           49    .ARM.__AT_0x4003803C  bootuart.o
+
+
+
+  Load Region LR$$.ARM.__AT_0x40038040 (Base: 0x40038040, Size: 0x00000000, Max: 0x00000004, ABSOLUTE)
+
+    Execution Region ER$$.ARM.__AT_0x40038040 (Base: 0x40038040, Size: 0x00000004, Max: 0x00000004, ABSOLUTE, UNINIT)
+
+    Base Addr    Size         Type   Attr      Idx    E Section Name        Object
+
+    0x40038040   0x00000002   Zero   RW           50    .ARM.__AT_0x40038040  bootuart.o
+
+
+
+  Load Region LR$$.ARM.__AT_0x40038044 (Base: 0x40038044, Size: 0x00000000, Max: 0x00000004, ABSOLUTE)
+
+    Execution Region ER$$.ARM.__AT_0x40038044 (Base: 0x40038044, Size: 0x00000004, Max: 0x00000004, ABSOLUTE, UNINIT)
+
+    Base Addr    Size         Type   Attr      Idx    E Section Name        Object
+
+    0x40038044   0x00000002   Zero   RW           51    .ARM.__AT_0x40038044  bootuart.o
+
+
+
+  Load Region LR$$.ARM.__AT_0x40038048 (Base: 0x40038048, Size: 0x00000000, Max: 0x00000004, ABSOLUTE)
+
+    Execution Region ER$$.ARM.__AT_0x40038048 (Base: 0x40038048, Size: 0x00000004, Max: 0x00000004, ABSOLUTE, UNINIT)
+
+    Base Addr    Size         Type   Attr      Idx    E Section Name        Object
+
+    0x40038048   0x00000001   Zero   RW           52    .ARM.__AT_0x40038048  bootuart.o
+
+
+
+  Load Region LR$$.ARM.__AT_0x40040000 (Base: 0x40040000, Size: 0x00000000, Max: 0x00000004, ABSOLUTE)
+
+    Execution Region ER$$.ARM.__AT_0x40040000 (Base: 0x40040000, Size: 0x00000004, Max: 0x00000004, ABSOLUTE, UNINIT)
+
+    Base Addr    Size         Type   Attr      Idx    E Section Name        Object
+
+    0x40040000   0x00000002   Zero   RW           53    .ARM.__AT_0x40040000  bootuart.o
+
+
+
+  Load Region LR$$.ARM.__AT_0x40040004 (Base: 0x40040004, Size: 0x00000000, Max: 0x00000004, ABSOLUTE)
+
+    Execution Region ER$$.ARM.__AT_0x40040004 (Base: 0x40040004, Size: 0x00000004, Max: 0x00000004, ABSOLUTE, UNINIT)
+
+    Base Addr    Size         Type   Attr      Idx    E Section Name        Object
+
+    0x40040004   0x00000001   Zero   RW           54    .ARM.__AT_0x40040004  bootuart.o
+
+
+
+  Load Region LR$$.ARM.__AT_0x40040008 (Base: 0x40040008, Size: 0x00000000, Max: 0x00000004, ABSOLUTE)
+
+    Execution Region ER$$.ARM.__AT_0x40040008 (Base: 0x40040008, Size: 0x00000004, Max: 0x00000004, ABSOLUTE, UNINIT)
+
+    Base Addr    Size         Type   Attr      Idx    E Section Name        Object
+
+    0x40040008   0x00000002   Zero   RW           55    .ARM.__AT_0x40040008  bootuart.o
+
+
+
+  Load Region LR$$.ARM.__AT_0x4004000C (Base: 0x4004000c, Size: 0x00000000, Max: 0x00000004, ABSOLUTE)
+
+    Execution Region ER$$.ARM.__AT_0x4004000C (Base: 0x4004000c, Size: 0x00000004, Max: 0x00000004, ABSOLUTE, UNINIT)
+
+    Base Addr    Size         Type   Attr      Idx    E Section Name        Object
+
+    0x4004000c   0x00000001   Zero   RW           56    .ARM.__AT_0x4004000C  bootuart.o
+
+
+
+  Load Region LR$$.ARM.__AT_0x40040010 (Base: 0x40040010, Size: 0x00000000, Max: 0x00000004, ABSOLUTE)
+
+    Execution Region ER$$.ARM.__AT_0x40040010 (Base: 0x40040010, Size: 0x00000004, Max: 0x00000004, ABSOLUTE, UNINIT)
+
+    Base Addr    Size         Type   Attr      Idx    E Section Name        Object
+
+    0x40040010   0x00000002   Zero   RW           57    .ARM.__AT_0x40040010  bootuart.o
+
+
+
+  Load Region LR$$.ARM.__AT_0x40040014 (Base: 0x40040014, Size: 0x00000000, Max: 0x00000004, ABSOLUTE)
+
+    Execution Region ER$$.ARM.__AT_0x40040014 (Base: 0x40040014, Size: 0x00000004, Max: 0x00000004, ABSOLUTE, UNINIT)
+
+    Base Addr    Size         Type   Attr      Idx    E Section Name        Object
+
+    0x40040014   0x00000001   Zero   RW           58    .ARM.__AT_0x40040014  bootuart.o
+
+
+
+  Load Region LR$$.ARM.__AT_0x40040018 (Base: 0x40040018, Size: 0x00000000, Max: 0x00000004, ABSOLUTE)
+
+    Execution Region ER$$.ARM.__AT_0x40040018 (Base: 0x40040018, Size: 0x00000004, Max: 0x00000004, ABSOLUTE, UNINIT)
+
+    Base Addr    Size         Type   Attr      Idx    E Section Name        Object
+
+    0x40040018   0x00000001   Zero   RW           59    .ARM.__AT_0x40040018  bootuart.o
+
+
+
+  Load Region LR$$.ARM.__AT_0x4004001C (Base: 0x4004001c, Size: 0x00000000, Max: 0x00000004, ABSOLUTE)
+
+    Execution Region ER$$.ARM.__AT_0x4004001C (Base: 0x4004001c, Size: 0x00000004, Max: 0x00000004, ABSOLUTE, UNINIT)
+
+    Base Addr    Size         Type   Attr      Idx    E Section Name        Object
+
+    0x4004001c   0x00000001   Zero   RW           60    .ARM.__AT_0x4004001C  bootuart.o
+
+
+
+  Load Region LR$$.ARM.__AT_0x40040020 (Base: 0x40040020, Size: 0x00000000, Max: 0x00000004, ABSOLUTE)
+
+    Execution Region ER$$.ARM.__AT_0x40040020 (Base: 0x40040020, Size: 0x00000004, Max: 0x00000004, ABSOLUTE, UNINIT)
+
+    Base Addr    Size         Type   Attr      Idx    E Section Name        Object
+
+    0x40040020   0x00000001   Zero   RW           61    .ARM.__AT_0x40040020  bootuart.o
+
+
+
+  Load Region LR$$.ARM.__AT_0x40040024 (Base: 0x40040024, Size: 0x00000000, Max: 0x00000004, ABSOLUTE)
+
+    Execution Region ER$$.ARM.__AT_0x40040024 (Base: 0x40040024, Size: 0x00000004, Max: 0x00000004, ABSOLUTE, UNINIT)
+
+    Base Addr    Size         Type   Attr      Idx    E Section Name        Object
+
+    0x40040024   0x00000001   Zero   RW           62    .ARM.__AT_0x40040024  bootuart.o
+
+
+
+  Load Region LR$$.ARM.__AT_0x40050000 (Base: 0x40050000, Size: 0x00000000, Max: 0x00000004, ABSOLUTE)
+
+    Execution Region ER$$.ARM.__AT_0x40050000 (Base: 0x40050000, Size: 0x00000004, Max: 0x00000004, ABSOLUTE, UNINIT)
+
+    Base Addr    Size         Type   Attr      Idx    E Section Name        Object
+
+    0x40050000   0x00000001   Zero   RW           63    .ARM.__AT_0x40050000  bootuart.o
+
+
+
+  Load Region LR$$.ARM.__AT_0x40050004 (Base: 0x40050004, Size: 0x00000000, Max: 0x00000004, ABSOLUTE)
+
+    Execution Region ER$$.ARM.__AT_0x40050004 (Base: 0x40050004, Size: 0x00000004, Max: 0x00000004, ABSOLUTE, UNINIT)
+
+    Base Addr    Size         Type   Attr      Idx    E Section Name        Object
+
+    0x40050004   0x00000001   Zero   RW           64    .ARM.__AT_0x40050004  bootuart.o
+
+
+
+  Load Region LR$$.ARM.__AT_0x40050008 (Base: 0x40050008, Size: 0x00000000, Max: 0x00000004, ABSOLUTE)
+
+    Execution Region ER$$.ARM.__AT_0x40050008 (Base: 0x40050008, Size: 0x00000004, Max: 0x00000004, ABSOLUTE, UNINIT)
+
+    Base Addr    Size         Type   Attr      Idx    E Section Name        Object
+
+    0x40050008   0x00000001   Zero   RW           65    .ARM.__AT_0x40050008  bootuart.o
+
+
+
+  Load Region LR$$.ARM.__AT_0x4005000C (Base: 0x4005000c, Size: 0x00000000, Max: 0x00000004, ABSOLUTE)
+
+    Execution Region ER$$.ARM.__AT_0x4005000C (Base: 0x4005000c, Size: 0x00000004, Max: 0x00000004, ABSOLUTE, UNINIT)
+
+    Base Addr    Size         Type   Attr      Idx    E Section Name        Object
+
+    0x4005000c   0x00000001   Zero   RW           66    .ARM.__AT_0x4005000C  bootuart.o
+
+
+
+  Load Region LR$$.ARM.__AT_0x40050010 (Base: 0x40050010, Size: 0x00000000, Max: 0x00000004, ABSOLUTE)
+
+    Execution Region ER$$.ARM.__AT_0x40050010 (Base: 0x40050010, Size: 0x00000004, Max: 0x00000004, ABSOLUTE, UNINIT)
+
+    Base Addr    Size         Type   Attr      Idx    E Section Name        Object
+
+    0x40050010   0x00000001   Zero   RW           67    .ARM.__AT_0x40050010  bootuart.o
+
+
+
+  Load Region LR$$.ARM.__AT_0x40050014 (Base: 0x40050014, Size: 0x00000000, Max: 0x00000004, ABSOLUTE)
+
+    Execution Region ER$$.ARM.__AT_0x40050014 (Base: 0x40050014, Size: 0x00000004, Max: 0x00000004, ABSOLUTE, UNINIT)
+
+    Base Addr    Size         Type   Attr      Idx    E Section Name        Object
+
+    0x40050014   0x00000001   Zero   RW           68    .ARM.__AT_0x40050014  bootuart.o
+
+
+
+  Load Region LR$$.ARM.__AT_0x40050018 (Base: 0x40050018, Size: 0x00000000, Max: 0x00000004, ABSOLUTE)
+
+    Execution Region ER$$.ARM.__AT_0x40050018 (Base: 0x40050018, Size: 0x00000004, Max: 0x00000004, ABSOLUTE, UNINIT)
+
+    Base Addr    Size         Type   Attr      Idx    E Section Name        Object
+
+    0x40050018   0x00000001   Zero   RW           69    .ARM.__AT_0x40050018  bootuart.o
+
+
+
+  Load Region LR$$.ARM.__AT_0x40070000 (Base: 0x40070000, Size: 0x00000000, Max: 0x00000004, ABSOLUTE)
+
+    Execution Region ER$$.ARM.__AT_0x40070000 (Base: 0x40070000, Size: 0x00000004, Max: 0x00000004, ABSOLUTE, UNINIT)
+
+    Base Addr    Size         Type   Attr      Idx    E Section Name        Object
+
+    0x40070000   0x00000002   Zero   RW           70    .ARM.__AT_0x40070000  bootuart.o
+
+
+
+  Load Region LR$$.ARM.__AT_0x40070004 (Base: 0x40070004, Size: 0x00000000, Max: 0x00000004, ABSOLUTE)
+
+    Execution Region ER$$.ARM.__AT_0x40070004 (Base: 0x40070004, Size: 0x00000004, Max: 0x00000004, ABSOLUTE, UNINIT)
+
+    Base Addr    Size         Type   Attr      Idx    E Section Name        Object
+
+    0x40070004   0x00000002   Zero   RW           71    .ARM.__AT_0x40070004  bootuart.o
+
+
+
+  Load Region LR$$.ARM.__AT_0x40070008 (Base: 0x40070008, Size: 0x00000000, Max: 0x00000004, ABSOLUTE)
+
+    Execution Region ER$$.ARM.__AT_0x40070008 (Base: 0x40070008, Size: 0x00000004, Max: 0x00000004, ABSOLUTE, UNINIT)
+
+    Base Addr    Size         Type   Attr      Idx    E Section Name        Object
+
+    0x40070008   0x00000002   Zero   RW           72    .ARM.__AT_0x40070008  bootuart.o
+
+
+
+  Load Region LR$$.ARM.__AT_0x4007000C (Base: 0x4007000c, Size: 0x00000000, Max: 0x00000004, ABSOLUTE)
+
+    Execution Region ER$$.ARM.__AT_0x4007000C (Base: 0x4007000c, Size: 0x00000004, Max: 0x00000004, ABSOLUTE, UNINIT)
+
+    Base Addr    Size         Type   Attr      Idx    E Section Name        Object
+
+    0x4007000c   0x00000002   Zero   RW           73    .ARM.__AT_0x4007000C  bootuart.o
+
+
+
+  Load Region LR$$.ARM.__AT_0x40070010 (Base: 0x40070010, Size: 0x00000000, Max: 0x00000010, ABSOLUTE)
+
+    Execution Region ER$$.ARM.__AT_0x40070010 (Base: 0x40070010, Size: 0x00000010, Max: 0x00000010, ABSOLUTE, UNINIT)
+
+    Base Addr    Size         Type   Attr      Idx    E Section Name        Object
+
+    0x40070010   0x00000010   Zero   RW           74    .ARM.__AT_0x40070010  bootuart.o
+
+
+
+  Load Region LR$$.ARM.__AT_0x40070020 (Base: 0x40070020, Size: 0x00000000, Max: 0x00000010, ABSOLUTE)
+
+    Execution Region ER$$.ARM.__AT_0x40070020 (Base: 0x40070020, Size: 0x00000010, Max: 0x00000010, ABSOLUTE, UNINIT)
+
+    Base Addr    Size         Type   Attr      Idx    E Section Name        Object
+
+    0x40070020   0x00000010   Zero   RW           75    .ARM.__AT_0x40070020  bootuart.o
+
+
+
+  Load Region LR$$.ARM.__AT_0x40070030 (Base: 0x40070030, Size: 0x00000000, Max: 0x00000010, ABSOLUTE)
+
+    Execution Region ER$$.ARM.__AT_0x40070030 (Base: 0x40070030, Size: 0x00000010, Max: 0x00000010, ABSOLUTE, UNINIT)
+
+    Base Addr    Size         Type   Attr      Idx    E Section Name        Object
+
+    0x40070030   0x00000010   Zero   RW           76    .ARM.__AT_0x40070030  bootuart.o
+
+
+
+  Load Region LR$$.ARM.__AT_0x40070040 (Base: 0x40070040, Size: 0x00000000, Max: 0x00000010, ABSOLUTE)
+
+    Execution Region ER$$.ARM.__AT_0x40070040 (Base: 0x40070040, Size: 0x00000010, Max: 0x00000010, ABSOLUTE, UNINIT)
+
+    Base Addr    Size         Type   Attr      Idx    E Section Name        Object
+
+    0x40070040   0x00000010   Zero   RW           77    .ARM.__AT_0x40070040  bootuart.o
+
+
+
+  Load Region LR$$.ARM.__AT_0x40070050 (Base: 0x40070050, Size: 0x00000000, Max: 0x00000004, ABSOLUTE)
+
+    Execution Region ER$$.ARM.__AT_0x40070050 (Base: 0x40070050, Size: 0x00000004, Max: 0x00000004, ABSOLUTE, UNINIT)
+
+    Base Addr    Size         Type   Attr      Idx    E Section Name        Object
+
+    0x40070050   0x00000001   Zero   RW           78    .ARM.__AT_0x40070050  bootuart.o
+
+
+
+  Load Region LR$$.ARM.__AT_0x40070054 (Base: 0x40070054, Size: 0x00000000, Max: 0x00000004, ABSOLUTE)
+
+    Execution Region ER$$.ARM.__AT_0x40070054 (Base: 0x40070054, Size: 0x00000004, Max: 0x00000004, ABSOLUTE, UNINIT)
+
+    Base Addr    Size         Type   Attr      Idx    E Section Name        Object
+
+    0x40070054   0x00000004   Zero   RW           79    .ARM.__AT_0x40070054  bootuart.o
+
+
+
+  Load Region LR$$.ARM.__AT_0x40070058 (Base: 0x40070058, Size: 0x00000000, Max: 0x00000004, ABSOLUTE)
+
+    Execution Region ER$$.ARM.__AT_0x40070058 (Base: 0x40070058, Size: 0x00000004, Max: 0x00000004, ABSOLUTE, UNINIT)
+
+    Base Addr    Size         Type   Attr      Idx    E Section Name        Object
+
+    0x40070058   0x00000004   Zero   RW           80    .ARM.__AT_0x40070058  bootuart.o
+
+
+
+  Load Region LR$$.ARM.__AT_0x4007005C (Base: 0x4007005c, Size: 0x00000000, Max: 0x00000004, ABSOLUTE)
+
+    Execution Region ER$$.ARM.__AT_0x4007005C (Base: 0x4007005c, Size: 0x00000004, Max: 0x00000004, ABSOLUTE, UNINIT)
+
+    Base Addr    Size         Type   Attr      Idx    E Section Name        Object
+
+    0x4007005c   0x00000004   Zero   RW           81    .ARM.__AT_0x4007005C  bootuart.o
+
+
+
+  Load Region LR$$.ARM.__AT_0x40070060 (Base: 0x40070060, Size: 0x00000000, Max: 0x00000010, ABSOLUTE)
+
+    Execution Region ER$$.ARM.__AT_0x40070060 (Base: 0x40070060, Size: 0x00000010, Max: 0x00000010, ABSOLUTE, UNINIT)
+
+    Base Addr    Size         Type   Attr      Idx    E Section Name        Object
+
+    0x40070060   0x00000010   Zero   RW           82    .ARM.__AT_0x40070060  bootuart.o
+
+
+
+  Load Region LR$$.ARM.__AT_0x40070070 (Base: 0x40070070, Size: 0x00000000, Max: 0x00000010, ABSOLUTE)
+
+    Execution Region ER$$.ARM.__AT_0x40070070 (Base: 0x40070070, Size: 0x00000010, Max: 0x00000010, ABSOLUTE, UNINIT)
+
+    Base Addr    Size         Type   Attr      Idx    E Section Name        Object
+
+    0x40070070   0x00000010   Zero   RW           83    .ARM.__AT_0x40070070  bootuart.o
+
+
+
+  Load Region LR$$.ARM.__AT_0x40078000 (Base: 0x40078000, Size: 0x00000000, Max: 0x00000004, ABSOLUTE)
+
+    Execution Region ER$$.ARM.__AT_0x40078000 (Base: 0x40078000, Size: 0x00000004, Max: 0x00000004, ABSOLUTE, UNINIT)
+
+    Base Addr    Size         Type   Attr      Idx    E Section Name        Object
+
+    0x40078000   0x00000002   Zero   RW           84    .ARM.__AT_0x40078000  bootuart.o
+
+
+
+  Load Region LR$$.ARM.__AT_0x40078004 (Base: 0x40078004, Size: 0x00000000, Max: 0x00000004, ABSOLUTE)
+
+    Execution Region ER$$.ARM.__AT_0x40078004 (Base: 0x40078004, Size: 0x00000004, Max: 0x00000004, ABSOLUTE, UNINIT)
+
+    Base Addr    Size         Type   Attr      Idx    E Section Name        Object
+
+    0x40078004   0x00000002   Zero   RW           85    .ARM.__AT_0x40078004  bootuart.o
+
+
+
+  Load Region LR$$.ARM.__AT_0x40078008 (Base: 0x40078008, Size: 0x00000000, Max: 0x00000004, ABSOLUTE)
+
+    Execution Region ER$$.ARM.__AT_0x40078008 (Base: 0x40078008, Size: 0x00000004, Max: 0x00000004, ABSOLUTE, UNINIT)
+
+    Base Addr    Size         Type   Attr      Idx    E Section Name        Object
+
+    0x40078008   0x00000002   Zero   RW           86    .ARM.__AT_0x40078008  bootuart.o
+
+
+
+  Load Region LR$$.ARM.__AT_0x4007800C (Base: 0x4007800c, Size: 0x00000000, Max: 0x00000004, ABSOLUTE)
+
+    Execution Region ER$$.ARM.__AT_0x4007800C (Base: 0x4007800c, Size: 0x00000004, Max: 0x00000004, ABSOLUTE, UNINIT)
+
+    Base Addr    Size         Type   Attr      Idx    E Section Name        Object
+
+    0x4007800c   0x00000002   Zero   RW           87    .ARM.__AT_0x4007800C  bootuart.o
+
+
+
+  Load Region LR$$.ARM.__AT_0x40078010 (Base: 0x40078010, Size: 0x00000000, Max: 0x00000010, ABSOLUTE)
+
+    Execution Region ER$$.ARM.__AT_0x40078010 (Base: 0x40078010, Size: 0x00000010, Max: 0x00000010, ABSOLUTE, UNINIT)
+
+    Base Addr    Size         Type   Attr      Idx    E Section Name        Object
+
+    0x40078010   0x00000010   Zero   RW           88    .ARM.__AT_0x40078010  bootuart.o
+
+
+
+  Load Region LR$$.ARM.__AT_0x40078020 (Base: 0x40078020, Size: 0x00000000, Max: 0x00000010, ABSOLUTE)
+
+    Execution Region ER$$.ARM.__AT_0x40078020 (Base: 0x40078020, Size: 0x00000010, Max: 0x00000010, ABSOLUTE, UNINIT)
+
+    Base Addr    Size         Type   Attr      Idx    E Section Name        Object
+
+    0x40078020   0x00000010   Zero   RW           89    .ARM.__AT_0x40078020  bootuart.o
+
+
+
+  Load Region LR$$.ARM.__AT_0x40078030 (Base: 0x40078030, Size: 0x00000000, Max: 0x00000010, ABSOLUTE)
+
+    Execution Region ER$$.ARM.__AT_0x40078030 (Base: 0x40078030, Size: 0x00000010, Max: 0x00000010, ABSOLUTE, UNINIT)
+
+    Base Addr    Size         Type   Attr      Idx    E Section Name        Object
+
+    0x40078030   0x00000010   Zero   RW           90    .ARM.__AT_0x40078030  bootuart.o
+
+
+
+  Load Region LR$$.ARM.__AT_0x40078040 (Base: 0x40078040, Size: 0x00000000, Max: 0x00000010, ABSOLUTE)
+
+    Execution Region ER$$.ARM.__AT_0x40078040 (Base: 0x40078040, Size: 0x00000010, Max: 0x00000010, ABSOLUTE, UNINIT)
+
+    Base Addr    Size         Type   Attr      Idx    E Section Name        Object
+
+    0x40078040   0x00000010   Zero   RW           91    .ARM.__AT_0x40078040  bootuart.o
+
+
+
+  Load Region LR$$.ARM.__AT_0x40078050 (Base: 0x40078050, Size: 0x00000000, Max: 0x00000004, ABSOLUTE)
+
+    Execution Region ER$$.ARM.__AT_0x40078050 (Base: 0x40078050, Size: 0x00000004, Max: 0x00000004, ABSOLUTE, UNINIT)
+
+    Base Addr    Size         Type   Attr      Idx    E Section Name        Object
+
+    0x40078050   0x00000001   Zero   RW           92    .ARM.__AT_0x40078050  bootuart.o
+
+
+
+  Load Region LR$$.ARM.__AT_0x40078054 (Base: 0x40078054, Size: 0x00000000, Max: 0x00000004, ABSOLUTE)
+
+    Execution Region ER$$.ARM.__AT_0x40078054 (Base: 0x40078054, Size: 0x00000004, Max: 0x00000004, ABSOLUTE, UNINIT)
+
+    Base Addr    Size         Type   Attr      Idx    E Section Name        Object
+
+    0x40078054   0x00000004   Zero   RW           93    .ARM.__AT_0x40078054  bootuart.o
+
+
+
+  Load Region LR$$.ARM.__AT_0x40078058 (Base: 0x40078058, Size: 0x00000000, Max: 0x00000004, ABSOLUTE)
+
+    Execution Region ER$$.ARM.__AT_0x40078058 (Base: 0x40078058, Size: 0x00000004, Max: 0x00000004, ABSOLUTE, UNINIT)
+
+    Base Addr    Size         Type   Attr      Idx    E Section Name        Object
+
+    0x40078058   0x00000004   Zero   RW           94    .ARM.__AT_0x40078058  bootuart.o
+
+
+
+  Load Region LR$$.ARM.__AT_0x4007805C (Base: 0x4007805c, Size: 0x00000000, Max: 0x00000004, ABSOLUTE)
+
+    Execution Region ER$$.ARM.__AT_0x4007805C (Base: 0x4007805c, Size: 0x00000004, Max: 0x00000004, ABSOLUTE, UNINIT)
+
+    Base Addr    Size         Type   Attr      Idx    E Section Name        Object
+
+    0x4007805c   0x00000004   Zero   RW           95    .ARM.__AT_0x4007805C  bootuart.o
+
+
+
+  Load Region LR$$.ARM.__AT_0x40078060 (Base: 0x40078060, Size: 0x00000000, Max: 0x00000010, ABSOLUTE)
+
+    Execution Region ER$$.ARM.__AT_0x40078060 (Base: 0x40078060, Size: 0x00000010, Max: 0x00000010, ABSOLUTE, UNINIT)
+
+    Base Addr    Size         Type   Attr      Idx    E Section Name        Object
+
+    0x40078060   0x00000010   Zero   RW           96    .ARM.__AT_0x40078060  bootuart.o
+
+
+
+  Load Region LR$$.ARM.__AT_0x40078070 (Base: 0x40078070, Size: 0x00000000, Max: 0x00000010, ABSOLUTE)
+
+    Execution Region ER$$.ARM.__AT_0x40078070 (Base: 0x40078070, Size: 0x00000010, Max: 0x00000010, ABSOLUTE, UNINIT)
+
+    Base Addr    Size         Type   Attr      Idx    E Section Name        Object
+
+    0x40078070   0x00000010   Zero   RW           97    .ARM.__AT_0x40078070  bootuart.o
+
+
+
+  Load Region LR$$.ARM.__AT_0x40080000 (Base: 0x40080000, Size: 0x00000000, Max: 0x00000004, ABSOLUTE)
+
+    Execution Region ER$$.ARM.__AT_0x40080000 (Base: 0x40080000, Size: 0x00000004, Max: 0x00000004, ABSOLUTE, UNINIT)
+
+    Base Addr    Size         Type   Attr      Idx    E Section Name        Object
+
+    0x40080000   0x00000002   Zero   RW           98    .ARM.__AT_0x40080000  bootuart.o
+
+
+
+  Load Region LR$$.ARM.__AT_0x40080004 (Base: 0x40080004, Size: 0x00000000, Max: 0x00000004, ABSOLUTE)
+
+    Execution Region ER$$.ARM.__AT_0x40080004 (Base: 0x40080004, Size: 0x00000004, Max: 0x00000004, ABSOLUTE, UNINIT)
+
+    Base Addr    Size         Type   Attr      Idx    E Section Name        Object
+
+    0x40080004   0x00000002   Zero   RW           99    .ARM.__AT_0x40080004  bootuart.o
+
+
+
+  Load Region LR$$.ARM.__AT_0x40080008 (Base: 0x40080008, Size: 0x00000000, Max: 0x00000004, ABSOLUTE)
+
+    Execution Region ER$$.ARM.__AT_0x40080008 (Base: 0x40080008, Size: 0x00000004, Max: 0x00000004, ABSOLUTE, UNINIT)
+
+    Base Addr    Size         Type   Attr      Idx    E Section Name        Object
+
+    0x40080008   0x00000002   Zero   RW          100    .ARM.__AT_0x40080008  bootuart.o
+
+
+
+  Load Region LR$$.ARM.__AT_0x4008000C (Base: 0x4008000c, Size: 0x00000000, Max: 0x00000004, ABSOLUTE)
+
+    Execution Region ER$$.ARM.__AT_0x4008000C (Base: 0x4008000c, Size: 0x00000004, Max: 0x00000004, ABSOLUTE, UNINIT)
+
+    Base Addr    Size         Type   Attr      Idx    E Section Name        Object
+
+    0x4008000c   0x00000002   Zero   RW          101    .ARM.__AT_0x4008000C  bootuart.o
+
+
+
+  Load Region LR$$.ARM.__AT_0x40080010 (Base: 0x40080010, Size: 0x00000000, Max: 0x00000010, ABSOLUTE)
+
+    Execution Region ER$$.ARM.__AT_0x40080010 (Base: 0x40080010, Size: 0x00000010, Max: 0x00000010, ABSOLUTE, UNINIT)
+
+    Base Addr    Size         Type   Attr      Idx    E Section Name        Object
+
+    0x40080010   0x00000010   Zero   RW          102    .ARM.__AT_0x40080010  bootuart.o
+
+
+
+  Load Region LR$$.ARM.__AT_0x40080020 (Base: 0x40080020, Size: 0x00000000, Max: 0x00000010, ABSOLUTE)
+
+    Execution Region ER$$.ARM.__AT_0x40080020 (Base: 0x40080020, Size: 0x00000010, Max: 0x00000010, ABSOLUTE, UNINIT)
+
+    Base Addr    Size         Type   Attr      Idx    E Section Name        Object
+
+    0x40080020   0x00000010   Zero   RW          103    .ARM.__AT_0x40080020  bootuart.o
+
+
+
+  Load Region LR$$.ARM.__AT_0x40080030 (Base: 0x40080030, Size: 0x00000000, Max: 0x00000010, ABSOLUTE)
+
+    Execution Region ER$$.ARM.__AT_0x40080030 (Base: 0x40080030, Size: 0x00000010, Max: 0x00000010, ABSOLUTE, UNINIT)
+
+    Base Addr    Size         Type   Attr      Idx    E Section Name        Object
+
+    0x40080030   0x00000010   Zero   RW          104    .ARM.__AT_0x40080030  bootuart.o
+
+
+
+  Load Region LR$$.ARM.__AT_0x40080040 (Base: 0x40080040, Size: 0x00000000, Max: 0x00000010, ABSOLUTE)
+
+    Execution Region ER$$.ARM.__AT_0x40080040 (Base: 0x40080040, Size: 0x00000010, Max: 0x00000010, ABSOLUTE, UNINIT)
+
+    Base Addr    Size         Type   Attr      Idx    E Section Name        Object
+
+    0x40080040   0x00000010   Zero   RW          105    .ARM.__AT_0x40080040  bootuart.o
+
+
+
+  Load Region LR$$.ARM.__AT_0x40080050 (Base: 0x40080050, Size: 0x00000000, Max: 0x00000004, ABSOLUTE)
+
+    Execution Region ER$$.ARM.__AT_0x40080050 (Base: 0x40080050, Size: 0x00000004, Max: 0x00000004, ABSOLUTE, UNINIT)
+
+    Base Addr    Size         Type   Attr      Idx    E Section Name        Object
+
+    0x40080050   0x00000001   Zero   RW          106    .ARM.__AT_0x40080050  bootuart.o
+
+
+
+  Load Region LR$$.ARM.__AT_0x40080054 (Base: 0x40080054, Size: 0x00000000, Max: 0x00000004, ABSOLUTE)
+
+    Execution Region ER$$.ARM.__AT_0x40080054 (Base: 0x40080054, Size: 0x00000004, Max: 0x00000004, ABSOLUTE, UNINIT)
+
+    Base Addr    Size         Type   Attr      Idx    E Section Name        Object
+
+    0x40080054   0x00000004   Zero   RW          107    .ARM.__AT_0x40080054  bootuart.o
+
+
+
+  Load Region LR$$.ARM.__AT_0x40080058 (Base: 0x40080058, Size: 0x00000000, Max: 0x00000004, ABSOLUTE)
+
+    Execution Region ER$$.ARM.__AT_0x40080058 (Base: 0x40080058, Size: 0x00000004, Max: 0x00000004, ABSOLUTE, UNINIT)
+
+    Base Addr    Size         Type   Attr      Idx    E Section Name        Object
+
+    0x40080058   0x00000004   Zero   RW          108    .ARM.__AT_0x40080058  bootuart.o
+
+
+
+  Load Region LR$$.ARM.__AT_0x4008005C (Base: 0x4008005c, Size: 0x00000000, Max: 0x00000004, ABSOLUTE)
+
+    Execution Region ER$$.ARM.__AT_0x4008005C (Base: 0x4008005c, Size: 0x00000004, Max: 0x00000004, ABSOLUTE, UNINIT)
+
+    Base Addr    Size         Type   Attr      Idx    E Section Name        Object
+
+    0x4008005c   0x00000004   Zero   RW          109    .ARM.__AT_0x4008005C  bootuart.o
+
+
+
+  Load Region LR$$.ARM.__AT_0x40080060 (Base: 0x40080060, Size: 0x00000000, Max: 0x00000010, ABSOLUTE)
+
+    Execution Region ER$$.ARM.__AT_0x40080060 (Base: 0x40080060, Size: 0x00000010, Max: 0x00000010, ABSOLUTE, UNINIT)
+
+    Base Addr    Size         Type   Attr      Idx    E Section Name        Object
+
+    0x40080060   0x00000010   Zero   RW          110    .ARM.__AT_0x40080060  bootuart.o
+
+
+
+  Load Region LR$$.ARM.__AT_0x40080070 (Base: 0x40080070, Size: 0x00000000, Max: 0x00000010, ABSOLUTE)
+
+    Execution Region ER$$.ARM.__AT_0x40080070 (Base: 0x40080070, Size: 0x00000010, Max: 0x00000010, ABSOLUTE, UNINIT)
+
+    Base Addr    Size         Type   Attr      Idx    E Section Name        Object
+
+    0x40080070   0x00000010   Zero   RW          111    .ARM.__AT_0x40080070  bootuart.o
+
+
+
+  Load Region LR$$.ARM.__AT_0x40090000 (Base: 0x40090000, Size: 0x00000000, Max: 0x00000004, ABSOLUTE)
+
+    Execution Region ER$$.ARM.__AT_0x40090000 (Base: 0x40090000, Size: 0x00000004, Max: 0x00000004, ABSOLUTE, UNINIT)
+
+    Base Addr    Size         Type   Attr      Idx    E Section Name        Object
+
+    0x40090000   0x00000001   Zero   RW          112    .ARM.__AT_0x40090000  bootuart.o
+
+
+
+  Load Region LR$$.ARM.__AT_0x40090004 (Base: 0x40090004, Size: 0x00000000, Max: 0x00000004, ABSOLUTE)
+
+    Execution Region ER$$.ARM.__AT_0x40090004 (Base: 0x40090004, Size: 0x00000004, Max: 0x00000004, ABSOLUTE, UNINIT)
+
+    Base Addr    Size         Type   Attr      Idx    E Section Name        Object
+
+    0x40090004   0x00000004   Zero   RW          113    .ARM.__AT_0x40090004  bootuart.o
+
+
+
+  Load Region LR$$.ARM.__AT_0x40090008 (Base: 0x40090008, Size: 0x00000000, Max: 0x00000004, ABSOLUTE)
+
+    Execution Region ER$$.ARM.__AT_0x40090008 (Base: 0x40090008, Size: 0x00000004, Max: 0x00000004, ABSOLUTE, UNINIT)
+
+    Base Addr    Size         Type   Attr      Idx    E Section Name        Object
+
+    0x40090008   0x00000004   Zero   RW          114    .ARM.__AT_0x40090008  bootuart.o
+
+
+
+  Load Region LR$$.ARM.__AT_0x400A0000 (Base: 0x400a0000, Size: 0x00000000, Max: 0x00000004, ABSOLUTE)
+
+    Execution Region ER$$.ARM.__AT_0x400A0000 (Base: 0x400a0000, Size: 0x00000004, Max: 0x00000004, ABSOLUTE, UNINIT)
+
+    Base Addr    Size         Type   Attr      Idx    E Section Name        Object
+
+    0x400a0000   0x00000002   Zero   RW          115    .ARM.__AT_0x400A0000  bootuart.o
+
+
+
+  Load Region LR$$.ARM.__AT_0x400A0004 (Base: 0x400a0004, Size: 0x00000000, Max: 0x00000004, ABSOLUTE)
+
+    Execution Region ER$$.ARM.__AT_0x400A0004 (Base: 0x400a0004, Size: 0x00000004, Max: 0x00000004, ABSOLUTE, UNINIT)
+
+    Base Addr    Size         Type   Attr      Idx    E Section Name        Object
+
+    0x400a0004   0x00000001   Zero   RW          116    .ARM.__AT_0x400A0004  bootuart.o
+
+
+
+  Load Region LR$$.ARM.__AT_0x400A0008 (Base: 0x400a0008, Size: 0x00000000, Max: 0x00000004, ABSOLUTE)
+
+    Execution Region ER$$.ARM.__AT_0x400A0008 (Base: 0x400a0008, Size: 0x00000004, Max: 0x00000004, ABSOLUTE, UNINIT)
+
+    Base Addr    Size         Type   Attr      Idx    E Section Name        Object
+
+    0x400a0008   0x00000002   Zero   RW          117    .ARM.__AT_0x400A0008  bootuart.o
+
+
+
+  Load Region LR$$.ARM.__AT_0x400A000C (Base: 0x400a000c, Size: 0x00000000, Max: 0x00000004, ABSOLUTE)
+
+    Execution Region ER$$.ARM.__AT_0x400A000C (Base: 0x400a000c, Size: 0x00000004, Max: 0x00000004, ABSOLUTE, UNINIT)
+
+    Base Addr    Size         Type   Attr      Idx    E Section Name        Object
+
+    0x400a000c   0x00000001   Zero   RW          118    .ARM.__AT_0x400A000C  bootuart.o
+
+
+
+  Load Region LR$$.ARM.__AT_0x400A0010 (Base: 0x400a0010, Size: 0x00000000, Max: 0x00000004, ABSOLUTE)
+
+    Execution Region ER$$.ARM.__AT_0x400A0010 (Base: 0x400a0010, Size: 0x00000004, Max: 0x00000004, ABSOLUTE, UNINIT)
+
+    Base Addr    Size         Type   Attr      Idx    E Section Name        Object
+
+    0x400a0010   0x00000002   Zero   RW          119    .ARM.__AT_0x400A0010  bootuart.o
+
+
+
+  Load Region LR$$.ARM.__AT_0x400A0014 (Base: 0x400a0014, Size: 0x00000000, Max: 0x00000004, ABSOLUTE)
+
+    Execution Region ER$$.ARM.__AT_0x400A0014 (Base: 0x400a0014, Size: 0x00000004, Max: 0x00000004, ABSOLUTE, UNINIT)
+
+    Base Addr    Size         Type   Attr      Idx    E Section Name        Object
+
+    0x400a0014   0x00000001   Zero   RW          120    .ARM.__AT_0x400A0014  bootuart.o
+
+
+
+  Load Region LR$$.ARM.__AT_0x400A0018 (Base: 0x400a0018, Size: 0x00000000, Max: 0x00000004, ABSOLUTE)
+
+    Execution Region ER$$.ARM.__AT_0x400A0018 (Base: 0x400a0018, Size: 0x00000004, Max: 0x00000004, ABSOLUTE, UNINIT)
+
+    Base Addr    Size         Type   Attr      Idx    E Section Name        Object
+
+    0x400a0018   0x00000001   Zero   RW          121    .ARM.__AT_0x400A0018  bootuart.o
+
+
+
+  Load Region LR$$.ARM.__AT_0x400A001C (Base: 0x400a001c, Size: 0x00000000, Max: 0x00000004, ABSOLUTE)
+
+    Execution Region ER$$.ARM.__AT_0x400A001C (Base: 0x400a001c, Size: 0x00000004, Max: 0x00000004, ABSOLUTE, UNINIT)
+
+    Base Addr    Size         Type   Attr      Idx    E Section Name        Object
+
+    0x400a001c   0x00000001   Zero   RW          122    .ARM.__AT_0x400A001C  bootuart.o
+
+
+
+  Load Region LR$$.ARM.__AT_0x400A0020 (Base: 0x400a0020, Size: 0x00000000, Max: 0x00000004, ABSOLUTE)
+
+    Execution Region ER$$.ARM.__AT_0x400A0020 (Base: 0x400a0020, Size: 0x00000004, Max: 0x00000004, ABSOLUTE, UNINIT)
+
+    Base Addr    Size         Type   Attr      Idx    E Section Name        Object
+
+    0x400a0020   0x00000001   Zero   RW          123    .ARM.__AT_0x400A0020  bootuart.o
+
+
+
+  Load Region LR$$.ARM.__AT_0x400A0024 (Base: 0x400a0024, Size: 0x00000000, Max: 0x00000004, ABSOLUTE)
+
+    Execution Region ER$$.ARM.__AT_0x400A0024 (Base: 0x400a0024, Size: 0x00000004, Max: 0x00000004, ABSOLUTE, UNINIT)
+
+    Base Addr    Size         Type   Attr      Idx    E Section Name        Object
+
+    0x400a0024   0x00000001   Zero   RW          124    .ARM.__AT_0x400A0024  bootuart.o
+
+
+
+  Load Region LR$$.ARM.__AT_0x400A8008 (Base: 0x400a8008, Size: 0x00000000, Max: 0x00000004, ABSOLUTE)
+
+    Execution Region ER$$.ARM.__AT_0x400A8008 (Base: 0x400a8008, Size: 0x00000004, Max: 0x00000004, ABSOLUTE, UNINIT)
+
+    Base Addr    Size         Type   Attr      Idx    E Section Name        Object
+
+    0x400a8008   0x00000004   Zero   RW          125    .ARM.__AT_0x400A8008  bootuart.o
+
+
+
+  Load Region LR$$.ARM.__AT_0x400A8018 (Base: 0x400a8018, Size: 0x00000000, Max: 0x00000004, ABSOLUTE)
+
+    Execution Region ER$$.ARM.__AT_0x400A8018 (Base: 0x400a8018, Size: 0x00000004, Max: 0x00000004, ABSOLUTE, UNINIT)
+
+    Base Addr    Size         Type   Attr      Idx    E Section Name        Object
+
+    0x400a8018   0x00000004   Zero   RW          126    .ARM.__AT_0x400A8018  bootuart.o
+
+
+
+  Load Region LR$$.ARM.__AT_0x400B0008 (Base: 0x400b0008, Size: 0x00000000, Max: 0x00000004, ABSOLUTE)
+
+    Execution Region ER$$.ARM.__AT_0x400B0008 (Base: 0x400b0008, Size: 0x00000004, Max: 0x00000004, ABSOLUTE, UNINIT)
+
+    Base Addr    Size         Type   Attr      Idx    E Section Name        Object
+
+    0x400b0008   0x00000004   Zero   RW          127    .ARM.__AT_0x400B0008  bootuart.o
+
+
+
+  Load Region LR$$.ARM.__AT_0x400B0018 (Base: 0x400b0018, Size: 0x00000000, Max: 0x00000004, ABSOLUTE)
+
+    Execution Region ER$$.ARM.__AT_0x400B0018 (Base: 0x400b0018, Size: 0x00000004, Max: 0x00000004, ABSOLUTE, UNINIT)
+
+    Base Addr    Size         Type   Attr      Idx    E Section Name        Object
+
+    0x400b0018   0x00000004   Zero   RW          128    .ARM.__AT_0x400B0018  bootuart.o
+
+
+
+  Load Region LR$$.ARM.__AT_0x400B8008 (Base: 0x400b8008, Size: 0x00000000, Max: 0x00000004, ABSOLUTE)
+
+    Execution Region ER$$.ARM.__AT_0x400B8008 (Base: 0x400b8008, Size: 0x00000004, Max: 0x00000004, ABSOLUTE, UNINIT)
+
+    Base Addr    Size         Type   Attr      Idx    E Section Name        Object
+
+    0x400b8008   0x00000004   Zero   RW          129    .ARM.__AT_0x400B8008  bootuart.o
+
+
+
+  Load Region LR$$.ARM.__AT_0x400B8018 (Base: 0x400b8018, Size: 0x00000000, Max: 0x00000004, ABSOLUTE)
+
+    Execution Region ER$$.ARM.__AT_0x400B8018 (Base: 0x400b8018, Size: 0x00000004, Max: 0x00000004, ABSOLUTE, UNINIT)
+
+    Base Addr    Size         Type   Attr      Idx    E Section Name        Object
+
+    0x400b8018   0x00000004   Zero   RW          130    .ARM.__AT_0x400B8018  bootuart.o
+
+
+
+  Load Region LR$$.ARM.__AT_0x400C0008 (Base: 0x400c0008, Size: 0x00000000, Max: 0x00000004, ABSOLUTE)
+
+    Execution Region ER$$.ARM.__AT_0x400C0008 (Base: 0x400c0008, Size: 0x00000004, Max: 0x00000004, ABSOLUTE, UNINIT)
+
+    Base Addr    Size         Type   Attr      Idx    E Section Name        Object
+
+    0x400c0008   0x00000004   Zero   RW          131    .ARM.__AT_0x400C0008  bootuart.o
+
+
+
+  Load Region LR$$.ARM.__AT_0x400C0018 (Base: 0x400c0018, Size: 0x00000000, Max: 0x00000004, ABSOLUTE)
+
+    Execution Region ER$$.ARM.__AT_0x400C0018 (Base: 0x400c0018, Size: 0x00000004, Max: 0x00000004, ABSOLUTE, UNINIT)
+
+    Base Addr    Size         Type   Attr      Idx    E Section Name        Object
+
+    0x400c0018   0x00000004   Zero   RW          132    .ARM.__AT_0x400C0018  bootuart.o
+
+
+
+  Load Region LR$$.ARM.__AT_0x400C8008 (Base: 0x400c8008, Size: 0x00000000, Max: 0x00000004, ABSOLUTE)
+
+    Execution Region ER$$.ARM.__AT_0x400C8008 (Base: 0x400c8008, Size: 0x00000004, Max: 0x00000004, ABSOLUTE, UNINIT)
+
+    Base Addr    Size         Type   Attr      Idx    E Section Name        Object
+
+    0x400c8008   0x00000004   Zero   RW          133    .ARM.__AT_0x400C8008  bootuart.o
+
+
+
+  Load Region LR$$.ARM.__AT_0x400C8018 (Base: 0x400c8018, Size: 0x00000000, Max: 0x00000004, ABSOLUTE)
+
+    Execution Region ER$$.ARM.__AT_0x400C8018 (Base: 0x400c8018, Size: 0x00000004, Max: 0x00000004, ABSOLUTE, UNINIT)
+
+    Base Addr    Size         Type   Attr      Idx    E Section Name        Object
+
+    0x400c8018   0x00000004   Zero   RW          134    .ARM.__AT_0x400C8018  bootuart.o
+
+
+
+  Load Region LR$$.ARM.__AT_0x400E8008 (Base: 0x400e8008, Size: 0x00000000, Max: 0x00000004, ABSOLUTE)
+
+    Execution Region ER$$.ARM.__AT_0x400E8008 (Base: 0x400e8008, Size: 0x00000004, Max: 0x00000004, ABSOLUTE, UNINIT)
+
+    Base Addr    Size         Type   Attr      Idx    E Section Name        Object
+
+    0x400e8008   0x00000004   Zero   RW          135    .ARM.__AT_0x400E8008  bootuart.o
+
+
+
+  Load Region LR$$.ARM.__AT_0x400E8018 (Base: 0x400e8018, Size: 0x00000000, Max: 0x00000004, ABSOLUTE)
+
+    Execution Region ER$$.ARM.__AT_0x400E8018 (Base: 0x400e8018, Size: 0x00000004, Max: 0x00000004, ABSOLUTE, UNINIT)
+
+    Base Addr    Size         Type   Attr      Idx    E Section Name        Object
+
+    0x400e8018   0x00000004   Zero   RW          136    .ARM.__AT_0x400E8018  bootuart.o
+
+
+
+  Load Region LR$$.ARM.__AT_0x400F0050 (Base: 0x400f0050, Size: 0x00000000, Max: 0x00000004, ABSOLUTE)
+
+    Execution Region ER$$.ARM.__AT_0x400F0050 (Base: 0x400f0050, Size: 0x00000004, Max: 0x00000004, ABSOLUTE, UNINIT)
+
+    Base Addr    Size         Type   Attr      Idx    E Section Name        Object
+
+    0x400f0050   0x00000004   Zero   RW          137    .ARM.__AT_0x400F0050  bootuart.o
+
+
+
+  Load Region LR$$.ARM.__AT_0x400F0054 (Base: 0x400f0054, Size: 0x00000000, Max: 0x00000004, ABSOLUTE)
+
+    Execution Region ER$$.ARM.__AT_0x400F0054 (Base: 0x400f0054, Size: 0x00000004, Max: 0x00000004, ABSOLUTE, UNINIT)
+
+    Base Addr    Size         Type   Attr      Idx    E Section Name        Object
+
+    0x400f0054   0x00000002   Zero   RW          138    .ARM.__AT_0x400F0054  bootuart.o
+
+
+
+  Load Region LR$$.ARM.__AT_0x42400380 (Base: 0x42400380, Size: 0x00000000, Max: 0x00000080, ABSOLUTE)
+
+    Execution Region ER$$.ARM.__AT_0x42400380 (Base: 0x42400380, Size: 0x00000080, Max: 0x00000080, ABSOLUTE, UNINIT)
+
+    Base Addr    Size         Type   Attr      Idx    E Section Name        Object
+
+    0x42400380   0x00000080   Zero   RW          139    .ARM.__AT_0x42400380  bootuart.o
+
+
+
+  Load Region LR$$.ARM.__AT_0x42500200 (Base: 0x42500200, Size: 0x00000000, Max: 0x00000080, ABSOLUTE)
+
+    Execution Region ER$$.ARM.__AT_0x42500200 (Base: 0x42500200, Size: 0x00000080, Max: 0x00000080, ABSOLUTE, UNINIT)
+
+    Base Addr    Size         Type   Attr      Idx    E Section Name        Object
+
+    0x42500200   0x00000080   Zero   RW          140    .ARM.__AT_0x42500200  bootuart.o
+
+
+
+  Load Region LR$$.ARM.__AT_0x42500280 (Base: 0x42500280, Size: 0x00000000, Max: 0x00000080, ABSOLUTE)
+
+    Execution Region ER$$.ARM.__AT_0x42500280 (Base: 0x42500280, Size: 0x00000080, Max: 0x00000080, ABSOLUTE, UNINIT)
+
+    Base Addr    Size         Type   Attr      Idx    E Section Name        Object
+
+    0x42500280   0x00000080   Zero   RW          141    .ARM.__AT_0x42500280  bootuart.o
+
+
+
+  Load Region LR$$.ARM.__AT_0x42500300 (Base: 0x42500300, Size: 0x00000000, Max: 0x00000080, ABSOLUTE)
+
+    Execution Region ER$$.ARM.__AT_0x42500300 (Base: 0x42500300, Size: 0x00000080, Max: 0x00000080, ABSOLUTE, UNINIT)
+
+    Base Addr    Size         Type   Attr      Idx    E Section Name        Object
+
+    0x42500300   0x00000080   Zero   RW          142    .ARM.__AT_0x42500300  bootuart.o
+
+
+
+  Load Region LR$$.ARM.__AT_0x42500380 (Base: 0x42500380, Size: 0x00000000, Max: 0x00000080, ABSOLUTE)
+
+    Execution Region ER$$.ARM.__AT_0x42500380 (Base: 0x42500380, Size: 0x00000080, Max: 0x00000080, ABSOLUTE, UNINIT)
+
+    Base Addr    Size         Type   Attr      Idx    E Section Name        Object
+
+    0x42500380   0x00000080   Zero   RW          143    .ARM.__AT_0x42500380  bootuart.o
+
+
+
+  Load Region LR$$.ARM.__AT_0x42500400 (Base: 0x42500400, Size: 0x00000000, Max: 0x00000080, ABSOLUTE)
+
+    Execution Region ER$$.ARM.__AT_0x42500400 (Base: 0x42500400, Size: 0x00000080, Max: 0x00000080, ABSOLUTE, UNINIT)
+
+    Base Addr    Size         Type   Attr      Idx    E Section Name        Object
+
+    0x42500400   0x00000080   Zero   RW          144    .ARM.__AT_0x42500400  bootuart.o
+
+
+
+  Load Region LR$$.ARM.__AT_0x42500480 (Base: 0x42500480, Size: 0x00000000, Max: 0x00000080, ABSOLUTE)
+
+    Execution Region ER$$.ARM.__AT_0x42500480 (Base: 0x42500480, Size: 0x00000080, Max: 0x00000080, ABSOLUTE, UNINIT)
+
+    Base Addr    Size         Type   Attr      Idx    E Section Name        Object
+
+    0x42500480   0x00000080   Zero   RW          145    .ARM.__AT_0x42500480  bootuart.o
+
+
+
+  Load Region LR$$.ARM.__AT_0x42500500 (Base: 0x42500500, Size: 0x00000000, Max: 0x00000080, ABSOLUTE)
+
+    Execution Region ER$$.ARM.__AT_0x42500500 (Base: 0x42500500, Size: 0x00000080, Max: 0x00000080, ABSOLUTE, UNINIT)
+
+    Base Addr    Size         Type   Attr      Idx    E Section Name        Object
+
+    0x42500500   0x00000080   Zero   RW          146    .ARM.__AT_0x42500500  bootuart.o
+
+
+
+  Load Region LR$$.ARM.__AT_0x42500580 (Base: 0x42500580, Size: 0x00000000, Max: 0x00000080, ABSOLUTE)
+
+    Execution Region ER$$.ARM.__AT_0x42500580 (Base: 0x42500580, Size: 0x00000080, Max: 0x00000080, ABSOLUTE, UNINIT)
+
+    Base Addr    Size         Type   Attr      Idx    E Section Name        Object
+
+    0x42500580   0x00000080   Zero   RW          147    .ARM.__AT_0x42500580  bootuart.o
+
+
+
+  Load Region LR$$.ARM.__AT_0x42500600 (Base: 0x42500600, Size: 0x00000000, Max: 0x00000080, ABSOLUTE)
+
+    Execution Region ER$$.ARM.__AT_0x42500600 (Base: 0x42500600, Size: 0x00000080, Max: 0x00000080, ABSOLUTE, UNINIT)
+
+    Base Addr    Size         Type   Attr      Idx    E Section Name        Object
+
+    0x42500600   0x00000080   Zero   RW          148    .ARM.__AT_0x42500600  bootuart.o
+
+
+
+  Load Region LR$$.ARM.__AT_0x42500680 (Base: 0x42500680, Size: 0x00000000, Max: 0x00000080, ABSOLUTE)
+
+    Execution Region ER$$.ARM.__AT_0x42500680 (Base: 0x42500680, Size: 0x00000080, Max: 0x00000080, ABSOLUTE, UNINIT)
+
+    Base Addr    Size         Type   Attr      Idx    E Section Name        Object
+
+    0x42500680   0x00000080   Zero   RW          149    .ARM.__AT_0x42500680  bootuart.o
+
+
+
+  Load Region LR$$.ARM.__AT_0x42500700 (Base: 0x42500700, Size: 0x00000000, Max: 0x00000080, ABSOLUTE)
+
+    Execution Region ER$$.ARM.__AT_0x42500700 (Base: 0x42500700, Size: 0x00000080, Max: 0x00000080, ABSOLUTE, UNINIT)
+
+    Base Addr    Size         Type   Attr      Idx    E Section Name        Object
+
+    0x42500700   0x00000080   Zero   RW          150    .ARM.__AT_0x42500700  bootuart.o
+
+
+
+  Load Region LR$$.ARM.__AT_0x42500780 (Base: 0x42500780, Size: 0x00000000, Max: 0x00000080, ABSOLUTE)
+
+    Execution Region ER$$.ARM.__AT_0x42500780 (Base: 0x42500780, Size: 0x00000080, Max: 0x00000080, ABSOLUTE, UNINIT)
+
+    Base Addr    Size         Type   Attr      Idx    E Section Name        Object
+
+    0x42500780   0x00000080   Zero   RW          151    .ARM.__AT_0x42500780  bootuart.o
+
+
+
+  Load Region LR$$.ARM.__AT_0x42500980 (Base: 0x42500980, Size: 0x00000000, Max: 0x00000004, ABSOLUTE)
+
+    Execution Region ER$$.ARM.__AT_0x42500980 (Base: 0x42500980, Size: 0x00000004, Max: 0x00000004, ABSOLUTE, UNINIT)
+
+    Base Addr    Size         Type   Attr      Idx    E Section Name        Object
+
+    0x42500980   0x00000004   Zero   RW          152    .ARM.__AT_0x42500980  bootuart.o
+
+
+
+  Load Region LR$$.ARM.__AT_0x43500000 (Base: 0x43500000, Size: 0x00000000, Max: 0x00000040, ABSOLUTE)
+
+    Execution Region ER$$.ARM.__AT_0x43500000 (Base: 0x43500000, Size: 0x00000040, Max: 0x00000040, ABSOLUTE, UNINIT)
+
+    Base Addr    Size         Type   Attr      Idx    E Section Name        Object
+
+    0x43500000   0x00000040   Zero   RW          153    .ARM.__AT_0x43500000  bootuart.o
+
+
+
+  Load Region LR$$.ARM.__AT_0x43500080 (Base: 0x43500080, Size: 0x00000000, Max: 0x00000040, ABSOLUTE)
+
+    Execution Region ER$$.ARM.__AT_0x43500080 (Base: 0x43500080, Size: 0x00000040, Max: 0x00000040, ABSOLUTE, UNINIT)
+
+    Base Addr    Size         Type   Attr      Idx    E Section Name        Object
+
+    0x43500080   0x00000040   Zero   RW          154    .ARM.__AT_0x43500080  bootuart.o
+
+
+
+  Load Region LR$$.ARM.__AT_0x43500180 (Base: 0x43500180, Size: 0x00000000, Max: 0x00000040, ABSOLUTE)
+
+    Execution Region ER$$.ARM.__AT_0x43500180 (Base: 0x43500180, Size: 0x00000040, Max: 0x00000040, ABSOLUTE, UNINIT)
+
+    Base Addr    Size         Type   Attr      Idx    E Section Name        Object
+
+    0x43500180   0x00000040   Zero   RW          155    .ARM.__AT_0x43500180  bootuart.o
+
+
+
+  Load Region LR$$.ARM.__AT_0x43500200 (Base: 0x43500200, Size: 0x00000000, Max: 0x00000040, ABSOLUTE)
+
+    Execution Region ER$$.ARM.__AT_0x43500200 (Base: 0x43500200, Size: 0x00000040, Max: 0x00000040, ABSOLUTE, UNINIT)
+
+    Base Addr    Size         Type   Attr      Idx    E Section Name        Object
+
+    0x43500200   0x00000040   Zero   RW          156    .ARM.__AT_0x43500200  bootuart.o
+
+
+
+  Load Region LR$$.ARM.__AT_0x43500240 (Base: 0x43500240, Size: 0x00000000, Max: 0x00000040, ABSOLUTE)
+
+    Execution Region ER$$.ARM.__AT_0x43500240 (Base: 0x43500240, Size: 0x00000040, Max: 0x00000040, ABSOLUTE, UNINIT)
+
+    Base Addr    Size         Type   Attr      Idx    E Section Name        Object
+
+    0x43500240   0x00000040   Zero   RW          157    .ARM.__AT_0x43500240  bootuart.o
+
+
+
+  Load Region LR$$.ARM.__AT_0x43500280 (Base: 0x43500280, Size: 0x00000000, Max: 0x00000040, ABSOLUTE)
+
+    Execution Region ER$$.ARM.__AT_0x43500280 (Base: 0x43500280, Size: 0x00000040, Max: 0x00000040, ABSOLUTE, UNINIT)
+
+    Base Addr    Size         Type   Attr      Idx    E Section Name        Object
+
+    0x43500280   0x00000040   Zero   RW          158    .ARM.__AT_0x43500280  bootuart.o
+
+
+
+  Load Region LR$$.ARM.__AT_0x435002C0 (Base: 0x435002c0, Size: 0x00000000, Max: 0x00000040, ABSOLUTE)
+
+    Execution Region ER$$.ARM.__AT_0x435002C0 (Base: 0x435002c0, Size: 0x00000040, Max: 0x00000040, ABSOLUTE, UNINIT)
+
+    Base Addr    Size         Type   Attr      Idx    E Section Name        Object
+
+    0x435002c0   0x00000040   Zero   RW          159    .ARM.__AT_0x435002C0  bootuart.o
+
+
+
+  Load Region LR$$.ARM.__AT_0x43500380 (Base: 0x43500380, Size: 0x00000000, Max: 0x00000040, ABSOLUTE)
+
+    Execution Region ER$$.ARM.__AT_0x43500380 (Base: 0x43500380, Size: 0x00000040, Max: 0x00000040, ABSOLUTE, UNINIT)
+
+    Base Addr    Size         Type   Attr      Idx    E Section Name        Object
+
+    0x43500380   0x00000040   Zero   RW          160    .ARM.__AT_0x43500380  bootuart.o
+
+
+
+  Load Region LR$$.ARM.__AT_0x43600000 (Base: 0x43600000, Size: 0x00000000, Max: 0x00000040, ABSOLUTE)
+
+    Execution Region ER$$.ARM.__AT_0x43600000 (Base: 0x43600000, Size: 0x00000040, Max: 0x00000040, ABSOLUTE, UNINIT)
+
+    Base Addr    Size         Type   Attr      Idx    E Section Name        Object
+
+    0x43600000   0x00000040   Zero   RW          161    .ARM.__AT_0x43600000  bootuart.o
+
+
+
+  Load Region LR$$.ARM.__AT_0x43600080 (Base: 0x43600080, Size: 0x00000000, Max: 0x00000040, ABSOLUTE)
+
+    Execution Region ER$$.ARM.__AT_0x43600080 (Base: 0x43600080, Size: 0x00000040, Max: 0x00000040, ABSOLUTE, UNINIT)
+
+    Base Addr    Size         Type   Attr      Idx    E Section Name        Object
+
+    0x43600080   0x00000040   Zero   RW          162    .ARM.__AT_0x43600080  bootuart.o
+
+
+
+  Load Region LR$$.ARM.__AT_0x43600180 (Base: 0x43600180, Size: 0x00000000, Max: 0x00000040, ABSOLUTE)
+
+    Execution Region ER$$.ARM.__AT_0x43600180 (Base: 0x43600180, Size: 0x00000040, Max: 0x00000040, ABSOLUTE, UNINIT)
+
+    Base Addr    Size         Type   Attr      Idx    E Section Name        Object
+
+    0x43600180   0x00000040   Zero   RW          163    .ARM.__AT_0x43600180  bootuart.o
+
+
+
+  Load Region LR$$.ARM.__AT_0x43600200 (Base: 0x43600200, Size: 0x00000000, Max: 0x00000040, ABSOLUTE)
+
+    Execution Region ER$$.ARM.__AT_0x43600200 (Base: 0x43600200, Size: 0x00000040, Max: 0x00000040, ABSOLUTE, UNINIT)
+
+    Base Addr    Size         Type   Attr      Idx    E Section Name        Object
+
+    0x43600200   0x00000040   Zero   RW          164    .ARM.__AT_0x43600200  bootuart.o
+
+
+
+  Load Region LR$$.ARM.__AT_0x43600240 (Base: 0x43600240, Size: 0x00000000, Max: 0x00000040, ABSOLUTE)
+
+    Execution Region ER$$.ARM.__AT_0x43600240 (Base: 0x43600240, Size: 0x00000040, Max: 0x00000040, ABSOLUTE, UNINIT)
+
+    Base Addr    Size         Type   Attr      Idx    E Section Name        Object
+
+    0x43600240   0x00000040   Zero   RW          165    .ARM.__AT_0x43600240  bootuart.o
+
+
+
+  Load Region LR$$.ARM.__AT_0x43600280 (Base: 0x43600280, Size: 0x00000000, Max: 0x00000040, ABSOLUTE)
+
+    Execution Region ER$$.ARM.__AT_0x43600280 (Base: 0x43600280, Size: 0x00000040, Max: 0x00000040, ABSOLUTE, UNINIT)
+
+    Base Addr    Size         Type   Attr      Idx    E Section Name        Object
+
+    0x43600280   0x00000040   Zero   RW          166    .ARM.__AT_0x43600280  bootuart.o
+
+
+
+  Load Region LR$$.ARM.__AT_0x436002C0 (Base: 0x436002c0, Size: 0x00000000, Max: 0x00000040, ABSOLUTE)
+
+    Execution Region ER$$.ARM.__AT_0x436002C0 (Base: 0x436002c0, Size: 0x00000040, Max: 0x00000040, ABSOLUTE, UNINIT)
+
+    Base Addr    Size         Type   Attr      Idx    E Section Name        Object
+
+    0x436002c0   0x00000040   Zero   RW          167    .ARM.__AT_0x436002C0  bootuart.o
+
+
+
+  Load Region LR$$.ARM.__AT_0x43600380 (Base: 0x43600380, Size: 0x00000000, Max: 0x00000040, ABSOLUTE)
+
+    Execution Region ER$$.ARM.__AT_0x43600380 (Base: 0x43600380, Size: 0x00000040, Max: 0x00000040, ABSOLUTE, UNINIT)
+
+    Base Addr    Size         Type   Attr      Idx    E Section Name        Object
+
+    0x43600380   0x00000040   Zero   RW          168    .ARM.__AT_0x43600380  bootuart.o
+
+
+
+  Load Region LR$$.ARM.__AT_0x43700000 (Base: 0x43700000, Size: 0x00000000, Max: 0x00000040, ABSOLUTE)
+
+    Execution Region ER$$.ARM.__AT_0x43700000 (Base: 0x43700000, Size: 0x00000040, Max: 0x00000040, ABSOLUTE, UNINIT)
+
+    Base Addr    Size         Type   Attr      Idx    E Section Name        Object
+
+    0x43700000   0x00000040   Zero   RW          169    .ARM.__AT_0x43700000  bootuart.o
+
+
+
+  Load Region LR$$.ARM.__AT_0x43700080 (Base: 0x43700080, Size: 0x00000000, Max: 0x00000040, ABSOLUTE)
+
+    Execution Region ER$$.ARM.__AT_0x43700080 (Base: 0x43700080, Size: 0x00000040, Max: 0x00000040, ABSOLUTE, UNINIT)
+
+    Base Addr    Size         Type   Attr      Idx    E Section Name        Object
+
+    0x43700080   0x00000040   Zero   RW          170    .ARM.__AT_0x43700080  bootuart.o
+
+
+
+  Load Region LR$$.ARM.__AT_0x43700180 (Base: 0x43700180, Size: 0x00000000, Max: 0x00000040, ABSOLUTE)
+
+    Execution Region ER$$.ARM.__AT_0x43700180 (Base: 0x43700180, Size: 0x00000040, Max: 0x00000040, ABSOLUTE, UNINIT)
+
+    Base Addr    Size         Type   Attr      Idx    E Section Name        Object
+
+    0x43700180   0x00000040   Zero   RW          171    .ARM.__AT_0x43700180  bootuart.o
+
+
+
+  Load Region LR$$.ARM.__AT_0x43700200 (Base: 0x43700200, Size: 0x00000000, Max: 0x00000040, ABSOLUTE)
+
+    Execution Region ER$$.ARM.__AT_0x43700200 (Base: 0x43700200, Size: 0x00000040, Max: 0x00000040, ABSOLUTE, UNINIT)
+
+    Base Addr    Size         Type   Attr      Idx    E Section Name        Object
+
+    0x43700200   0x00000040   Zero   RW          172    .ARM.__AT_0x43700200  bootuart.o
+
+
+
+  Load Region LR$$.ARM.__AT_0x43700240 (Base: 0x43700240, Size: 0x00000000, Max: 0x00000040, ABSOLUTE)
+
+    Execution Region ER$$.ARM.__AT_0x43700240 (Base: 0x43700240, Size: 0x00000040, Max: 0x00000040, ABSOLUTE, UNINIT)
+
+    Base Addr    Size         Type   Attr      Idx    E Section Name        Object
+
+    0x43700240   0x00000040   Zero   RW          173    .ARM.__AT_0x43700240  bootuart.o
+
+
+
+  Load Region LR$$.ARM.__AT_0x43700280 (Base: 0x43700280, Size: 0x00000000, Max: 0x00000040, ABSOLUTE)
+
+    Execution Region ER$$.ARM.__AT_0x43700280 (Base: 0x43700280, Size: 0x00000040, Max: 0x00000040, ABSOLUTE, UNINIT)
+
+    Base Addr    Size         Type   Attr      Idx    E Section Name        Object
+
+    0x43700280   0x00000040   Zero   RW          174    .ARM.__AT_0x43700280  bootuart.o
+
+
+
+  Load Region LR$$.ARM.__AT_0x437002C0 (Base: 0x437002c0, Size: 0x00000000, Max: 0x00000040, ABSOLUTE)
+
+    Execution Region ER$$.ARM.__AT_0x437002C0 (Base: 0x437002c0, Size: 0x00000040, Max: 0x00000040, ABSOLUTE, UNINIT)
+
+    Base Addr    Size         Type   Attr      Idx    E Section Name        Object
+
+    0x437002c0   0x00000040   Zero   RW          175    .ARM.__AT_0x437002C0  bootuart.o
+
+
+
+  Load Region LR$$.ARM.__AT_0x43700380 (Base: 0x43700380, Size: 0x00000000, Max: 0x00000040, ABSOLUTE)
+
+    Execution Region ER$$.ARM.__AT_0x43700380 (Base: 0x43700380, Size: 0x00000040, Max: 0x00000040, ABSOLUTE, UNINIT)
+
+    Base Addr    Size         Type   Attr      Idx    E Section Name        Object
+
+    0x43700380   0x00000040   Zero   RW          176    .ARM.__AT_0x43700380  bootuart.o
+
+
+
+  Load Region LR$$.ARM.__AT_0x43800000 (Base: 0x43800000, Size: 0x00000000, Max: 0x00000040, ABSOLUTE)
+
+    Execution Region ER$$.ARM.__AT_0x43800000 (Base: 0x43800000, Size: 0x00000040, Max: 0x00000040, ABSOLUTE, UNINIT)
+
+    Base Addr    Size         Type   Attr      Idx    E Section Name        Object
+
+    0x43800000   0x00000040   Zero   RW          177    .ARM.__AT_0x43800000  bootuart.o
+
+
+
+  Load Region LR$$.ARM.__AT_0x43800080 (Base: 0x43800080, Size: 0x00000000, Max: 0x00000040, ABSOLUTE)
+
+    Execution Region ER$$.ARM.__AT_0x43800080 (Base: 0x43800080, Size: 0x00000040, Max: 0x00000040, ABSOLUTE, UNINIT)
+
+    Base Addr    Size         Type   Attr      Idx    E Section Name        Object
+
+    0x43800080   0x00000040   Zero   RW          178    .ARM.__AT_0x43800080  bootuart.o
+
+
+
+  Load Region LR$$.ARM.__AT_0x43800180 (Base: 0x43800180, Size: 0x00000000, Max: 0x00000040, ABSOLUTE)
+
+    Execution Region ER$$.ARM.__AT_0x43800180 (Base: 0x43800180, Size: 0x00000040, Max: 0x00000040, ABSOLUTE, UNINIT)
+
+    Base Addr    Size         Type   Attr      Idx    E Section Name        Object
+
+    0x43800180   0x00000040   Zero   RW          179    .ARM.__AT_0x43800180  bootuart.o
+
+
+
+  Load Region LR$$.ARM.__AT_0x43800200 (Base: 0x43800200, Size: 0x00000000, Max: 0x00000040, ABSOLUTE)
+
+    Execution Region ER$$.ARM.__AT_0x43800200 (Base: 0x43800200, Size: 0x00000040, Max: 0x00000040, ABSOLUTE, UNINIT)
+
+    Base Addr    Size         Type   Attr      Idx    E Section Name        Object
+
+    0x43800200   0x00000040   Zero   RW          180    .ARM.__AT_0x43800200  bootuart.o
+
+
+
+  Load Region LR$$.ARM.__AT_0x43800240 (Base: 0x43800240, Size: 0x00000000, Max: 0x00000040, ABSOLUTE)
+
+    Execution Region ER$$.ARM.__AT_0x43800240 (Base: 0x43800240, Size: 0x00000040, Max: 0x00000040, ABSOLUTE, UNINIT)
+
+    Base Addr    Size         Type   Attr      Idx    E Section Name        Object
+
+    0x43800240   0x00000040   Zero   RW          181    .ARM.__AT_0x43800240  bootuart.o
+
+
+
+  Load Region LR$$.ARM.__AT_0x43800280 (Base: 0x43800280, Size: 0x00000000, Max: 0x00000040, ABSOLUTE)
+
+    Execution Region ER$$.ARM.__AT_0x43800280 (Base: 0x43800280, Size: 0x00000040, Max: 0x00000040, ABSOLUTE, UNINIT)
+
+    Base Addr    Size         Type   Attr      Idx    E Section Name        Object
+
+    0x43800280   0x00000040   Zero   RW          182    .ARM.__AT_0x43800280  bootuart.o
+
+
+
+  Load Region LR$$.ARM.__AT_0x438002C0 (Base: 0x438002c0, Size: 0x00000000, Max: 0x00000040, ABSOLUTE)
+
+    Execution Region ER$$.ARM.__AT_0x438002C0 (Base: 0x438002c0, Size: 0x00000040, Max: 0x00000040, ABSOLUTE, UNINIT)
+
+    Base Addr    Size         Type   Attr      Idx    E Section Name        Object
+
+    0x438002c0   0x00000040   Zero   RW          183    .ARM.__AT_0x438002C0  bootuart.o
+
+
+
+  Load Region LR$$.ARM.__AT_0x43800380 (Base: 0x43800380, Size: 0x00000000, Max: 0x00000040, ABSOLUTE)
+
+    Execution Region ER$$.ARM.__AT_0x43800380 (Base: 0x43800380, Size: 0x00000040, Max: 0x00000040, ABSOLUTE, UNINIT)
+
+    Base Addr    Size         Type   Attr      Idx    E Section Name        Object
+
+    0x43800380   0x00000040   Zero   RW          184    .ARM.__AT_0x43800380  bootuart.o
+
+
+
+  Load Region LR$$.ARM.__AT_0x43900000 (Base: 0x43900000, Size: 0x00000000, Max: 0x00000040, ABSOLUTE)
+
+    Execution Region ER$$.ARM.__AT_0x43900000 (Base: 0x43900000, Size: 0x00000040, Max: 0x00000040, ABSOLUTE, UNINIT)
+
+    Base Addr    Size         Type   Attr      Idx    E Section Name        Object
+
+    0x43900000   0x00000040   Zero   RW          185    .ARM.__AT_0x43900000  bootuart.o
+
+
+
+  Load Region LR$$.ARM.__AT_0x43900080 (Base: 0x43900080, Size: 0x00000000, Max: 0x00000040, ABSOLUTE)
+
+    Execution Region ER$$.ARM.__AT_0x43900080 (Base: 0x43900080, Size: 0x00000040, Max: 0x00000040, ABSOLUTE, UNINIT)
+
+    Base Addr    Size         Type   Attr      Idx    E Section Name        Object
+
+    0x43900080   0x00000040   Zero   RW          186    .ARM.__AT_0x43900080  bootuart.o
+
+
+
+  Load Region LR$$.ARM.__AT_0x43900180 (Base: 0x43900180, Size: 0x00000000, Max: 0x00000040, ABSOLUTE)
+
+    Execution Region ER$$.ARM.__AT_0x43900180 (Base: 0x43900180, Size: 0x00000040, Max: 0x00000040, ABSOLUTE, UNINIT)
+
+    Base Addr    Size         Type   Attr      Idx    E Section Name        Object
+
+    0x43900180   0x00000040   Zero   RW          187    .ARM.__AT_0x43900180  bootuart.o
+
+
+
+  Load Region LR$$.ARM.__AT_0x43900200 (Base: 0x43900200, Size: 0x00000000, Max: 0x00000040, ABSOLUTE)
+
+    Execution Region ER$$.ARM.__AT_0x43900200 (Base: 0x43900200, Size: 0x00000040, Max: 0x00000040, ABSOLUTE, UNINIT)
+
+    Base Addr    Size         Type   Attr      Idx    E Section Name        Object
+
+    0x43900200   0x00000040   Zero   RW          188    .ARM.__AT_0x43900200  bootuart.o
+
+
+
+  Load Region LR$$.ARM.__AT_0x43900240 (Base: 0x43900240, Size: 0x00000000, Max: 0x00000040, ABSOLUTE)
+
+    Execution Region ER$$.ARM.__AT_0x43900240 (Base: 0x43900240, Size: 0x00000040, Max: 0x00000040, ABSOLUTE, UNINIT)
+
+    Base Addr    Size         Type   Attr      Idx    E Section Name        Object
+
+    0x43900240   0x00000040   Zero   RW          189    .ARM.__AT_0x43900240  bootuart.o
+
+
+
+  Load Region LR$$.ARM.__AT_0x43900280 (Base: 0x43900280, Size: 0x00000000, Max: 0x00000040, ABSOLUTE)
+
+    Execution Region ER$$.ARM.__AT_0x43900280 (Base: 0x43900280, Size: 0x00000040, Max: 0x00000040, ABSOLUTE, UNINIT)
+
+    Base Addr    Size         Type   Attr      Idx    E Section Name        Object
+
+    0x43900280   0x00000040   Zero   RW          190    .ARM.__AT_0x43900280  bootuart.o
+
+
+
+  Load Region LR$$.ARM.__AT_0x439002C0 (Base: 0x439002c0, Size: 0x00000000, Max: 0x00000040, ABSOLUTE)
+
+    Execution Region ER$$.ARM.__AT_0x439002C0 (Base: 0x439002c0, Size: 0x00000040, Max: 0x00000040, ABSOLUTE, UNINIT)
+
+    Base Addr    Size         Type   Attr      Idx    E Section Name        Object
+
+    0x439002c0   0x00000040   Zero   RW          191    .ARM.__AT_0x439002C0  bootuart.o
+
+
+
+  Load Region LR$$.ARM.__AT_0x43900380 (Base: 0x43900380, Size: 0x00000000, Max: 0x00000040, ABSOLUTE)
+
+    Execution Region ER$$.ARM.__AT_0x43900380 (Base: 0x43900380, Size: 0x00000040, Max: 0x00000040, ABSOLUTE, UNINIT)
+
+    Base Addr    Size         Type   Attr      Idx    E Section Name        Object
+
+    0x43900380   0x00000040   Zero   RW          192    .ARM.__AT_0x43900380  bootuart.o
+
+
+
+  Load Region LR$$.ARM.__AT_0x43D00000 (Base: 0x43d00000, Size: 0x00000000, Max: 0x00000040, ABSOLUTE)
+
+    Execution Region ER$$.ARM.__AT_0x43D00000 (Base: 0x43d00000, Size: 0x00000040, Max: 0x00000040, ABSOLUTE, UNINIT)
+
+    Base Addr    Size         Type   Attr      Idx    E Section Name        Object
+
+    0x43d00000   0x00000040   Zero   RW          193    .ARM.__AT_0x43D00000  bootuart.o
+
+
+
+  Load Region LR$$.ARM.__AT_0x43D00080 (Base: 0x43d00080, Size: 0x00000000, Max: 0x00000040, ABSOLUTE)
+
+    Execution Region ER$$.ARM.__AT_0x43D00080 (Base: 0x43d00080, Size: 0x00000040, Max: 0x00000040, ABSOLUTE, UNINIT)
+
+    Base Addr    Size         Type   Attr      Idx    E Section Name        Object
+
+    0x43d00080   0x00000040   Zero   RW          194    .ARM.__AT_0x43D00080  bootuart.o
+
+
+
+  Load Region LR$$.ARM.__AT_0x43D00180 (Base: 0x43d00180, Size: 0x00000000, Max: 0x00000040, ABSOLUTE)
+
+    Execution Region ER$$.ARM.__AT_0x43D00180 (Base: 0x43d00180, Size: 0x00000040, Max: 0x00000040, ABSOLUTE, UNINIT)
+
+    Base Addr    Size         Type   Attr      Idx    E Section Name        Object
+
+    0x43d00180   0x00000040   Zero   RW          195    .ARM.__AT_0x43D00180  bootuart.o
+
+
+
+  Load Region LR$$.ARM.__AT_0x43D00200 (Base: 0x43d00200, Size: 0x00000000, Max: 0x00000040, ABSOLUTE)
+
+    Execution Region ER$$.ARM.__AT_0x43D00200 (Base: 0x43d00200, Size: 0x00000040, Max: 0x00000040, ABSOLUTE, UNINIT)
+
+    Base Addr    Size         Type   Attr      Idx    E Section Name        Object
+
+    0x43d00200   0x00000040   Zero   RW          196    .ARM.__AT_0x43D00200  bootuart.o
+
+
+
+  Load Region LR$$.ARM.__AT_0x43D00240 (Base: 0x43d00240, Size: 0x00000000, Max: 0x00000040, ABSOLUTE)
+
+    Execution Region ER$$.ARM.__AT_0x43D00240 (Base: 0x43d00240, Size: 0x00000040, Max: 0x00000040, ABSOLUTE, UNINIT)
+
+    Base Addr    Size         Type   Attr      Idx    E Section Name        Object
+
+    0x43d00240   0x00000040   Zero   RW          197    .ARM.__AT_0x43D00240  bootuart.o
+
+
+
+  Load Region LR$$.ARM.__AT_0x43D00280 (Base: 0x43d00280, Size: 0x00000000, Max: 0x00000040, ABSOLUTE)
+
+    Execution Region ER$$.ARM.__AT_0x43D00280 (Base: 0x43d00280, Size: 0x00000040, Max: 0x00000040, ABSOLUTE, UNINIT)
+
+    Base Addr    Size         Type   Attr      Idx    E Section Name        Object
+
+    0x43d00280   0x00000040   Zero   RW          198    .ARM.__AT_0x43D00280  bootuart.o
+
+
+
+  Load Region LR$$.ARM.__AT_0x43D002C0 (Base: 0x43d002c0, Size: 0x00000000, Max: 0x00000040, ABSOLUTE)
+
+    Execution Region ER$$.ARM.__AT_0x43D002C0 (Base: 0x43d002c0, Size: 0x00000040, Max: 0x00000040, ABSOLUTE, UNINIT)
+
+    Base Addr    Size         Type   Attr      Idx    E Section Name        Object
+
+    0x43d002c0   0x00000040   Zero   RW          199    .ARM.__AT_0x43D002C0  bootuart.o
+
+
+
+  Load Region LR$$.ARM.__AT_0x43D00380 (Base: 0x43d00380, Size: 0x00000000, Max: 0x00000040, ABSOLUTE)
+
+    Execution Region ER$$.ARM.__AT_0x43D00380 (Base: 0x43d00380, Size: 0x00000040, Max: 0x00000040, ABSOLUTE, UNINIT)
+
+    Base Addr    Size         Type   Attr      Idx    E Section Name        Object
+
+    0x43d00380   0x00000040   Zero   RW          200    .ARM.__AT_0x43D00380  bootuart.o
+
+
+==============================================================================
+
+Image component sizes
+
+
+      Code (inc. data)   RO Data    RW Data    ZI Data      Debug   Object Name
+
+       924         48         12          9       5528      27886   bootuart.o
+        32         10          8          0        128        304   startup_1986bootuart.o
+
+    ----------------------------------------------------------------------
+       956         58         20         12       5860      28190   Object Totals
+         0          0          0          0          0          0   (incl. Generated)
+         0          0          0          3        204          2   (incl. Padding)
+
+    ----------------------------------------------------------------------
+         0          0          0          0          0          0   Library Totals
+         0          0          0          0          0          0   (incl. Padding)
+
+    ----------------------------------------------------------------------
+
+==============================================================================
+
+
+      Code (inc. data)   RO Data    RW Data    ZI Data      Debug   
+
+       956         58         20         12       5860      28192   Grand Totals
+       956         58         20         12       5860      28192   ELF Image Totals
+       956         58         20         12          0          0   ROM Totals
+
+==============================================================================
+
+    Total RO  Size (Code + RO Data)                  976 (   0.95kB)
+    Total RW  Size (RW Data + ZI Data)              5872 (   5.73kB)
+    Total ROM Size (Code + RO Data + RW Data)        988 (   0.96kB)
+
+==============================================================================
+

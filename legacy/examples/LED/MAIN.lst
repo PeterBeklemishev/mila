@@ -1,0 +1,84 @@
+*******************************************************************************
+*                                                                             *
+*                 ARM C CROSS COMPILER Version 1.03.121111 Demo               *
+*                      Copyright (C) 2009 Phyton, Inc.                        *
+*                                                                             *
+*******************************************************************************
+
+                     main??T:
+;FILE: main.c
+;000013    void main (void)
+00000000    B530                       	PUSH            {R4,R5,R14} 
+;000016      MDR_RST_CLK->PER_CLOCK = 0xFFFFFFFF;
+00000002    31FFF04F                   	MOV             R1,#-1
+00000006    4814                       	LDR             R0,?lr0000	; 4002001Ch
+00000008    6001                       	STR             R1,[R0,#0]
+;000018      MDR_PORTC->OE     = 0x00000000;
+0000000A    2200                       	MOVS            R2,#0
+0000000C    4913                       	LDR             R1,?lr0001	; 400B8000h
+0000000E    604A                       	STR             R2,[R1,#4]
+;000019      MDR_PORTC->FUNC   = 0x00000000;
+00000010    608A                       	STR             R2,[R1,#8]
+;000020      MDR_PORTC->ANALOG = 0x0000FFFF;
+00000012    73FFF64F                   	MOV             R3,#0FFFFh
+00000016    60CB                       	STR             R3,[R1,#12]
+;000021      MDR_PORTC->PULL   = BUTTON_SELECT << 16;
+00000018    2080F44F                   	MOV             R0,#40000h
+0000001C    6108                       	STR             R0,[R1,#16]
+;000022      MDR_PORTC->PD     = BUTTON_SELECT << 16;
+0000001E    6148                       	STR             R0,[R1,#20]
+;000023      MDR_PORTC->PWR    = 0x55555555;
+00000020    3455F04F                   	MOV             R4,#55555555h
+00000024    618C                       	STR             R4,[R1,#24]
+;000024      MDR_PORTC->GFEN   = 0;
+00000026    61CA                       	STR             R2,[R1,#28]
+;000026      MDR_PORTB->OE     = LAMP_VD5;
+00000028    2501                       	MOVS            R5,#1
+0000002A    480D                       	LDR             R0,?lr0002	; 400B0000h
+0000002C    6045                       	STR             R5,[R0,#4]
+;000027      MDR_PORTB->FUNC   = 0x00000000;
+0000002E    6082                       	STR             R2,[R0,#8]
+;000028      MDR_PORTB->ANALOG = 0x0000FFFF;
+00000030    60C3                       	STR             R3,[R0,#12]
+;000029      MDR_PORTB->PULL   = LAMP_VD5 << 16;
+00000032    3580F44F                   	MOV             R5,#10000h
+00000036    6105                       	STR             R5,[R0,#16]
+;000030      MDR_PORTB->PD     = ~LAMP_VD5;
+00000038    0501F06F                   	MVN             R5,#1
+0000003C    6145                       	STR             R5,[R0,#20]
+;000031      MDR_PORTB->PWR    = 0x55555555;
+0000003E    6184                       	STR             R4,[R0,#24]
+;000032      MDR_PORTB->GFEN   = 0;
+00000040    61C2                       	STR             R2,[R0,#28]
+;000033      MDR_PORTB->RXTX   = 0xFFFF;
+00000042    6003                       	STR             R3,[R0,#0]
+;000035      while(1)
+                     ??_1_DO:
+;000036      {
+;000037          if (MDR_PORTC->RXTX & BUTTON_SELECT)
+00000044    680A                       	LDR             R2,[R1,#0]
+00000046    0792                       	LSLS            R2,R2,#30
+00000048    6802                       	LDR             R2,[R0,#0]
+0000004A    BF26                       	ITTE            CS
+;000038          {
+;000039             MDR_PORTB->RXTX &= ~LAMP_VD5;
+0000004C    0852                       	LSRCS           R2,R2,#1
+0000004E    0052                       	LSLCS           R2,R2,#1
+;000040          }
+;000042          {
+;000043             MDR_PORTB->RXTX |= LAMP_VD5;
+00000050    0201F042                   	ORRCC           R2,R2,#1
+00000054    6002                       	STR             R2,[R0,#0]
+;000044          }
+;000045      }
+00000056    E7F5                       	B.N             ??_1_DO
+;000046    }
+
+00000058    4002001C	?lr0000	.DCD	4002001Ch	; used 1 time(s)
+0000005C    400B8000	?lr0001	.DCD	400B8000h	; used 1 time(s)
+00000060    400B0000	?lr0002	.DCD	400B0000h	; used 1 time(s)
+
+.ENDF
+
+main.c: 100 byte(s), 5009 line(s), 0 error(s), 0 warning(s)
+
