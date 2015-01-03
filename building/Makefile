@@ -3,9 +3,9 @@ TARGET = $(CURDIR)
 PROG_NAME = second
 
 ARCH = cortex-m3
-TOOLS_PATH = /usr/bin
+TOOLS_PATH = /sbin
 TOOLS_PREFIX = arm-none-eabi-
-TOOLS_VERSION = 4.8.2
+TOOLS_VERSION = 4.9.2
 
 CC		=	$(TOOLS_PATH)/$(TOOLS_PREFIX)gcc-$(TOOLS_VERSION) -Wall
 CXX		=	$(TOOLS_PATH)/$(TOOLS_PREFIX)g++ -Wall
@@ -34,15 +34,16 @@ LDFLAGS  = -nostdlib -nostartfiles -ffreestanding -Wl,--gc-sections -T $(LDS)/me
 LIBS     = -L$(TARGET) -lgcc -lc -lnosys
 
 all:
-	$(CC) -c $(CFLAGS) -o $(PROG_NAME).o main.c
+#	$(CC) -c $(CFLAGS) -o $(PROG_NAME).o main.c
+	$(CXX) -c -std=c++98 $(CFLAGS) -o $(PROG_NAME).o    main.c
 	$(CC) -c $(CFLAGS) -o core_cm3.o $(CORECM3).c
 	$(CC) -c $(CFLAGS) -o system.o $(SYSSRC).c
-	$(AS) -c $(ASFLAGS) -o startup.o $(STARTUP).S
+	$(CC) -c $(CFLAGS) -o startup.o $(STARTUP).S
 	$(CXX) $(LDFLAGS) $(LIBS) system.o core_cm3.o startup.o $(PROG_NAME).o -o $(PROG_NAME).elf
-
+#startup.o
 	$(OBJCOPY) -O ihex $(PROG_NAME).elf $(PROG_NAME).hex
 	$(SIZE) $(PROG_NAME).elf $(PROG_NAME).hex
-	$(OBJDUMP) -D -S $(PROG_NAME).elf > .\dump_elf.asm
+	$(OBJDUMP) -D -S $(PROG_NAME).elf > dump_elf.asm
 
 clean:
 	rm startup.o system.o core_cm3.o
