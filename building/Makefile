@@ -43,9 +43,9 @@ all:
 	$(CC) -c $(CFLAGS) -o core_cm3.o $(CORECM3).c
 	$(CC) -c $(CFLAGS) -o system.o $(SYSSRC).c
 	$(AS) -c $(CFLAGS) -o startup.o $(STARTUP).S
-	$(AS) -c $(CFLAGS) -o stubstart.o $(SRC)/startup/stubstart.S
+#	$(AS) -c $(CFLAGS) -o stubstart.o $(SRC)/startup/stubstart.S
 
-	$(CXX) $(LDFLAGS) $(LIBS) system.o startup.o stubstart.o core_cm3.o $(PROG_NAME).o -o $(PROG_NAME).elf
+	$(CXX) $(LDFLAGS) $(LIBS) system.o startup.o core_cm3.o $(PROG_NAME).o -o $(PROG_NAME).elf
 
 	$(OBJCOPY) -O ihex $(PROG_NAME).elf $(PROG_NAME).hex
 	$(SIZE) $(PROG_NAME).elf $(PROG_NAME).hex
