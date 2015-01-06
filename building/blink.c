@@ -1,7 +1,5 @@
 #include <MDR32F9x.h>
 
-#include <MDR32F9x.h>
-
 
 #define LED_VD5 (1<<0) 
 #define PORTB_CLK (1UL<<22)
