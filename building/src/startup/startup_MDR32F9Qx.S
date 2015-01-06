@@ -177,7 +177,10 @@ Reset_Handler:
 #endif
     bl    __START
 */
+<<<<<<< HEAD
     bl    main
+=======
+>>>>>>> ff72deb877952a632f7f2071292b10e1eee78b94
     .pool
     .size Reset_Handler, . - Reset_Handler
 
