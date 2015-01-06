@@ -1,0 +1,28 @@
+//компилим первый раз
+C:\Keil_v4\ARM\ARMCC\bin\armcc_old.exe --vsn at Mon Jan 05 16:40:25 2015
+C:\Keil_v4\ARM\ARMCC\bin\armcc_old.exe --vsn at Mon Jan 05 16:40:28 2015
+C:\Keil_v4\ARM\ARMCC\bin\armcc_old.exe --vsn at Mon Jan 05 16:41:23 2015
+C:\Keil_v4\ARM\ARMCC\bin\ArmAsm_old.exe --Via startup_mdr32f9x._ia at Mon Jan 05 16:41:56 2015
+C:\Keil_v4\ARM\ARMCC\bin\ArmCC_old.exe --Via main.__i at Mon Jan 05 16:42:20 2015
+C:\Keil_v4\ARM\ARMCC\bin\armasm_old.exe -o C:\Users\B19A~1\AppData\Local\Temp\p1550-3 C:\Users\B19A~1\AppData\Local\Temp\p1550-2 --fpu=SoftVFP --cpu=Cortex-M3 --li --apcs=/interwork --apcs=interwork --diag_suppress=1602,1073 --divide at Mon Jan 05 16:42:44 2015
+C:\Keil_v4\ARM\ARMCC\bin\armlink_old.exe -o main.o C:\Users\B19A~1\AppData\Local\Temp\p1550-3 main.o --fpu=SoftVFP --cpu=Cortex-M3 --li --partial --no_generate_mapping_symbols --vfemode=force --diag_suppress=6642 --no_add_relocs_to_undefined at Mon Jan 05 16:43:09 2015
+C:\Keil_v4\ARM\ARMCC\bin\ArmCC_old.exe --Via system_mdr32f9qx.__i at Mon Jan 05 16:43:32 2015
+C:\Keil_v4\ARM\ARMCC\bin\armasm_old.exe -o C:\Users\B19A~1\AppData\Local\Temp\p1dd8-3 C:\Users\B19A~1\AppData\Local\Temp\p1dd8-2 --fpu=SoftVFP --cpu=Cortex-M3 --li --apcs=/interwork --apcs=interwork --diag_suppress=1602,1073 --divide at Mon Jan 05 16:43:54 2015
+C:\Keil_v4\ARM\ARMCC\bin\armlink_old.exe -o system_mdr32f9qx.o C:\Users\B19A~1\AppData\Local\Temp\p1dd8-3 system_mdr32f9qx.o --fpu=SoftVFP --cpu=Cortex-M3 --li --partial --no_generate_mapping_symbols --vfemode=force --diag_suppress=6642 --no_add_relocs_to_undefined at Mon Jan 05 16:44:19 2015
+C:\Keil_v4\ARM\ARMCC\bin\ArmLink_old.exe --Via running-led.lnp at Mon Jan 05 16:44:43 2015
+C:\Keil_v4\ARM\ARMCC\bin\fromelf_old.exe running-led.axf --i32combined --output running-led.hex at Mon Jan 05 16:45:09 2015
+//компиляция повторная
+C:\Keil_v4\ARM\ARMCC\bin\ArmCC_old.exe --Via main.__i at Mon Jan 05 17:22:18 2015
+C:\Keil_v4\ARM\ARMCC\bin\armasm_old.exe -o C:\Users\B19A~1\AppData\Local\Temp\pc58-3 C:\Users\B19A~1\AppData\Local\Temp\pc58-2 --fpu=SoftVFP --cpu=Cortex-M3 --li --apcs=/interwork --apcs=interwork --diag_suppress=1602,1073 --divide at Mon Jan 05 17:22:42 2015
+C:\Keil_v4\ARM\ARMCC\bin\armlink_old.exe -o main.o C:\Users\B19A~1\AppData\Local\Temp\pc58-3 main.o --fpu=SoftVFP --cpu=Cortex-M3 --li --partial --no_generate_mapping_symbols --vfemode=force --diag_suppress=6642 --no_add_relocs_to_undefined at Mon Jan 05 17:23:07 2015
+C:\Keil_v4\ARM\ARMCC\bin\ArmLink_old.exe --Via running-led.lnp at Mon Jan 05 17:23:30 2015
+C:\Keil_v4\ARM\ARMCC\bin\fromelf_old.exe running-led.axf --i32combined --output running-led.hex at Mon Jan 05 17:23:52 2015
+//еще раз
+C:\Keil_v4\ARM\ARMCC\bin\ArmCC_old.exe --Via main.__i at Mon Jan 05 17:25:13 2015
+C:\Keil_v4\ARM\ARMCC\bin\armasm_old.exe -o C:\Users\B19A~1\AppData\Local\Temp\p2118-3 C:\Users\B19A~1\AppData\Local\Temp\p2118-2 --fpu=SoftVFP --cpu=Cortex-M3 --li --apcs=/interwork --apcs=interwork --diag_suppress=1602,1073 --divide at Mon Jan 05 17:25:36 2015
+C:\Keil_v4\ARM\ARMCC\bin\armlink_old.exe -o main.o C:\Users\B19A~1\AppData\Local\Temp\p2118-3 main.o --fpu=SoftVFP --cpu=Cortex-M3 --li --partial --no_generate_mapping_symbols --vfemode=force --diag_suppress=6642 --no_add_relocs_to_undefined at Mon Jan 05 17:25:59 2015
+C:\Keil_v4\ARM\ARMCC\bin\ArmLink_old.exe --Via running-led.lnp at Mon Jan 05 17:26:23 2015
+C:\Keil_v4\ARM\ARMCC\bin\fromelf_old.exe running-led.axf --i32combined --output running-led.hex at Mon Jan 05 17:26:46 2015
+//просто линковка, без изменений с пред. компиляции
+C:\Keil_v4\ARM\ARMCC\bin\ArmLink_old.exe --Via running-led.lnp at Mon Jan 05 17:28:30 2015
+C:\Keil_v4\ARM\ARMCC\bin\fromelf_old.exe running-led.axf --i32combined --output running-led.hex at Mon Jan 05 17:28:54 2015
