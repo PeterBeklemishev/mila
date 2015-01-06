@@ -32,7 +32,6 @@ CFLAGS   = -O1 -mcpu=$(ARCH) -mthumb -g -fsigned-char -msoft-float -DARM1986_BE9
 CFLAGS	 += -I$(NEWLIB_PATH)	
 CFLAGS   += -DKHZ=8000 -DF_CPU=8000000
 CFLAGS   += -DKHZ_CLKIN=8000
-CFLAGS	+= -I/usr/arm-none-eabi/include/
 
 LDFLAGS  = -nostdlib -nostartfiles -ffreestanding -Wl,--gc-sections -T $(LDS)/mem.ld -T $(LDS)/sections.ld
 LIBS     = -L$(TARGET) -lgcc -lc -specs=nosys.specs -lnosys
@@ -43,10 +42,7 @@ all:
 	$(CC) -c $(CFLAGS) -o core_cm3.o $(CORECM3).c
 	$(CC) -c $(CFLAGS) -o system.o $(SYSSRC).c
 	$(AS) -c $(CFLAGS) -o startup.o $(STARTUP).S
-
-	$(CXX) $(LDFLAGS) $(LIBS) startup.o system.o core_cm3.o $(PROG_NAME).o -o $(PROG_NAME).elf
-
-	$(OBJCOPY) -O ihex $(PROG_NAME).elf $(PROG_NAME).hex
+	$(CXX) $(LDFLAGS) $(LIBS) system.o core_cm3.o startup.o $(PROG_NAME).o -o $(PROG_NAME).elf	$(OBJCOPY) -O ihex $(PROG_NAME).elf $(PROG_NAME).hex
 	$(SIZE) $(PROG_NAME).elf $(PROG_NAME).hex
 	$(OBJDUMP) -D -S $(PROG_NAME).elf > dump_elf.asm
 
