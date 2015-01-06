@@ -23,7 +23,6 @@ STARTUP  = $(SRC)/startup/startup_MDR32F9Qx
 SYSSRC	= $(SRC)/system/system_MDR32F9Qx
 CORECM3 = $(SRC)/cmsis/core_cm3
 LDS = $(SRC)/ldscripts
-OBJS = $(SRC)/objs
 
 CFLAGS   = -O1 -mcpu=$(ARCH) -mthumb -g -fsigned-char -msoft-float -DARM1986_BE9 -DARM_CORTEX_M3 \
    -fno-exceptions -fno-unwind-tables -fno-asynchronous-unwind-tables \
@@ -35,24 +34,24 @@ CFLAGS   += -DKHZ=8000 -DF_CPU=8000000
 CFLAGS   += -DKHZ_CLKIN=8000
 CFLAGS	+= -I/usr/arm-none-eabi/include/
 
-LDFLAGS  = -nostdlib -nostartfiles -ffreestanding -Wl,--gc-sections -T $(LDS)/sections.ld
+LDFLAGS  = -nostdlib -nostartfiles -ffreestanding -Wl,--gc-sections -T $(LDS)/mem.ld -T $(LDS)/sections.ld
 LIBS     = -L$(TARGET) -lgcc -lc -specs=nosys.specs -lnosys
 
 all:
 #	$(CC) -c $(CFLAGS) -o $(PROG_NAME).o main.c
-	$(CXX) -c -std=c++98 $(CFLAGS) -o $(OBJS)/$(PROG_NAME).o    $(PROG_NAME).c
-	$(CC) -c $(CFLAGS) -o $(OBJS)/core_cm3.o $(CORECM3).c
-	$(CC) -c $(CFLAGS) -o $(OBJS)/system.o $(SYSSRC).c
-	$(AS) -c $(CFLAGS) -o $(OBJS)/startup.o $(STARTUP).S
-#	$(AS) -c $(CFLAGS) -o $(OBJS)/stubstart.o $(SRC)/startup/stubstart.S
+	$(CXX) -c -std=c++98 $(CFLAGS) -o $(PROG_NAME).o    $(PROG_NAME).c
+	$(CC) -c $(CFLAGS) -o core_cm3.o $(CORECM3).c
+	$(CC) -c $(CFLAGS) -o system.o $(SYSSRC).c
+	$(AS) -c $(CFLAGS) -o startup.o $(STARTUP).S
+#	$(AS) -c $(CFLAGS) -o stubstart.o $(SRC)/startup/stubstart.S
 
-	$(CXX) $(LDFLAGS) $(LIBS) $(OBJS)/system.o $(OBJS)/startup.o $(OBJS)/core_cm3.o $(OBJS)/$(PROG_NAME).o -o $(PROG_NAME).elf
+	$(CXX) $(LDFLAGS) $(LIBS) system.o startup.o core_cm3.o $(PROG_NAME).o -o $(PROG_NAME).elf
 
 	$(OBJCOPY) -O ihex $(PROG_NAME).elf $(PROG_NAME).hex
 	$(SIZE) $(PROG_NAME).elf $(PROG_NAME).hex
-#	$(OBJDUMP) -D -S $(PROG_NAME).elf > dump_elf.asm
+	$(OBJDUMP) -D -S $(PROG_NAME).elf > dump_elf.asm
 
 clean:
-	rm $(PROG_NAME).elf $(PROG_NAME).hex
+	rm startup.o system.o core_cm3.o
 #	rm main.o
 
