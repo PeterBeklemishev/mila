@@ -5,7 +5,7 @@ PROG_NAME = test
 ARCH = cortex-m3
 TOOLS_PATH = /usr/bin
 TOOLS_PREFIX = arm-none-eabi-
-TOOLS_VERSION = 4.9.3
+TOOLS_VERSION = 4.9.2
 NEWLIB_PATH = /usr/lib/arm-none-eabi/newlib
 
 #CC		=	$(TOOLS_PATH)/$(TOOLS_PREFIX)gcc-$(TOOLS_VERSION) -Wall
@@ -34,23 +34,24 @@ CFLAGS	 += -I$(NEWLIB_PATH)
 CFLAGS   += -DKHZ=8000 -DF_CPU=8000000
 CFLAGS   += -DKHZ_CLKIN=8000
 CFLAGS	+= -I/usr/arm-none-eabi/include/
+CFLAGS	+= -I$(SRC)/../mila/
 
 LDFLAGS  = -nostdlib -nostartfiles -ffreestanding -Wl,--gc-sections -T $(LDS)/sections.ld
 LIBS     = -L$(TARGET) -lgcc -lc -specs=nosys.specs -lnosys
 
 all:
 #	$(CC) -c $(CFLAGS) -o $(PROG_NAME).o $(PROG_NAME).c
-#        $(CXX) -c -std=c++98 $(CFLAGS) -o $(OBJS)/$(PROG_NAME).o ../$(PROG_NAME).c
+	$(CXX) -c -std=c++98 $(CFLAGS) -o $(OBJS)/$(PROG_NAME).o ../$(PROG_NAME).c
 	$(CXX) -c -std=c++98 $(CFLAGS) -o $(OBJS)/main.o ../mila/main.c
 	$(CC) -c $(CFLAGS) -o $(OBJS)/core_cm3.o $(CORECM3).c
 	$(CC) -c $(CFLAGS) -o $(OBJS)/system.o $(SYSSRC).c
 	$(AS) -c $(CFLAGS) -o $(OBJS)/startup.o $(STARTUP).S
 #	$(AS) -c $(CFLAGS) -o $(OBJS)/stubstart.o $(SRC)/startup/stubstart.S
 
-	$(CXX) $(LDFLAGS) $(LIBS) $(OBJS)/system.o $(OBJS)/startup.o $(OBJS)/core_cm3.o $(OBJS)/main.o -o $(PROG_NAME).elf
+	$(CXX) $(LDFLAGS) $(LIBS) $(OBJS)/test.o $(OBJS)/system.o $(OBJS)/startup.o $(OBJS)/core_cm3.o $(OBJS)/main.o -o ../$(PROG_NAME).elf
 
-	$(OBJCOPY) -O ihex $(PROG_NAME).elf $(PROG_NAME).hex
-	$(SIZE) $(PROG_NAME).elf $(PROG_NAME).hex
+	$(OBJCOPY) -O ihex ../$(PROG_NAME).elf ../$(PROG_NAME).hex
+	$(SIZE) ../$(PROG_NAME).elf ../$(PROG_NAME).hex
 #	$(OBJDUMP) -D -S $(PROG_NAME).elf > dump_elf.asm
 
 clean:
