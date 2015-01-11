@@ -41,7 +41,9 @@ LIBS     = -L$(TARGET) -lgcc -lc -specs=nosys.specs -lnosys
 
 all:
 #	$(CC) -c $(CFLAGS) -o $(PROG_NAME).o $(PROG_NAME).c
+	$(CXX) -c -std=c++98 $(CFLAGS) -o $(OBJS)/timer.o ../mila/timer.c
 	$(CXX) -c -std=c++98 $(CFLAGS) -o $(OBJS)/gpio.o ../mila/gpio.c
+#	$(CXX) -c -std=c++98 $(CFLAGS) -o $(OBJS)/MDR_timer.o $(SRC)/periph/src/MDR32F9Qx_timer.c
 	$(CXX) -c -std=c++98 $(CFLAGS) -o $(OBJS)/milasrv.o ../mila/milasrv.c
 	$(CXX) -c -std=c++98 $(CFLAGS) -o $(OBJS)/main.o ../mila/main.c
 	$(CXX) -c -std=c++98 $(CFLAGS) -o $(OBJS)/$(PROG_NAME).o ../$(PROG_NAME).c
@@ -50,7 +52,7 @@ all:
 	$(AS) -c $(CFLAGS) -o $(OBJS)/startup.o $(STARTUP).S
 #	$(AS) -c $(CFLAGS) -o $(OBJS)/stubstart.o $(SRC)/startup/stubstart.S
 
-	$(CXX) $(LDFLAGS) $(LIBS) $(OBJS)/test.o $(OBJS)/gpio.o $(OBJS)/milasrv.o $(OBJS)/system.o $(OBJS)/startup.o $(OBJS)/core_cm3.o $(OBJS)/main.o -o ../$(PROG_NAME).elf
+	$(CXX) $(LDFLAGS) $(LIBS) $(OBJS)/test.o $(OBJS)/timer.o $(OBJS)/gpio.o $(OBJS)/milasrv.o $(OBJS)/system.o $(OBJS)/startup.o $(OBJS)/core_cm3.o $(OBJS)/main.o -o ../$(PROG_NAME).elf
 
 	$(OBJCOPY) -O ihex ../$(PROG_NAME).elf ../$(PROG_NAME).hex
 	$(SIZE) ../$(PROG_NAME).elf ../$(PROG_NAME).hex

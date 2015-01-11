@@ -1,4 +1,4 @@
-#include "../src/cmsis/stdint.h"
+ #include "../src/cmsis/stdint.h"
 #include "../src/inc/MDR32Fx.h"
 #include "gpio.h"
 #include "milasrv.h"
@@ -70,7 +70,7 @@ void write(porttypesize port, ...) {
 
     long value = p;
     bitOffset=0;
-    запись значения 
+    //запись значения 
     for(i=0;i<count;i++)
       if(type(ports[i])==порт):
       {

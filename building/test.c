@@ -15,21 +15,21 @@ void init(){
 
 void cycle(){
 
-	pinWrite(B0,1);
-	delay();
+/*	pinWrite(B0,1);
+	delay_int(1000);
 	pinWrite(B1,1);
-	delay();
+	delay_int(1000);
 	pinWrite(B2,1);
-	delay();
+	delay_int(1000);
 	pinWrite(B3,1);
-	delay(); 
+	delay_int(1000); 
 	pinWrite(B0,0);
-	delay();
+	delay_int(1000);
 	pinWrite(B1,0);
-	delay();
+	delay_int(1000);
 	pinWrite(B2,0);
-	delay();
+	delay_int(1000);
 	pinWrite(B3,0);
-	delay();
-	
+	delay_int(1000);
+*/	
 }
