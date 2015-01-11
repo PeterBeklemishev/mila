@@ -31,6 +31,7 @@
 
 #define IN 0
 #define OUT 1
+#define OUT_STUB 2
 
 void init(void);
 void cycle(void);
