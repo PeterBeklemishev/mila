@@ -51,6 +51,9 @@
 #define	F6	0x0606
 #define	F7	0x0607
 
+#define HIGH 1
+#define LOW 0
+
 void pinInit(int, int);
 void pinWrite(int, int);
 

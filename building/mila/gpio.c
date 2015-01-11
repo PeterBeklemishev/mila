@@ -7,7 +7,6 @@
 void pinInit(int pin, int mode){
 
 	MDR_PORT_TypeDef *port = port_from_pin(uint8_t(pin>>8));
-//	MDR_PORT_TypeDef *port = MDR_PORTB;
 	int8_t bit = uint8_t(pin);
 
 	if (mode == OUT){
@@ -20,22 +19,11 @@ void pinInit(int pin, int mode){
 		port->GFEN &= ( GFEN_OFF << bit );
 	}
 
-/*	if (mode = OUT_STUB){
-		port->OE = 0xFFFFFFFF;
-		port->FUNC = 0;
-		port->ANALOG = 0xFFFFFFFF;
-		port->PULL = 0xFFFF0000;
-		port->PD = 0;
-		port->PWR = 0x55555555;
-		port->GFEN = 0;
-	}
-*/
 }
 
 void pinWrite(int pin, int val){
 
 	MDR_PORT_TypeDef *port = port_from_pin(uint8_t(pin>>8));
-//	MDR_PORT_TypeDef *port = MDR_PORTB;
 	int8_t bit = uint8_t(pin);
 
 	if (val == 1){
