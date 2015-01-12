@@ -46,15 +46,16 @@ LIBS     = -L$(TARGET) -lgcc -lc -specs=nosys.specs -lnosys
 
 all:
 #	$(CC) -c $(CFLAGS) -o $(PROG_NAME).o $(PROG_NAME).c
+	$(CXX) -c $(CFLAGS) -o $(OBJS)/core_cm3.o $(CORECM3).c
+	$(CXX) -c $(CFLAGS) -o $(OBJS)/system.o $(SYSSRC).c
+	$(AS) -c $(CFLAGS) -o $(OBJS)/startup.o $(STARTUP).S
 	$(CXX) -c $(CFLAGS) -o $(OBJS)/timer.o $(SRC)/mila/timer.c
 	$(CXX) -c -std=c++98 $(CFLAGS) -o $(OBJS)/gpio.o $(SRC)/mila/gpio.c
 #	$(CXX) -c -std=c++98 $(CFLAGS) -o $(OBJS)/MDR_timer.o $(SRC)/periph/src/MDR32F9Qx_timer.c
 	$(CXX) -c -std=c++98 $(CFLAGS) -o $(OBJS)/milasrv.o $(SRC)/mila/milasrv.c
-	$(CXX) -c -std=c++98 $(CFLAGS) -o $(OBJS)/main.o $(SRC)/mila/main.c
 	$(CXX) -c -std=c++98 $(CFLAGS) -o $(OBJS)/$(PROG_NAME).o $(TARGET)/$(PROG_NAME).c
-	$(CXX) -c $(CFLAGS) -o $(OBJS)/core_cm3.o $(CORECM3).c
-	$(CXX) -c $(CFLAGS) -o $(OBJS)/system.o $(SYSSRC).c
-	$(AS) -c $(CFLAGS) -o $(OBJS)/startup.o $(STARTUP).S
+	$(CXX) -c -std=c++98 $(CFLAGS) -o $(OBJS)/main.o $(SRC)/mila/main.c
+
 
 	$(CXX) $(LDFLAGS) $(LIBS) $(OBJS)/test.o $(OBJS)/timer.o $(OBJS)/gpio.o $(OBJS)/milasrv.o $(OBJS)/system.o $(OBJS)/startup.o $(OBJS)/core_cm3.o $(OBJS)/main.o -o $(TARGET)/$(PROG_NAME).elf
 

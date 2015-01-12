@@ -1,8 +1,19 @@
- #include "../MDR/cmsis/stdint.h"
+#include "../MDR/cmsis/stdint.h"
 #include "../MDR/inc/MDR32Fx.h"
 #include "gpio.h"
 #include "milasrv.h"
 #include "mila.h"
+
+void ports_clock_enable(void){
+    MDR_RST_CLK->PER_CLOCK = 
+    PORTA_CLK | 
+    PORTB_CLK | 
+    PORTC_CLK | 
+    PORTD_CLK | 
+    PORTE_CLK | 
+    PORTF_CLK;
+
+}
 
 void pinInit(int pin, int mode){
 

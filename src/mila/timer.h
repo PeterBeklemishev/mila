@@ -4,10 +4,13 @@
 #include "../MDR/cmsis/stdint.h"
 
 void Timer1_Init(void);
-//void Timer1_IRQHandler(void);
 
-//#ifndef delay_int_time
-//volatile uint16_t delay_int_time;
-//#endif
+#define TIM1_CLK_EN (1UL << 24)
+#define TIM2_CLK_EN (1UL << 25)
+#define TIM3_CLK_EN (1UL << 26)
+
+#define CNT_EN (1UL << 0)
+#define CNT_ARR_EVENT_IE (1UL << 1)
+#define CNT_ZERO_EVENT_IE (1UL << 0)
 
 #endif

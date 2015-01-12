@@ -56,5 +56,6 @@
 
 void pinInit(int, int);
 void pinWrite(int, int);
+void ports_clock_enable(void);
 
 #endif
