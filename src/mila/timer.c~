@@ -1,6 +1,6 @@
 #include "timer.h"
-#include "../MDR/inc/MDR32Fx.h"
-#include "../MDR/cmsis/stdint.h"
+#include "../inc/MDR32Fx.h"
+#include "../cmsis/stdint.h"
 #include "milasrv.h"
 
 

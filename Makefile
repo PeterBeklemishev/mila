@@ -9,7 +9,7 @@ TOOLS_PATH = /usr/bin
 TOOLS_PREFIX = arm-none-eabi-
 TOOLS_VERSION = 4.8.2
 #LIB_PATH = $(TC_PATH)/lib
-#NEWLIB_PATH = $(LIB_PATH)/newlib
+#NEWLIB_PATH = $(LIB_PATH)/newlib 
 
 #CC		=	$(TOOLS_PATH)/$(TOOLS_PREFIX)gcc-$(TOOLS_VERSION) -Wall
 CC		=	$(TOOLS_PATH)/$(TOOLS_PREFIX)gcc -Wall
@@ -22,17 +22,18 @@ OBJDUMP		=	$(TOOLS_PATH)/$(TOOLS_PREFIX)objdump --disassembler-options=force-thu
 OBJCOPY		=	$(TOOLS_PATH)/$(TOOLS_PREFIX)objcopy
 
 SRC	= $(TARGET)/src
-STARTUP  = $(SRC)/startup/startup_MDR32F9Qx
-SYSSRC	= $(SRC)/system/system_MDR32F9Qx
-CORECM3 = $(SRC)/cmsis/core_cm3
-LDS = $(SRC)/ldscripts
-OBJS = $(SRC)/objs
+MDR_PATH = $(SRC)/MDR
+STARTUP  = $(MDR_PATH)/startup/startup_MDR32F9Qx
+SYSSRC	= $(MDR_PATH)/system/system_MDR32F9Qx
+CORECM3 = $(MDR_PATH)/cmsis/core_cm3
+LDS = $(MDR_PATH)/ldscripts
+OBJS = $(MDR_PATH)/objs
 
 CFLAGS   = -O1 -mcpu=$(ARCH) -mthumb -g -fsigned-char -msoft-float -DARM1986_BE9 -DARM_CORTEX_M3 \
    -fno-exceptions -fno-unwind-tables -fno-asynchronous-unwind-tables \
    -ffunction-sections -fdata-sections \
-	-I$(SRC)/cmsis -I$(SRC)/inc -I$(SRC)/ldscripts -I$(SRC)/MDRlib \
-	-I$(SRC)/periph/inc -I$(SRC)/periph/src -I$(SRC)/system -I$(SRC)/startup 
+	-I$(MDR_PATH)/cmsis -I$(MDR_PATH)/inc -I$(MDR_PATH)/ldscripts -I$(MDR_PATH)/MDRlib \
+	-I$(MDR_PATH)/periph/inc -I$(MDR_PATH)/periph/src -I$(MDR_PATH)/system -I$(MDR_PATH)/startup 
 CFLAGS	 += -I$(NEWLIB_PATH)	
 CFLAGS   += -DKHZ=8000 -DF_CPU=8000000
 CFLAGS   += -DKHZ_CLKIN=8000

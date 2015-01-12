@@ -1,7 +1,7 @@
 #ifndef timer_h
 #define timer_h
 
-#include "../MDR/cmsis/stdint.h"
+#include "../cmsis/stdint.h"
 
 void Timer1_Init(void);
 //void Timer1_IRQHandler(void);

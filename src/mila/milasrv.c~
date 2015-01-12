@@ -1,7 +1,7 @@
 #include "mila.h"
-#include "../MDR/inc/MDR32Fx.h"
+#include "../inc/MDR32Fx.h"
 #include "timer.h"
-#include "../MDR/cmsis/stdint.h"
+#include "../cmsis/stdint.h"
 
 volatile uint16_t delay_int_time;
 

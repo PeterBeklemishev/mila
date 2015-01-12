@@ -1,5 +1,5 @@
- #include "../MDR/cmsis/stdint.h"
-#include "../MDR/inc/MDR32Fx.h"
+ #include "../cmsis/stdint.h"
+#include "../inc/MDR32Fx.h"
 #include "gpio.h"
 #include "milasrv.h"
 #include "mila.h"
