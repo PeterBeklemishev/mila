@@ -3,13 +3,13 @@ TARGET = $(CURDIR)
 PROG_NAME = test
 
 ARCH = cortex-m3
-#TC_PATH = $(TARGET)/linux-tc
-#TOOLS_PATH = $(TC_PATH)/bin
-TOOLS_PATH = /usr/bin
+TC_PATH = $(TARGET)/linux-tc
+TOOLS_PATH = $(TC_PATH)/bin
+#TOOLS_PATH = /usr/bin
 TOOLS_PREFIX = arm-none-eabi-
-TOOLS_VERSION = 4.8.2
-#LIB_PATH = $(TC_PATH)/lib
-#NEWLIB_PATH = $(LIB_PATH)/newlib 
+TOOLS_VERSION = 4.9.3
+LIB_PATH = $(TC_PATH)/lib
+NEWLIB_PATH = $(LIB_PATH)/newlib 
 
 #CC		=	$(TOOLS_PATH)/$(TOOLS_PREFIX)gcc-$(TOOLS_VERSION) -Wall
 CC		=	$(TOOLS_PATH)/$(TOOLS_PREFIX)gcc -Wall
@@ -38,12 +38,17 @@ CFLAGS	 += -I$(NEWLIB_PATH)
 CFLAGS   += -DKHZ=8000 -DF_CPU=8000000
 CFLAGS   += -DKHZ_CLKIN=8000
 CFLAGS	+= -I$(LIB_PATH)
-#CFLAGS  += -B $(TC_PATH)/$(TOOLS_VERSION)
+CFLAGS  += -B $(TC_PATH)/arm-none-eabi/
+CFLAGS  += -B $(TC_PATH)/lib/4.9.3/
+CFLAGS  += -B $(TC_PATH)/arm-none-eabi/bin/
+CFLAGS  += -B $(TC_PATH)/arm-none-eabi/include/
+CFLAGS  += -B $(TC_PATH)/arm-none-eabi/lib/
+CFLAGS  += -B $(TC_PATH)/arm-none-eabi/share/
 CFLAGS	+= -I$(SRC)/mila/
 
 LDFLAGS  = -nostdlib -nostartfiles -ffreestanding -Wl,--gc-sections -T $(LDS)/sections.ld
 LIBS     = -L$(TARGET) -lgcc -lc -specs=nosys.specs -lnosys
-
+LIBS  += -B $(TC_PATH)/lib/4.9.3/
 all:
 #	$(CC) -c $(CFLAGS) -o $(PROG_NAME).o $(PROG_NAME).c
 	$(CXX) -c $(CFLAGS) -o $(OBJS)/timer.o $(SRC)/mila/timer.c
