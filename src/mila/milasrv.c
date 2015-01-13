@@ -36,8 +36,20 @@ void delay(void){
 	}
 }
 
-void delay_int(uint32_t time){
-//	delay_int_time = time;
-//	while (delay_int_time>0);
+/*
+uint32_t millis_time;
+
+
+int millis(void){
+	
+	return 
 }
 
+
+
+void delay_int(uint32_t delay_time){
+	delay_start_time = millis();
+	while ( (millis() - delay_start_time) > 0 );
+}
+
+*/
