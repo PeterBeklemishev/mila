@@ -7,7 +7,7 @@ MDR_PORT_TypeDef *port_from_pin(uint8_t pin);
 void mila_init(void);
 void delay(void);
 void delay_int(uint32_t);
-void Timer1_IRQHandler(void);
+//void Timer1_IRQHandler(void);
 
 //volatile uint32_t delay_int_time;
 

@@ -17,8 +17,8 @@ void ports_clock_enable(void){
 
 void pinInit(int pin, int mode){
 
-	MDR_PORT_TypeDef *port = port_from_pin(uint8_t(pin>>8));
-	int8_t bit = uint8_t(pin);
+	MDR_PORT_TypeDef *port = port_from_pin((uint8_t)(pin>>8));
+	int8_t bit = (uint8_t)pin;
 
 	if (mode == OUT){
 		port->OE |= ( OE_OUT << bit );
@@ -34,8 +34,8 @@ void pinInit(int pin, int mode){
 
 void pinWrite(int pin, int val){
 
-	MDR_PORT_TypeDef *port = port_from_pin(uint8_t(pin>>8));
-	int8_t bit = uint8_t(pin);
+	MDR_PORT_TypeDef *port = port_from_pin((uint8_t)pin>>8);
+	int8_t bit = (uint8_t)pin;
 
 	if (val == 1){
 		port->RXTX |= ( 1 << bit );

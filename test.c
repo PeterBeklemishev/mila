@@ -5,7 +5,26 @@
 #include "src/MDR/cmsis/core_cm3.h"
 #include "src/mila/timer.h"
 
-volatile uint32_t delay_int_time=0;
+
+//void zauza(void){
+//	MDR_PORTB->RXTX = 0xF;
+//};
+
+//void Timer1_IRQHandler(void){
+        //      uint32_t m = delay_int_time;
+        //      m--;
+        //      uint32_t counter=0;
+        //MDR_PORTB->RXTX = 0xA;
+        //      counter+=1; 
+//      delay_int_time++;
+//      if(delay_int_time>2)delay_int_time=0;
+//      MDR_PORTB->RXTX=0xFF;
+//        zauza();
+//        MDR_TIMER1->CNT = 0x0000;
+ //       MDR_TIMER1->STATUS &= ~(1 << 1);
+//        NVIC_ClearPendingIRQ(Timer1_IRQn);
+        //      delay_int_time = m;
+//}
 
 void init(){
 
@@ -14,8 +33,7 @@ void init(){
 	pinInit(B2,OUT);
 	pinInit(B3,OUT);
 
-}	
-
+}
 
 void cycle(){
 //	NVIC_SetPendingIRQ(Timer1_IRQn);
@@ -44,20 +62,5 @@ void cycle(){
 //	pinWrite(B3,0);
 //	delay_int(1000);
 //	delay();
-	MDR_PORTB->RXTX = delay_int_time;
-}
-
-void Timer1_IRQHandler(void){
-	//	uint32_t m = delay_int_time;
-	// 	m--;
-	//	uint32_t counter=0;
-	//MDR_PORTB->RXTX = 0xA;
-	//	counter+=1; 
-	delay_int_time++;
-	if(delay_int_time>2)delay_int_time=0;
-//	MDR_PORTB->RXTX=0xFF;
-	MDR_TIMER1->CNT = 0x0000;
-	MDR_TIMER1->STATUS &= ~(1 << 1);
-	NVIC_ClearPendingIRQ(Timer1_IRQn);
-	//	delay_int_time = m;
+//	MDR_PORTB->RXTX = delay_int_time;
 }
