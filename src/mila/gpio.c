@@ -6,13 +6,8 @@
 
 void ports_clock_enable(void){
     MDR_RST_CLK->PER_CLOCK = 
-    PORTA_CLK | 
-    PORTB_CLK | 
-    PORTC_CLK | 
-    PORTD_CLK | 
-    PORTE_CLK | 
-    PORTF_CLK;
-
+    	PORTA_CLK | PORTB_CLK | PORTC_CLK | 
+    	PORTD_CLK | PORTE_CLK | PORTF_CLK;
 }
 
 void pinInit(int pin, int mode){
@@ -28,6 +23,10 @@ void pinInit(int pin, int mode){
 		port->PD &= ( PD_MODE_CDRV << bit );
 		port->PWR |= ( PWR_SLOW << bit*2 );
 		port->GFEN &= ( GFEN_OFF << bit );
+	}
+	
+	if (mode == IN){
+		//TO BE DONE
 	}
 
 }
@@ -47,6 +46,9 @@ void pinWrite(int pin, int val){
 
 }
 
+void pinRead(int pin){
+	//TO BE DONE
+}
 
 //SECTION to check, recode and approve
 
