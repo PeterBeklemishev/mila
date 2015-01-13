@@ -51,6 +51,13 @@
 #define	F6	0x0606
 #define	F7	0x0607
 
+#define PA 0x1000
+#define PB 0x2000
+#define PC 0x3000
+#define PD 0x4000
+#define PE 0x5000
+#define PF 0x6000
+
 #define HIGH 1
 #define LOW 0
 
