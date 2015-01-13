@@ -67,6 +67,18 @@ type(porttypesize p)
           return порт
 }
 
+вот сюда выше идея:
+0xWP0p
+
+W - whole port
+P - port
+p - pin
+
+целые порты типа PA, PB дефайнить как 0x1000 0x2000
+пин на порту типа B2 B3 дефайнить как 0x0202 0x0203
+сквозная нумерация пинов делается с пустым значением WP например 0х000А 0х00В2
+тогда всё это сможет кушать pinWrite.
+
 void write(porttypesize port, ...) {
     MDR_PORT_TypeDef *port;
     porttypesize ports[100];
