@@ -17,14 +17,14 @@ void mila_init(void){
 	Timer1_Init();
 }
 
-MDR_PORT_TypeDef *port_from_pin(uint8_t pin){
+MDR_PORT_TypeDef *port_from_pin(int pin){
 	switch (pin){
-		case 1: return MDR_PORTA;
-		case 2: return MDR_PORTB;
-		case 3: return MDR_PORTC;
-		case 4: return MDR_PORTD;
-		case 5: return MDR_PORTE;
-		case 6: return MDR_PORTF;
+		case 0x100: return MDR_PORTA;
+		case 0x200: return MDR_PORTB;
+		case 0x300: return MDR_PORTC;
+		case 0x400: return MDR_PORTD;
+		case 0x500: return MDR_PORTE;
+		case 0x600: return MDR_PORTF;
 	}
 }
 
