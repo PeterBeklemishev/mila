@@ -38,18 +38,21 @@ void delay(void){
 
 /*
 uint32_t millis_time;
-
+int millis_step = 1;
 
 int millis(void){
-	
-	return 
+	return millis_time;
 }
 
-
+ISR(Timer1){
+	millis_time += millis_step;
+	// clear timer status
+	// clear pending interrupt
+}
 
 void delay_int(uint32_t delay_time){
 	delay_start_time = millis();
-	while ( (millis() - delay_start_time) > 0 );
+	while ( (millis() - delay_start_time) > delay_time );
 }
 
 */
