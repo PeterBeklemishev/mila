@@ -13,7 +13,7 @@ void ports_clock_enable(void){
 void pinInit(int pin, int mode){
 
 	MDR_PORT_TypeDef *port = port_from_pin(0xFF00 & pin);
-	int bit = 0xFF & pin;
+	int bit = 0x00FF & pin;
 
 	if (mode == OUT){
 		port->OE |= ( OE_OUT << bit );

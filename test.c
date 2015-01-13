@@ -2,7 +2,7 @@
 #include "src/mila/mila.h"
 #include "src/mila/gpio.h"
 #include "src/mila/milasrv.h"
-#include "src/mila/timer.h"
+#include "src/mila/timers.h"
 
 void init(){
 	pinInit(B0,OUT);
@@ -12,7 +12,13 @@ void init(){
 }
 
 void cycle(){
-	pinWrite(B0,1);
+		__enable_irq();
+//	NVIC_SetPendingIRQ(Timer1_IRQn);
+	delay();
+	delay();
+	delay();
+	delay();
+/*	pinWrite(B0,1);
 	delay();
 	pinWrite(B1,1);
 	delay();
@@ -28,4 +34,5 @@ void cycle(){
 	delay();
 	pinWrite(B3,0);
 	delay();
+*/	
 }

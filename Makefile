@@ -39,13 +39,13 @@ all:
 	$(CC) -c $(CFLAGS) -o $(OBJS)/core_cm3.o $(CORECM3).c
 	$(CC) -c $(CFLAGS) -o $(OBJS)/system.o $(SYSSRC).c
 	$(AS) -c $(CFLAGS) -o $(OBJS)/startup.o $(STARTUP).S
-	$(CC) -c $(CFLAGS) -o $(OBJS)/timer.o $(MILA_PATH)/timer.c
+	$(CC) -c $(CFLAGS) -o $(OBJS)/timers.o $(MILA_PATH)/timers.c
 	$(CC) -c $(CFLAGS) -o $(OBJS)/gpio.o $(MILA_PATH)/gpio.c
 	$(CC) -c $(CFLAGS) -o $(OBJS)/milasrv.o $(MILA_PATH)/milasrv.c
 	$(CC) -c $(CFLAGS) -o $(OBJS)/$(PROG_NAME).o $(TARGET)/$(PROG_NAME).c
 	$(CC) -c $(CFLAGS) -o $(OBJS)/main.o $(SRC)/mila/main.c
 
-	$(CXX) $(LDFLAGS) $(LIBS) $(OBJS)/test.o $(OBJS)/timer.o $(OBJS)/gpio.o $(OBJS)/milasrv.o \
+	$(CXX) $(LDFLAGS) $(LIBS) $(OBJS)/test.o $(OBJS)/timers.o $(OBJS)/gpio.o $(OBJS)/milasrv.o \
 		$(OBJS)/system.o $(OBJS)/startup.o $(OBJS)/core_cm3.o $(OBJS)/main.o -o $(TARGET)/$(PROG_NAME).elf
 
 	$(OBJCOPY) -O ihex $(TARGET)/$(PROG_NAME).elf $(TARGET)/$(PROG_NAME).hex

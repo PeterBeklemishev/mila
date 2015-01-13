@@ -51,15 +51,41 @@
 #define	F6	0x0606
 #define	F7	0x0607
 
-#define PA 0x1000
-#define PB 0x2000
-#define PC 0x3000
-#define PD 0x4000
-#define PE 0x5000
-#define PF 0x6000
+//#define PA 	0x1000
+//#define PB 	0x2000
+//#define PC 	0x3000
+//#define PD 	0x4000
+//#define PE 	0x5000
+//#define PF 	0x6000
 
 #define HIGH 1
 #define LOW 0
+
+#define PORTA_CLK (1UL<<21)
+#define PORTB_CLK (1UL<<22)
+#define PORTC_CLK (1UL<<23)
+#define PORTD_CLK (1UL<<24)
+#define PORTE_CLK (1UL<<25)
+#define PORTF_CLK (1UL<<29)
+
+#define OE_IN 0
+#define OE_OUT 1
+#define FUNC_GPIO 0
+#define FUNC_MAIN 1
+#define FUNC_ALT 2
+#define ANALOG_ON 0
+#define ANALOG_OFF 1
+#define PULL_ON 1
+#define PULL_OFF 0
+#define PD_SCHM_ON 1
+#define PD_SCHM_OFF 0
+#define PD_MODE_CDRV 0
+#define PD_MODE_ODR 1
+#define PWR_SLOW 1
+#define PWR_FAST 2
+#define PWR_MAX 3
+#define GFEN_OFF 0
+#define GFEN_ON 1
 
 void pinInit(int, int);
 void pinWrite(int, int);

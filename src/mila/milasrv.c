@@ -1,12 +1,17 @@
-#include "mila.h"
 #include "../MDR/inc/MDR32Fx.h"
-#include "timer.h"
-#include "gpio.h"
 #include "../MDR/cmsis/stdint.h"
 #include "../MDR/cmsis/core_cm3.h"
 #include "../MDR/inc/MDR32Fx.h"
+#include "mila.h"
+#include "timers.h"
+#include "gpio.h"
+
 
 //volatile uint32_t delay_int_time;
+
+#define MILLIS_STEP 1
+
+volatile int tep = 0xF;
 
 void mila_init(void){
 	//enable global interrupts
@@ -36,23 +41,33 @@ void delay(void){
 	}
 }
 
-/*
 uint32_t millis_time;
-int millis_step = 1;
 
 int millis(void){
 	return millis_time;
 }
 
-ISR(Timer1){
-	millis_time += millis_step;
-	// clear timer status
-	// clear pending interrupt
+void Timer1_IRQHandler(void) {
+//	millis_time += MILLIS_STEP;
+	MDR_PORTB->RXTX = 0xF;
+	tep = 0xF-tep;
+	MDR_TIMER1->CNT = 0x0000;
+    MDR_TIMER1->STATUS &= ~(1 << 1);
+    NVIC_ClearPendingIRQ(Timer1_IRQn);
 }
 
-void delay_int(uint32_t delay_time){
-	delay_start_time = millis();
-	while ( (millis() - delay_start_time) > delay_time );
+void Timer2_IRQHandler(void) {
+//	millis_time += MILLIS_STEP;
+	MDR_PORTB->RXTX = 0xF;
+	tep = 0xF-tep;
+	MDR_TIMER2->CNT = 0x0000;
+    MDR_TIMER2->STATUS &= ~(1 << 1);
+    NVIC_ClearPendingIRQ(Timer2_IRQn);
 }
 
-*/
+//void delay_int(uint32_t delay_time){
+//	delay_start_time = millis();
+//	while ( (millis() - delay_start_time) > delay_time );
+//}
+
+
