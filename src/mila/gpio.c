@@ -99,6 +99,10 @@ int pinRead(int pin){
 
 // must check if args quantity match corresponding port pins quantity
 
+//TODO(for approve): mask modification usage:
+// exmpl: portInit(PB,IN || IN(2) || OUT(3) )
+
+
 void portInit(MDR_PORT_TypeDef *port, uint32_t mode){
   if (mode == OUT){
     port->OE |= 0xFFFFFFFF;
