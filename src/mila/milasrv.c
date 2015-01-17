@@ -127,7 +127,7 @@ MDR_PORT_TypeDef *port_from_virtual_pin(int pin){
 
 MDR_PORT_TypeDef *port_from_virtual_pin(int pin){
 	if (pin <=7) return PORTA;
-	else if (pin<=17) return PORTB;
+	else if (pin<=18) return PORTB;
 	else if (pin<=21) return PORTC;
 	else if (pin<=29) return PORTD;
 	else if (pin<=35) return PORTE;
@@ -196,9 +196,10 @@ int bit_from_virtual_pin(int pin){
 */
 int bit_from_virtual_pin(int pin){
 	if (pin <=7) return pin;
-	else if (pin<=17) return pin-8;
+	else if (pin<=18) return pin-8;
 	else if (pin<=21) return pin-18;
 	else if (pin<=29) return pin-22;
 	else if (pin<=35) return pin-30;
 	else if (pin<=43) return pin-36; 
+//	else ERROR;
 }
