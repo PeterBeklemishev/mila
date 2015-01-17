@@ -87,6 +87,13 @@
 #define GFEN_OFF 0
 #define GFEN_ON 1
 
+#define PINS_IN_PORTA 8
+#define PINS_IN_PORTB 11
+#define PINS_IN_PORTC 3
+#define PINS_IN_PORTD 8
+#define PINS_IN_PORTE 6
+#define PINS_IN_PORTF 8
+
 
 void pinInit(int, int);
 void pinWrite(int, int);
@@ -96,6 +103,6 @@ void portInit(MDR_PORT_TypeDef *, uint32_t);
 void portWrite(MDR_PORT_TypeDef *, uint32_t);
 uint32_t portRead(MDR_PORT_TypeDef *);
 
-void ports_clock_enable(void);
+
 
 #endif

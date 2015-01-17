@@ -4,16 +4,20 @@
 #include "milasrv.h"
 #include "mila.h"
 
-void ports_clock_enable(void){
-    MDR_RST_CLK->PER_CLOCK = 
-    	PORTA_CLK | PORTB_CLK | PORTC_CLK | 
-    	PORTD_CLK | PORTE_CLK | PORTF_CLK;
-}
 
 void pinInit(int pin, int mode){
 
-	MDR_PORT_TypeDef *port = port_from_pin(0xFF00 & pin);
-	int bit = 0x00FF & pin;
+  MDR_PORT_TypeDef *port;
+  int bit;
+
+  if ((0xFF00 & pin) > 0){
+    port = port_from_pin(0xFF00 & pin);
+    bit = 0x00FF & pin;
+  }
+  else {
+    port = port_from_virtual_pin(pin);
+    bit = bit_from_virtual_pin(pin);
+  }
 
 	if (mode == OUT){
 		port->OE |= ( OE_OUT << bit );
@@ -30,7 +34,7 @@ void pinInit(int pin, int mode){
     port->FUNC &= ( FUNC_GPIO << bit*2 );
     port->ANALOG |= ( ANALOG_OFF << bit );
     port->PULL |= (( PULL_ON << bit ) << 16 );
-    port->PD |= ( PD_SCHM_ON << bit );
+    port->PD |= (( PD_SCHM_ON << bit ) << 16 );
     port->PWR |= ( PWR_SLOW << bit*2 );
     port->GFEN &= ( GFEN_OFF << bit );		
 	}
@@ -39,8 +43,17 @@ void pinInit(int pin, int mode){
 
 void pinWrite(int pin, int val){
 
-	MDR_PORT_TypeDef *port = port_from_pin(0xFF00 & pin);
-	int bit = 0xFF & pin;
+  MDR_PORT_TypeDef *port;
+  int bit;
+
+  if ((0xFF00 & pin) > 0){
+    port = port_from_pin(0xFF00 & pin);
+    bit = 0x00FF & pin;
+  }
+  else {
+    port = port_from_virtual_pin(pin);
+    bit = bit_from_virtual_pin(pin);
+  }
 
 	if (val == 1){
 		port->RXTX |= ( 1 << bit );
@@ -49,23 +62,42 @@ void pinWrite(int pin, int val){
 	else if (val == 0){
 		port->RXTX &= ~( 1 << bit );
 	}
+
+  //else ERROR;
 }
 
 int pinRead(int pin){
-  MDR_PORT_TypeDef *port = port_from_pin(0xFF00 & pin);
-  int bit = 0xFF & pin;
-  if (port->RXTX & (1 << bit)) return 1;
-  if (port->RXTX & (1 << bit)) return 0;
+
+  MDR_PORT_TypeDef *port;
+  int bit;
+
+  if ((0xFF00 & pin) > 0){
+    port = port_from_pin(0xFF00 & pin);
+    bit = 0x00FF & pin;
+  }
+  else {
+    port = port_from_virtual_pin(pin);
+    bit = bit_from_virtual_pin(pin);
+  }
+
+  if (port->RXTX & (1 << bit)){
+    return 1;
+  } 
+
+  else if (~(port->RXTX & (1 << bit))){
+    return 0;
+  }
 }
 
 
 // possible usage:
-// portInit(port, OUT);
-// portInit(port, IN);
-// portInit(port, OUT/IN, OUT/IN, OUT/IN)
-// portInit(port, OUT/IN, OUT/IN, OUT/IN, OUT/IN, OUT/IN, OUT/IN, OUT/IN, OUT/IN)
-// portInit(port, OUT/IN, OUT/IN, OUT/IN, OUT/IN, OUT/IN, OUT/IN, OUT/IN, OUT/IN, OUT/IN, OUT/IN)
-// check if args match port pins quantity
+// portInit(port, OUT/IN); ----- any PORT
+// portInit(port, OUT/IN, OUT/IN, OUT/IN) ----- PORTC only
+// portInit(port, OUT/IN, OUT/IN, OUT/IN, OUT/IN, OUT/IN, OUT/IN) ----- PORTE only
+// portInit(port, OUT/IN, OUT/IN, OUT/IN, OUT/IN, OUT/IN, OUT/IN, OUT/IN, OUT/IN) ----- PORTADF
+// portInit(port, OUT/IN, OUT/IN, OUT/IN, OUT/IN, OUT/IN, OUT/IN, OUT/IN, OUT/IN, OUT/IN, OUT/IN) ----- PORTB
+
+// must check if args quantity match corresponding port pins quantity
 
 void portInit(MDR_PORT_TypeDef *port, uint32_t mode){
   if (mode == OUT){
@@ -96,12 +128,33 @@ uint32_t portRead(MDR_PORT_TypeDef *port){
   return port->RXTX;
 }
 
+//just for test
+
+void snake(){
+  pinWrite(B0,1);
+  delay();
+  pinWrite(B1,1);
+  delay();
+  pinWrite(B2,1);
+  delay();
+  pinWrite(B3,1);
+  delay();
+  pinWrite(8,0);
+  delay();
+  pinWrite(9,0);
+  delay();
+  pinWrite(10,0);
+  delay();
+  pinWrite(11,0);
+  delay();
+}
+
 
 //SECTION to check, recode and approve
 
 //FEATURE: write to port in 'write(PB,PB3,PB4,PC..,(long)0X012312341FDH)'- like format
 /*
-ports ~ 40-50 bits;
+ports = 43 bits;
 4 highest should be 0x0000 .... .... .... .....
 size of long = 64 bit
 

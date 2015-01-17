@@ -6,13 +6,13 @@
 #include "gpio.h"
 
 int main(){
-
-	mila_init();
-
-	init();
+	
+	mila_init(); // from file milasrv.c 
+	
+	init(); // from your awesome sketch
 	
 	for(;;){
-		cycle();
+		cycle(); // from your awesome sketch
 	}
 
 return 0;
