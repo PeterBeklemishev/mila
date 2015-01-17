@@ -99,9 +99,20 @@ int pinRead(int pin){
 
 // must check if args quantity match corresponding port pins quantity
 
-//TODO(for approve): mask modification usage:
-// exmpl: portInit(PB,IN || IN(2) || OUT(3) )
-
+//FEATURE: mask modificator usage concept:
+// "0х04 OE[15:0] MDR_PORTx->OE" means 16bit of "uint32_t mode" used?
+//...
+//#define IN 0x0000?
+//#define OUT 0xFFFF?
+//#define OUT_P(pin) ~((1) << (pin)) // (use "IN()" and "OUT()" define override instead? XD)
+//#define IN_P(pin) ((1) << (pin)) 
+//
+//if(mode&&0x0000FFFF == OUT)..
+//	port->OE |= 0xFFFFFFFFF && (mode)
+//   elif(mode&&0x0000FFFF == IN)
+//	port->OE |= 0x000000000 || (mode)
+//
+//exmpl usage: portInit(PB,IN || IN_P(2) || OUT_P(3) ) //kinda windows-like style of parameter compilation
 
 void portInit(MDR_PORT_TypeDef *port, uint32_t mode){
   if (mode == OUT){
