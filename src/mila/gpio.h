@@ -51,12 +51,12 @@
 #define	F6	0x0606
 #define	F7	0x0607
 
-//#define PA 	0x1000
-//#define PB 	0x2000
-//#define PC 	0x3000
-//#define PD 	0x4000
-//#define PE 	0x5000
-//#define PF 	0x6000
+#define PORTA 	MDR_PORTA
+#define PORTB 	MDR_PORTB
+#define PORTC 	MDR_PORTC
+#define PORTD 	MDR_PORTD
+#define PORTE 	MDR_PORTE
+#define PORTF 	MDR_PORTF
 
 #define HIGH 1
 #define LOW 0
@@ -87,8 +87,15 @@
 #define GFEN_OFF 0
 #define GFEN_ON 1
 
+
 void pinInit(int, int);
 void pinWrite(int, int);
+int pinRead(int);
+
+void portInit(MDR_PORT_TypeDef *, uint32_t);
+void portWrite(MDR_PORT_TypeDef *, uint32_t);
+uint32_t portRead(MDR_PORT_TypeDef *);
+
 void ports_clock_enable(void);
 
 #endif

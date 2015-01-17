@@ -25,8 +25,14 @@ void pinInit(int pin, int mode){
 		port->GFEN &= ( GFEN_OFF << bit );
 	}
 	
-	if (mode == IN){
-		//TO BE DONE
+	else if (mode == IN){
+    port->OE &= ( OE_IN << bit );
+    port->FUNC &= ( FUNC_GPIO << bit*2 );
+    port->ANALOG |= ( ANALOG_OFF << bit );
+    port->PULL |= (( PULL_ON << bit ) << 16 );
+    port->PD |= ( PD_SCHM_ON << bit );
+    port->PWR |= ( PWR_SLOW << bit*2 );
+    port->GFEN &= ( GFEN_OFF << bit );		
 	}
 
 }
@@ -43,12 +49,53 @@ void pinWrite(int pin, int val){
 	else if (val == 0){
 		port->RXTX &= ~( 1 << bit );
 	}
-
 }
 
-void pinRead(int pin){
-	//TO BE DONE
+int pinRead(int pin){
+  MDR_PORT_TypeDef *port = port_from_pin(0xFF00 & pin);
+  int bit = 0xFF & pin;
+  if (port->RXTX & (1 << bit)) return 1;
+  if (port->RXTX & (1 << bit)) return 0;
 }
+
+
+// possible usage:
+// portInit(port, OUT);
+// portInit(port, IN);
+// portInit(port, OUT/IN, OUT/IN, OUT/IN)
+// portInit(port, OUT/IN, OUT/IN, OUT/IN, OUT/IN, OUT/IN, OUT/IN, OUT/IN, OUT/IN)
+// portInit(port, OUT/IN, OUT/IN, OUT/IN, OUT/IN, OUT/IN, OUT/IN, OUT/IN, OUT/IN, OUT/IN, OUT/IN)
+// check if args match port pins quantity
+
+void portInit(MDR_PORT_TypeDef *port, uint32_t mode){
+  if (mode == OUT){
+    port->OE |= 0xFFFFFFFF;
+    port->FUNC &= 0x0;
+    port->ANALOG |= 0xFFFFFFFF;
+    port->PULL |= 0xFFFF0000;
+    port->PD &= 0x0000FFFF;
+    port->PWR |= 0x55555555;
+    port->GFEN &= 0x0;
+  }
+  else if (mode == IN){
+    port->OE |= 0x0;
+    port->FUNC &= 0x0;
+    port->ANALOG |= 0xFFFFFFFF;
+    port->PULL |= 0xFFFF0000;
+    port->PD &= 0xFFFF0000;
+    port->PWR |= 0x55555555;
+    port->GFEN &= 0x0;
+  }
+}
+
+void portWrite(MDR_PORT_TypeDef *port, uint32_t val){
+  port->RXTX = val;
+}
+
+uint32_t portRead(MDR_PORT_TypeDef *port){
+  return port->RXTX;
+}
+
 
 //SECTION to check, recode and approve
 
