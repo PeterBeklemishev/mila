@@ -104,15 +104,16 @@ int pinRead(int pin){
 //...
 //#define IN 0x0000?
 //#define OUT 0xFFFF?
-//#define OUT_P(pin) ~((1) << (pin)) // (use "IN()" and "OUT()" define override instead? XD)
+//#define OUT_P(pin) ~((1) << (pin))
 //#define IN_P(pin) ((1) << (pin)) 
 //
 //if(mode&&0x0000FFFF == OUT)..
 //	port->OE |= 0xFFFFFFFFF && (mode)
 //   elif(mode&&0x0000FFFF == IN)
-//	port->OE |= 0x000000000 || (mode)
+//	port->OE |= 0x000000000 | (mode)
 //
-//exmpl usage: portInit(PB,IN || IN_P(2) || OUT_P(3) ) //kinda windows-like style of parameter compilation
+//exmpl usage: portInit(PB,IN | OUT_P(2) | OUT_P(3) ) //kinda windows-like style of parameter compilation
+//	       portInit(PB,OUT | IN_P(2) | IN_P(6) | IN_P(7) ) //kinda windows-like style of parameter compilation
 
 void portInit(MDR_PORT_TypeDef *port, uint32_t mode){
   if (mode == OUT){
