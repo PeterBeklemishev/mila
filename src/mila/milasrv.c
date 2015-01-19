@@ -20,6 +20,8 @@ void mila_init(void){
 	__enable_irq();
 	//setup Timer1
 	Timer1_Init();
+	Timer2_Init();
+	Timer3_Init();
 }
 
 void ports_clock_enable(void){

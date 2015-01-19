@@ -87,12 +87,12 @@
 #define GFEN_OFF 0
 #define GFEN_ON 1
 
-#define PINS_IN_PORTA 8
-#define PINS_IN_PORTB 11
-#define PINS_IN_PORTC 3
-#define PINS_IN_PORTD 8
-#define PINS_IN_PORTE 6
-#define PINS_IN_PORTF 8
+#define PORTA_PINS_NUMBER 8
+#define PORTB_PINS_NUMBER 11
+#define PORTC_PINS_NUMBER 3
+#define PORTD_PINS_NUMBER 8
+#define PORTE_PINS_NUMBER 6
+#define PORTF_PINS_NUMBER 8
 
 
 void pinInit(int, int);

@@ -3,9 +3,9 @@
 
 #include "../MDR/cmsis/stdint.h"
 
-#define TIM1_CLK_EN 		(1 << 24)
-#define TIM2_CLK_EN 		(1 << 25)
-#define TIM3_CLK_EN 		(1 << 26)
+#define TIM1_CLK_EN 		(1UL << 24)
+#define TIM2_CLK_EN 		(1UL << 25)
+#define TIM3_CLK_EN 		(1UL << 26)
 
 #define CNT_EN 				(1 << 0)
 #define CNT_ARR_EVENT_IE 	(1 << 1)
@@ -13,6 +13,8 @@
 
 void Timer1_Init(void);
 void Timer2_Init(void);
+void Timer3_Init(void);
+void CPU_Init(void);
 void Timer1_IRQHandler(void);
 void Timer2_IRQHandler(void);
 
