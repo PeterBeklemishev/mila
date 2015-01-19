@@ -4,6 +4,11 @@
 #include "milasrv.h"
 #include "mila.h"
 
+/**
+  ***************************************
+    *	pins section
+  ***************************************
+*/
 
 void pinInit(int pin, int mode){
 
@@ -30,13 +35,13 @@ void pinInit(int pin, int mode){
 	}
 	
 	else if (mode == IN){
-    port->OE &= ( OE_IN << bit );
-    port->FUNC &= ( FUNC_GPIO << bit*2 );
-    port->ANALOG |= ( ANALOG_OFF << bit );
-    port->PULL |= (( PULL_ON << bit ) << 16 );
-    port->PD |= (( PD_SCHM_ON << bit ) << 16 );
-    port->PWR |= ( PWR_SLOW << bit*2 );
-    port->GFEN &= ( GFEN_OFF << bit );		
+    		port->OE &= ( OE_IN << bit );
+    		port->FUNC &= ( FUNC_GPIO << bit*2 );
+    		port->ANALOG |= ( ANALOG_OFF << bit );
+    		port->PULL |= (( PULL_ON << bit ) << 16 );
+    		port->PD |= (( PD_SCHM_ON << bit ) << 16 );
+    		port->PWR |= ( PWR_SLOW << bit*2 );
+    		port->GFEN &= ( GFEN_OFF << bit );		
 	}
 
 }
@@ -90,14 +95,13 @@ int pinRead(int pin){
 }
 
 
-// possible usage:
-// portInit(port, OUT/IN); ----- any PORT
-// portInit(port, OUT/IN, OUT/IN, OUT/IN) ----- PORTC only
-// portInit(port, OUT/IN, OUT/IN, OUT/IN, OUT/IN, OUT/IN, OUT/IN) ----- PORTE only
-// portInit(port, OUT/IN, OUT/IN, OUT/IN, OUT/IN, OUT/IN, OUT/IN, OUT/IN, OUT/IN) ----- PORTADF
-// portInit(port, OUT/IN, OUT/IN, OUT/IN, OUT/IN, OUT/IN, OUT/IN, OUT/IN, OUT/IN, OUT/IN, OUT/IN) ----- PORTB
+/**
+  ***************************************
+    *	ports section
+  ***************************************
+*/
 
-// must check if args quantity match corresponding port pins quantity
+// portInit(port, OUT/IN); ----- any PORT
 
 void portInit(MDR_PORT_TypeDef *port, uint32_t mode){
   if (mode == OUT){
@@ -118,6 +122,16 @@ void portInit(MDR_PORT_TypeDef *port, uint32_t mode){
     port->PWR |= 0x55555555;
     port->GFEN &= 0x0;
   }
+}
+
+void portDeinit(MDR_PORT_TypeDef *port){
+    port->OE |= 0x0;
+    port->FUNC &= 0x0;
+    port->ANALOG |= 0x0;
+    port->PULL |= 0x0;
+    port->PD &= 0x0;
+    port->PWR |= 0x0;
+    port->GFEN &= 0x0;	
 }
 
 void portWrite(MDR_PORT_TypeDef *port, uint32_t val){
