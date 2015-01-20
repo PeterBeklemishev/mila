@@ -13,17 +13,29 @@
 void init(){
 	int i=0;
 	for (i=8; i<12; i++) pinInit(i,OUT);
-	portWrite(PORTB,0xF);
-	delay();
-	delay();
-	delay();
+	//portWrite(PORTB,0xF);
+	//delay();
+//	delay();
+//	delay();
 }
 
 
 
 void cycle(){
-//	pinWrite(B0,1-pinRead(B5));
-//	pinWrite(B1,1-pinRead(B6));
-//	pinWrite(B2,1-pinRead(E1));
-//	pinWrite(B3,1-pinRead(E3));
+	pinWrite(B0,1);
+	delay();
+	pinWrite(B1,1);
+	delay();
+	pinWrite(B2,1);
+	delay();
+	pinWrite(B3,1);
+	delay();
+	pinWrite(B0,0);
+	delay();
+	pinWrite(B1,0);
+	delay();
+	pinWrite(B2,0);
+	delay();
+	pinWrite(B3,0);
+	delay();
 }

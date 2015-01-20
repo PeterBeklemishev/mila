@@ -12,53 +12,35 @@
 
 void pinInit(int pin, int mode){
 
-  MDR_PORT_TypeDef *port = MDR_PORTA_BASE+fetch_port_from_pin(pin)+fetch_port_from_pin(pin)>>16+fetch_port_from_pin(pin)>>8;
-  int bit = fetch_bit_from_pin(pin);
-/*
-  if ((0xFF00 & pin) > 0){
-    port = port_from_pin(0xFF00 & pin);
-    bit = 0x00FF & pin;
-  }
-  else {
-    port = port_from_virtual_pin(pin);
-    bit = bit_from_virtual_pin(pin);
-  }
-*/
+  MDR_PORT_TypeDef *port;
+  port = port_from_virtual_pin(pin);
+  int bit = 0b00111 & pin;
+  
+ // port = (0b11000 & pin) >= 16 ? ((0b11000 & pin) == 24 ? PORTF : PORTD) : ((0b11000 & pin) == 8 ? PORTB : PORTA);
+
 	if (mode == OUT){
 		port->OE |= ( OE_OUT << bit );
-		port->FUNC &= ( FUNC_GPIO << bit*2 );
 		port->ANALOG |= ( ANALOG_OFF << bit );
 		port->PULL |= (( PULL_ON << bit ) << 16 );
 		port->PD &= ( PD_MODE_CDRV << bit );
 		port->PWR |= ( PWR_SLOW << bit*2 );
-		port->GFEN &= ( GFEN_OFF << bit );
 	}
 	
 	else if (mode == IN){
-    		port->OE &= ( OE_IN << bit );
-    		port->FUNC &= ( FUNC_GPIO << bit*2 );
-    		port->ANALOG |= ( ANALOG_OFF << bit );
-    		port->PULL |= (( PULL_ON << bit ) << 16 );
-    		port->PD |= (( PD_SCHM_ON << bit ) << 16 );
-    		port->PWR |= ( PWR_SLOW << bit*2 );
-    		port->GFEN &= ( GFEN_OFF << bit );		
+    port->OE &= ( OE_IN << bit );
+    port->ANALOG |= ( ANALOG_OFF << bit );
+    port->PULL |= (( PULL_ON << bit ) << 16 );
+    port->PD |= (( PD_SCHM_ON << bit ) << 16 );
+    port->PWR |= ( PWR_SLOW << bit*2 );
 	}
 
 }
 
 void pinWrite(int pin, int val){
 
-  MDR_PORT_TypeDef *port;
-  int bit;
-
-  if ((0xFF00 & pin) > 0){
-    port = port_from_pin(0xFF00 & pin);
-    bit = 0x00FF & pin;
-  }
-  else {
-    port = port_from_virtual_pin(pin);
-    bit = bit_from_virtual_pin(pin);
-  }
+  MDR_PORT_TypeDef *port = port_from_virtual_pin(pin);
+  int bit = 0b00111 & pin;
+  
 
 	if (val == 1){
 		port->RXTX |= ( 1 << bit );
@@ -73,18 +55,11 @@ void pinWrite(int pin, int val){
 
 int pinRead(int pin){
 
-  MDR_PORT_TypeDef *port;
-  int bit;
+  MDR_PORT_TypeDef *port = port_from_virtual_pin(pin);
+  int bit = 0b00111 & pin;
 
-  if ((0xFF00 & pin) > 0){
-    port = port_from_pin(0xFF00 & pin);
-    bit = 0x00FF & pin;
-  }
-  else {
-    port = port_from_virtual_pin(pin);
-    bit = bit_from_virtual_pin(pin);
-  }
-
+  bit = bit_from_virtual_pin(pin);
+ 
   if (port->RXTX & (1 << bit)){
     return 1;
   } 

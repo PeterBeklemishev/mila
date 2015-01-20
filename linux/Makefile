@@ -23,7 +23,7 @@ CORECM3 	= 	$(MDR_PATH)/cmsis/core_cm3
 LDS 		= 	$(MDR_PATH)/ldscripts
 OBJS 		= 	$(MDR_PATH)/objs
 
-CFLAGS   = -O1 -mcpu=$(ARCH) -mthumb -g -fsigned-char -msoft-float -DARM1986_BE9 -DARM_CORTEX_M3 \
+CFLAGS   = -Os -mcpu=$(ARCH) -mthumb -g -fsigned-char -msoft-float -DARM1986_BE9 -DARM_CORTEX_M3 \
 	-fno-exceptions -fno-unwind-tables -fno-asynchronous-unwind-tables \
 	-ffunction-sections -fdata-sections \
 	-I$(MDR_PATH)/cmsis -I$(MDR_PATH)/inc -I$(MDR_PATH)/ldscripts -I$(MDR_PATH)/MDRlib \
@@ -50,7 +50,7 @@ all:
 
 	$(OBJCOPY) -O ihex $(TARGET)/$(PROG_NAME).elf $(TARGET)/$(PROG_NAME).hex
 	$(SIZE) $(TARGET)/$(PROG_NAME).elf $(TARGET)/$(PROG_NAME).hex
-	$(OBJDUMP) -d $(PROG_NAME).elf > test.dump
+	$(OBJDUMP) -d $(PROG_NAME).elf > $(PROG_NAME).dump
 
 clean:
 	rm $(PROG_NAME).elf $(PROG_NAME).hex $(PROG_NAME).dump
