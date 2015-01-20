@@ -12,9 +12,9 @@
 
 void pinInit(int pin, int mode){
 
-  MDR_PORT_TypeDef *port;
-  int bit;
-
+  MDR_PORT_TypeDef *port = MDR_PORTA_BASE+fetch_port_from_pin(pin)+fetch_port_from_pin(pin)>>16+fetch_port_from_pin(pin)>>8;
+  int bit = fetch_bit_from_pin(pin);
+/*
   if ((0xFF00 & pin) > 0){
     port = port_from_pin(0xFF00 & pin);
     bit = 0x00FF & pin;
@@ -23,7 +23,7 @@ void pinInit(int pin, int mode){
     port = port_from_virtual_pin(pin);
     bit = bit_from_virtual_pin(pin);
   }
-
+*/
 	if (mode == OUT){
 		port->OE |= ( OE_OUT << bit );
 		port->FUNC &= ( FUNC_GPIO << bit*2 );

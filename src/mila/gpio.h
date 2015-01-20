@@ -1,6 +1,6 @@
 #ifndef gpio_h
 #define gpio_h
-
+/*
 #define	A0	0x0100
 #define	A1	0x0101
 #define	A2	0x0102
@@ -50,6 +50,46 @@
 #define	F5	0x0605
 #define	F6	0x0606
 #define	F7	0x0607
+*/
+
+#define	A0	0
+#define	A1	01
+#define	A2	2
+#define	A3	3
+#define	A4	4
+#define	A5	5
+#define	A6	6
+#define	A7	7
+
+#define	B0	8
+#define	B1	9
+#define	B2	10
+#define	B3	11
+#define	B4	12
+#define	B5	13
+#define	B6	14
+#define	B7	15
+
+#define	D0	16
+#define	D1	17
+#define	D2	18
+#define	D3	19
+#define	D4	20
+#define	D5	21
+#define	D6	22
+#define	D7	23
+
+#define	F0	24
+#define	F1	25
+#define	F2	26
+#define	F3	27
+#define	F4	28
+#define	F5	29
+#define	F6	30
+#define	F7	31
+
+#define fetch_port_from_pin( x ) (0b11000 & x)
+#define fetch_bit_from_pin( x ) (0b111 & x)
 
 #define PORTA 	MDR_PORTA
 #define PORTB 	MDR_PORTB
