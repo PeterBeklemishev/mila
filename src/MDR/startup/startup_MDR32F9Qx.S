@@ -245,5 +245,5 @@ copy_to_ram:
     def_default_handler    EXT_INT2_IRQHandler
     def_default_handler    EXT_INT3_IRQHandler
     def_default_handler    EXT_INT4_IRQHandler
-    
+
     .end

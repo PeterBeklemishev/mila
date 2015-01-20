@@ -1,21 +1,21 @@
-#include "../MDR/cmsis/stdint.h"
-#include "timer.h"
+#include "stdint.h"
+#include "timers.h"
 #include "mila.h"
 #include "milasrv.h"
 #include "MDR32F9x.h"
 #include "gpio.h"
 
-
-
-
 int main(){
 
-	mila_init();
 
-	init();
+	CPU_init();
+	
+	mila_init(); // from file milasrv.c 
+	
+	init(); // from your awesome sketch
 	
 	for(;;){
-		cycle();
+		cycle(); // from your awesome sketch
 	}
 
 return 0;
