@@ -1,4 +1,4 @@
-PROG_NAME 	= 	test
+PROG_NAME 	= 	usercode
 
 TARGET 		= 	$(CURDIR)
 ARCH 		= 	cortex-m3
@@ -14,7 +14,7 @@ AR		=	$(TOOLS_PATH)/$(TOOLS_PREFIX)ar
 OBJDUMP		=	$(TOOLS_PATH)/$(TOOLS_PREFIX)objdump --disassembler-options=force-thumb
 OBJCOPY		=	$(TOOLS_PATH)/$(TOOLS_PREFIX)objcopy
 
-SRC 		= 	$(TARGET)/src
+SRC 		= 	$(TARGET)/../src
 MDR_PATH 	= 	$(SRC)/MDR
 MILA_PATH 	= 	$(SRC)/mila
 STARTUP  	= 	$(MDR_PATH)/startup/startup_MDR32F9Qx
