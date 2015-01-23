@@ -8,7 +8,7 @@
 int main(){
 
 
-	CPU_init();
+//	CPU_init();
 	
 	mila_init(); // from file milasrv.c 
 	

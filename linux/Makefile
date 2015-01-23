@@ -23,7 +23,7 @@ CORECM3 	= 	$(MDR_PATH)/cmsis/core_cm3
 LDS 		= 	$(MDR_PATH)/ldscripts
 OBJS 		= 	$(MDR_PATH)/objs
 
-CFLAGS   = -Os -mcpu=$(ARCH) -mthumb -g -fsigned-char -msoft-float -DARM1986_BE9 -DARM_CORTEX_M3 \
+CFLAGS   = -O1 -mcpu=$(ARCH) -mthumb -g -fsigned-char -msoft-float -DARM1986_BE9 -DARM_CORTEX_M3 \
 	-fno-exceptions -fno-unwind-tables -fno-asynchronous-unwind-tables \
 	-ffunction-sections -fdata-sections \
 	-I$(MDR_PATH)/cmsis -I$(MDR_PATH)/inc -I$(MDR_PATH)/ldscripts -I$(MDR_PATH)/MDRlib \
@@ -43,9 +43,9 @@ all:
 	$(CC) -c $(CFLAGS) -o $(OBJS)/gpio.o $(MILA_PATH)/gpio.c
 	$(CC) -c $(CFLAGS) -o $(OBJS)/milasrv.o $(MILA_PATH)/milasrv.c
 	$(CC) -c $(CFLAGS) -o $(OBJS)/$(PROG_NAME).o $(TARGET)/$(PROG_NAME).c
-	$(CC) -c $(CFLAGS) -o $(OBJS)/main.o $(SRC)/mila/main.c
+	$(CC) -c $(CFLAGS) -o $(OBJS)/main.o $(MILA_PATH)/main.c
 
-	$(CXX) $(LDFLAGS) $(LIBS) $(OBJS)/test.o $(OBJS)/timers.o $(OBJS)/gpio.o $(OBJS)/milasrv.o \
+	$(CXX) $(LDFLAGS) $(LIBS) $(OBJS)/$(PROG_NAME).o $(OBJS)/timers.o $(OBJS)/gpio.o $(OBJS)/milasrv.o \
 		$(OBJS)/system.o $(OBJS)/startup.o $(OBJS)/core_cm3.o $(OBJS)/main.o -o $(TARGET)/$(PROG_NAME).elf
 
 	$(OBJCOPY) -O ihex $(TARGET)/$(PROG_NAME).elf $(TARGET)/$(PROG_NAME).hex

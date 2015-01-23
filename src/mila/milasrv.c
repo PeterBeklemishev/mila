@@ -1,7 +1,7 @@
 #include "../MDR/inc/MDR32Fx.h"
 #include "../MDR/cmsis/stdint.h"
 #include "../MDR/cmsis/core_cm3.h"
-#include "../MDR/inc/MDR32Fx.h"
+#include "milasrv.h"
 #include "mila.h"
 #include "timers.h"
 #include "gpio.h"
@@ -33,8 +33,8 @@ void ports_clock_enable(void){
 
 void delay(void){
 	uint16_t idelaycounter,jdelaycounter;
-	for(jdelaycounter=0;jdelaycounter<1000;jdelaycounter++){
-		for(idelaycounter=0; idelaycounter<60000; idelaycounter++)
+	for(jdelaycounter=0;jdelaycounter<100;jdelaycounter++){
+		for(idelaycounter=0; idelaycounter<6000; idelaycounter++)
 			__NOP;
 	}
 }

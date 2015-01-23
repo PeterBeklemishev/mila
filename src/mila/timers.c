@@ -4,9 +4,9 @@
 #include "milasrv.h"
 #include "mila.h"
 
-///-------------------------------\\\
-/// --- Timers initialization --- \\\
-///-------------------------------\\\
+//-------------------------------\\
+// --- Timers initialization --- \\
+//-------------------------------\\
 
 /*void Timer1_Init(void){
 //	MDR_RST_CLK->PER_CLOCK |= TIMER1_CLK;
@@ -21,18 +21,17 @@
 }
 */
 
+
 void CPU_init (void){
-  MDR_RST_CLK->HS_CONTROL = 0x01; /* вкл. HSE осцилятора */
-  while (MDR_RST_CLK->CLOCK_STATUS & (1 << 2) == 0x00); /* ждем пока HSE выйдет в рабочий режим */
+  MDR_RST_CLK->HS_CONTROL = 0x01; 
+  while (MDR_RST_CLK->CLOCK_STATUS & (1 << 2) == 0x00); 
 
-  MDR_RST_CLK->PLL_CONTROL = ((1 << 2) | (9 << 8)); //вкл. PLL | коэф. умножения = 10
-  while((MDR_RST_CLK->CLOCK_STATUS & 0x02) != 0x02); //ждем когда PLL выйдет в раб. режим
+  MDR_RST_CLK->PLL_CONTROL = ((1 << 2) | (9 << 8)); 
+  while((MDR_RST_CLK->CLOCK_STATUS & 0x02) != 0x02); 
 
-  MDR_RST_CLK->CPU_CLOCK = (2 /*источник для CPU_C1*/
-  | (1 << 2) /*источник для CPU_C2*/
-  | (0 << 4) /*предделитель для CPU_C3*/
-  | (1 << 8));/*источник для HCLK*/
+  MDR_RST_CLK->CPU_CLOCK = (2 | (1 << 2)  | (0 << 4) | (1 << 8));
 }
+
 
 
 void Timer1_Init(void){
@@ -103,9 +102,9 @@ void Timer2_Init(void){
 
 
 
-///------------------------------------\\\
-/// --- Timers interrupts handlers --- \\\
-///------------------------------------\\\
+//------------------------------------\\
+// --- Timers interrupts handlers --- \\
+//------------------------------------\\
 
 void Timer1_IRQHandler(void) {
 //	millis_time += MILLIS_STEP;

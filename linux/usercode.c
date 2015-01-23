@@ -11,10 +11,14 @@
 	// BTN RIGHT PB6
 
 void init(){
-	int i=0;
-	for (i=8; i<12; i++) pinInit(i,OUT);
-	//portWrite(PORTB,0xF);
-	//delay();
+//	int i=0;
+//	for (i=8; i<12; i++) pinInit(i,OUT);
+	pinInit(B0,OUT);
+	pinInit(B1,OUT);
+	pinInit(B2,OUT);
+	pinInit(B3,OUT);
+//portWrite(PORTB,0xF);
+//delay();
 //	delay();
 //	delay();
 }
@@ -38,4 +42,5 @@ void cycle(){
 	delay();
 	pinWrite(B3,0);
 	delay();
+
 }
