@@ -80,14 +80,11 @@
 #define PORTE_PINS_NUMBER 6
 #define PORTF_PINS_NUMBER 8
 
-
 void pinInit(int, int);
 void pinWrite(int, int);
 int pinRead(int);
 void portInit(MDR_PORT_TypeDef *, uint32_t);
 void portWrite(MDR_PORT_TypeDef *, uint32_t);
 uint32_t portRead(MDR_PORT_TypeDef *);
-void snake(void);
-
 
 #endif
