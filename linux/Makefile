@@ -50,7 +50,7 @@ all:
 
 	$(OBJCOPY) -O ihex $(TARGET)/$(PROG_NAME).elf $(TARGET)/$(PROG_NAME).hex
 	$(SIZE) $(TARGET)/$(PROG_NAME).elf $(TARGET)/$(PROG_NAME).hex
-	$(OBJDUMP) -d $(PROG_NAME).elf > test.dump
+	$(OBJDUMP) -d $(PROG_NAME).elf > $(PROG_NAME).dump
 
 clean:
 	rm $(PROG_NAME).elf $(PROG_NAME).hex $(PROG_NAME).dump
