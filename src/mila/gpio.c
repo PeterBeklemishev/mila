@@ -26,11 +26,14 @@ void pinInit(int pin, int mode){
     port->GFEN &= 0x0;
 	}
 	
-	else if (mode == IN){
-    port->OE &= ( OE_IN << bit );
+	else if (mode == IN){ 
+    port->OE &= ~( OE_OUT << bit ); //так работает 
+    //выражение  &= (0 << bit) не работает
+    //надо переписывать все, в т.ч. в хедере 
     port->FUNC &= ( FUNC_GPIO << bit*2 );
     port->ANALOG |= ( ANALOG_OFF << bit );
     port->PULL |= (( PULL_ON << bit ) << 16 );
+//    port->PD &= ~(1 << bit);
     port->PD |= (( PD_SCHM_ON << bit ) << 16 );
     port->PWR |= ( PWR_SLOW << bit*2 );
     port->GFEN &= 0x0;
@@ -86,7 +89,7 @@ void portInit(MDR_PORT_TypeDef *port, uint32_t mode){
     port->PULL &= 0x0;
     port->PULL |= 0xFFFF0000;
     port->PD &= 0x0;
-    port->PD |= 0x0000FFFF;
+  //  port->PD |= 0x0000FFFF;
     port->PWR |= 0x55555555;
     port->GFEN &= 0x0;
   }
@@ -104,13 +107,13 @@ void portInit(MDR_PORT_TypeDef *port, uint32_t mode){
 }
 
 void portDeinit(MDR_PORT_TypeDef *port){
-    port->OE &= 0x0;
-    port->FUNC &= 0x0;
-    port->ANALOG &= 0x0;
-    port->PULL &= 0x0;
-    port->PD &= 0x0;
-    port->PWR &= 0x0;
-    port->GFEN &= 0x0;	
+    port->OE = 0;
+    port->FUNC = 0;
+    port->ANALOG = 0;
+    port->PULL = 0;
+    port->PD = 0;
+    port->PWR = 0;
+    port->GFEN = 0;	
 }
 
 void portWrite(MDR_PORT_TypeDef *port, uint32_t val){
