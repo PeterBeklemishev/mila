@@ -45,7 +45,7 @@ all:
 	$(CC) -c $(CFLAGS) -o $(OBJS)/$(PROG_NAME).o $(TARGET)/$(PROG_NAME).c
 	$(CC) -c $(CFLAGS) -o $(OBJS)/main.o $(SRC)/mila/main.c
 
-	$(CXX) $(LDFLAGS) $(LIBS) $(OBJS)/test.o $(OBJS)/timers.o $(OBJS)/gpio.o $(OBJS)/milasrv.o \
+	$(CXX) $(LDFLAGS) $(LIBS) $(OBJS)/$(PROG_NAME).o $(OBJS)/timers.o $(OBJS)/gpio.o $(OBJS)/milasrv.o \
 		$(OBJS)/system.o $(OBJS)/startup.o $(OBJS)/core_cm3.o $(OBJS)/main.o -o $(TARGET)/$(PROG_NAME).elf
 
 	$(OBJCOPY) -O ihex $(TARGET)/$(PROG_NAME).elf $(TARGET)/$(PROG_NAME).hex
