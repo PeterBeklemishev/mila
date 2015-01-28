@@ -6,17 +6,14 @@
 #include "gpio.h"
 
 int main(){
-
-
-	CPU_init();
 	
 	mila_init(); // from file milasrv.c 
-	
+
 	init(); // from your awesome sketch
-	
-	for(;;){
+
+	while(1){
 		cycle(); // from your awesome sketch
 	}
 
-return 0;
+	return 0;
 }

@@ -43,7 +43,7 @@ all:
 	$(CC) -c $(CFLAGS) -o $(OBJS)/gpio.o $(MILA_PATH)/gpio.c
 	$(CC) -c $(CFLAGS) -o $(OBJS)/milasrv.o $(MILA_PATH)/milasrv.c
 	$(CC) -c $(CFLAGS) -o $(OBJS)/$(PROG_NAME).o $(TARGET)/$(PROG_NAME).c
-	$(CC) -c $(CFLAGS) -o $(OBJS)/main.o $(SRC)/mila/main.c
+	$(CC) -c $(CFLAGS) -o $(OBJS)/main.o $(MILA_PATH)/main.c
 
 	$(CXX) $(LDFLAGS) $(LIBS) $(OBJS)/$(PROG_NAME).o $(OBJS)/timers.o $(OBJS)/gpio.o $(OBJS)/milasrv.o \
 		$(OBJS)/system.o $(OBJS)/startup.o $(OBJS)/core_cm3.o $(OBJS)/main.o -o $(TARGET)/$(PROG_NAME).elf

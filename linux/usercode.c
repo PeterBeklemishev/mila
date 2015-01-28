@@ -11,19 +11,31 @@
 	// BTN RIGHT PB6
 
 void init(){
-	int i=0;
-	for (i=8; i<12; i++) pinInit(i,OUT);
-	portWrite(PORTB,0xF);
+	portInit(PORTB,OUT); 	//проверка инициализации порта
+	pinInit(B5,IN);		//проверка инициализации пинов поверх инициализированного порта
+	pinInit(B6,IN);		
+
+	portWrite(PORTB,0xF);	//проверка записи в порт
 	delay();
+	int i=8;
+	for(i=8;i<12;i++){
+		pinWrite(i,0);	//проверка записи в пины по виртуальным номерам
+		delay();
+	}
+	pinWrite(B0,1); 	//проверка записи в пины по названию "порт-пин"
 	delay();
+	pinWrite(B1,HIGH); 	
+	delay();
+	pinWrite(B2,1); 	
+	delay();
+	pinWrite(B3,1); 	
+	delay();
+	
+	portWrite(PORTB,0);
 	delay();
 }
 
-
-
 void cycle(){
-//	pinWrite(B0,1-pinRead(B5));
-//	pinWrite(B1,1-pinRead(B6));
-//	pinWrite(B2,1-pinRead(E1));
-//	pinWrite(B3,1-pinRead(E3));
+	pinWrite(8,1-pinRead(13));	//проверка чтения пина по виртуальному номеру
+	pinWrite(B3,1-pinRead(B6));	//проверка чтения пина по названию "порт-пин"
 }
