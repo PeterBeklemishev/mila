@@ -6,13 +6,13 @@ TOOLS_PATH 	= 	/usr/bin
 TOOLS_PREFIX 	= 	arm-none-eabi-
 TOOLS_VERSION 	= 	4.8.2
 
-CC		=	$(TOOLS_PREFIX)gcc -Wall
-CXX		=	$(TOOLS_PREFIX)g++ -Wall
-AS		=	$(TOOLS_PREFIX)gcc -x assembler-with-cpp
-SIZE		=	$(TOOLS_PREFIX)size
-AR		=	$(TOOLS_PREFIX)ar
-OBJDUMP		=	$(TOOLS_PREFIX)objdump --disassembler-options=force-thumb
-OBJCOPY		=	$(TOOLS_PREFIX)objcopy
+CC		=	$(TOOLS_PATH)/$(TOOLS_PREFIX)gcc -Wall
+CXX		=	$(TOOLS_PATH)/$(TOOLS_PREFIX)g++ -Wall
+AS		=	$(TOOLS_PATH)/$(TOOLS_PREFIX)gcc -x assembler-with-cpp
+SIZE		=	$(TOOLS_PATH)/$(TOOLS_PREFIX)size
+AR		=	$(TOOLS_PATH)/$(TOOLS_PREFIX)ar
+OBJDUMP		=	$(TOOLS_PATH)/$(TOOLS_PREFIX)objdump --disassembler-options=force-thumb
+OBJCOPY		=	$(TOOLS_PATH)/$(TOOLS_PREFIX)objcopy
 
 SRC 		= 	$(TARGET)/../src
 MDR_PATH 	= 	$(SRC)/MDR
