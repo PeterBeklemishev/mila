@@ -5,14 +5,26 @@ ARCH 		= 	cortex-m3
 TOOLS_PATH 	= 	/usr/bin
 TOOLS_PREFIX 	= 	arm-none-eabi-
 TOOLS_VERSION 	= 	4.8.2
+	
+uname_S := $(shell uname -s)
 
-CC		=	$(TOOLS_PREFIX)gcc -Wall
-CXX		=	$(TOOLS_PREFIX)g++ -Wall
-AS		=	$(TOOLS_PREFIX)gcc -x assembler-with-cpp
-SIZE		=	$(TOOLS_PREFIX)size
-AR		=	$(TOOLS_PREFIX)ar
-OBJDUMP		=	$(TOOLS_PREFIX)objdump --disassembler-options=force-thumb
-OBJCOPY		=	$(TOOLS_PREFIX)objcopy
+ifeq ($(uname_S),Linux)
+	TOOLS	=	$(TOOLS_PATH)/$(TOOLS_PREFIX)
+endif
+ifneq (,$(findstring MINGW,$(uname_S)))
+	TOOLS	=	$(TOOLS_PREFIX)
+endif
+
+#TOOLS	=	$(TOOLS_PREFIX)
+
+
+CC		=	$(TOOLS)gcc -Wall
+CXX		=	$(TOOLS)g++ -Wall
+AS		=	$(TOOLS)gcc -x assembler-with-cpp
+SIZE		=	$(TOOLS)size
+AR		=	$(TOOLS)ar
+OBJDUMP		=	$(TOOLS)objdump --disassembler-options=force-thumb
+OBJCOPY		=	$(TOOLS)objcopy
 
 SRC 		= 	$(TARGET)/../src
 MDR_PATH 	= 	$(SRC)/MDR
@@ -45,8 +57,7 @@ all:
 	$(CC) -c $(CFLAGS) -o $(OBJS)/$(PROG_NAME).o $(TARGET)/$(PROG_NAME).c
 	$(CC) -c $(CFLAGS) -o $(OBJS)/main.o $(SRC)/mila/main.c
 
-	$(CXX) $(LDFLAGS) $(LIBS) $(OBJS)/$(PROG_NAME).o $(OBJS)/timers.o $(OBJS)/gpio.o $(OBJS)/milasrv.o \
-		$(OBJS)/system.o $(OBJS)/startup.o $(OBJS)/core_cm3.o $(OBJS)/main.o -o $(TARGET)/$(PROG_NAME).elf
+	$(CXX) $(LDFLAGS) $(LIBS) $(OBJS)/$(PROG_NAME).o $(OBJS)/timers.o $(OBJS)/gpio.o $(OBJS)/milasrv.o $(OBJS)/system.o $(OBJS)/startup.o $(OBJS)/core_cm3.o $(OBJS)/main.o -o $(TARGET)/$(PROG_NAME).elf
 
 	$(OBJCOPY) -O ihex $(TARGET)/$(PROG_NAME).elf $(TARGET)/$(PROG_NAME).hex
 	$(SIZE) $(TARGET)/$(PROG_NAME).elf $(TARGET)/$(PROG_NAME).hex
