@@ -36,7 +36,7 @@ c:\Users\Петр\Documents\GitHub\mila\linux>
 Mac OS X
 -----
 
-First, setup gcc toolchain with arm-none-eabi. Install it with homebrew, then try to run make. Everything should be fine now.
+First, setup gcc toolchain with arm-none-eabi. Install it with [homebrew](http://brew.sh), then try to run make. Everything should be fine now.
 ```
 brew tap PX4/homebrew-px4
 brew install gcc-arm-none-eabi-48
