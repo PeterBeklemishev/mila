@@ -4,9 +4,7 @@
 Linux
 -----
 
-TODO: create README.Linux.md
-
-see [README.Linux](README.Linux.md)
+TODO: write instructions
 
 
 Windows
