@@ -14,7 +14,6 @@ ifeq ($(uname_S),Linux)
 endif
 #for OS X systems
 ifeq ($(uname_S),Darwin)
-	#I`m not shure, need test
 	TOOLS	=	$(TOOLS_PREFIX)
 endif
 #for Windows with MINGW
@@ -23,6 +22,10 @@ ifneq (,$(findstring MINGW,$(uname_S)))
 endif
 #for Windows with CYGWIN
 ifneq (,$(findstring CYGWIN,$(uname_S)))
+	TOOLS	=	$(TOOLS_PREFIX)
+endif
+#for Windows with GNUtools
+ifneq (,$(findstring windows,$(uname_S)))
 	TOOLS	=	$(TOOLS_PREFIX)
 endif
 
