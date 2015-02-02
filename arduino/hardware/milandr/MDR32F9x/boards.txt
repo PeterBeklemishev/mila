@@ -1,0 +1,24 @@
+# while developing check this:
+# https://github.com/arduino/Arduino/wiki/Arduino-IDE-1.5---3rd-party-Hardware-specification
+
+ldm-k1986ve92qi.name=LDM-K1986BE92QI
+ldm-k1986ve92qi.vid.0=0x2341
+ldm-k1986ve92qi.pid.0=0x003d
+ldm-k1986ve92qi.upload.tool=firmwarrior
+ldm-k1986ve92qi.upload.protocol=uart
+ldm-k1986ve92qi.upload.maximum_size=524288
+ldm-k1986ve92qi.upload.use_1200bps_touch=true
+ldm-k1986ve92qi.upload.wait_for_upload_port=false
+ldm-k1986ve92qi.upload.native_usb=false
+ldm-k1986ve92qi.build.mcu=cortex-m3
+ldm-k1986ve92qi.build.f_cpu=80000000L
+ldm-k1986ve92qi.build.usb_product="Arduino Due"
+ldm-k1986ve92qi.build.board=LDM-K1986BE92QI
+ldm-k1986ve92qi.build.core=arduino
+ldm-k1986ve92qi.build.extra_flags=-D__SAM3X8E__ -mthumb {build.usb_flags}
+ldm-k1986ve92qi.build.ldscript=linker_scripts/gcc/flash.ld
+ldm-k1986ve92qi.build.variant=ldm-k1986ve92qi
+ldm-k1986ve92qi.build.variant_system_lib=libsam_sam3x8e_gcc_rel.a
+ldm-k1986ve92qi.build.vid=0x2341
+ldm-k1986ve92qi.build.pid=0x003e
+
