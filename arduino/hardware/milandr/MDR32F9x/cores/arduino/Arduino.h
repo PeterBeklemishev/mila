@@ -58,6 +58,7 @@ extern void loop( void ) ;
 
 #define NOT_AN_INTERRUPT -1
 
+/* ---------------------- SAM Artefact
 typedef enum _EExt_Interrupts
 {
   EXTERNAL_INT_0=0,
@@ -70,7 +71,7 @@ typedef enum _EExt_Interrupts
   EXTERNAL_INT_7=7,
   EXTERNAL_NUM_INTERRUPTS
 } EExt_Interrupts ;
-
+*/
 typedef void (*voidFuncPtr)( void ) ;
 
 /* Define attribute */
@@ -82,7 +83,7 @@ typedef void (*voidFuncPtr)( void ) ;
     #define WEAK __attribute__ ((weak))
 #endif
 
-/* Definitions and types for pins */
+/* --------------------- SAM artefact
 typedef enum _EAnalogChannel
 {
   NO_ADC=-1,
@@ -145,7 +146,7 @@ typedef enum _ETCChannel
   TC2_CHA8,
   TC2_CHB8
 } ETCChannel ;
-
+*/
 /**
  * Pin Attributes to be OR-ed
  */
@@ -158,16 +159,16 @@ typedef enum _ETCChannel
 /* Types used for the tables below */
 typedef struct _PinDescription
 {
-  Pio* pPort ;
+  MDR_PortTypeDef* pPort ;
   uint32_t ulPin ;
-  uint32_t ulPeripheralId ;
-  EPioType ulPinType ;
-  uint32_t ulPinConfiguration ;
-  uint32_t ulPinAttribute ;
-  EAnalogChannel ulAnalogChannel ; /* Analog pin in the Arduino context (label on the board) */
-  EAnalogChannel ulADCChannelNumber ; /* ADC Channel number in the SAM device */
-  EPWMChannel ulPWMChannel ;
-  ETCChannel ulTCChannel ;
+//  uint32_t ulPeripheralId ;
+//  EPioType ulPinType ;
+//  uint32_t ulPinConfiguration ;
+//  uint32_t ulPinAttribute ;
+//  EAnalogChannel ulAnalogChannel ; /* Analog pin in the Arduino context (label on the board) */
+//  EAnalogChannel ulADCChannelNumber ; /* ADC Channel number in the SAM device */
+//  EPWMChannel ulPWMChannel ;
+//  ETCChannel ulTCChannel ;
 } PinDescription ;
 
 /* Pins table to be instanciated into variant.cpp */
@@ -195,6 +196,7 @@ extern const PinDescription g_APinDescription[] ;
 #include "WInterrupts.h"
 
 // USB Device
+//TO CHANGE!!!----------------V
 #define USB_VID            0x2341 // arduino LLC vid
 #define USB_PID_LEONARDO   0x0034
 #define USB_PID_MICRO      0x0035

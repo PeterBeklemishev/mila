@@ -1,19 +1,8 @@
+
 /*
-  Copyright (c) 2011 Arduino.  All right reserved.
-
-  This library is free software; you can redistribute it and/or
-  modify it under the terms of the GNU Lesser General Public
-  License as published by the Free Software Foundation; either
-  version 2.1 of the License, or (at your option) any later version.
-
-  This library is distributed in the hope that it will be useful,
-  but WITHOUT ANY WARRANTY; without even the implied warranty of
-  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
-  See the GNU Lesser General Public License for more details.
-
-  You should have received a copy of the GNU Lesser General Public
-  License along with this library; if not, write to the Free Software
-  Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
+LOOK AT src/MDR/periph/MDR32F9Qx_port.h
+while developing/
+PORT_InitTypeDef and functions enums are there!
 */
 
 #include "Arduino.h"
@@ -24,45 +13,30 @@
 
 extern void pinMode( uint32_t ulPin, uint32_t ulMode )
 {
-	if ( g_APinDescription[ulPin].ulPinType == PIO_NOT_A_PIN )
-    {
-        return ;
-    }
+//	if ( g_APinDescription[ulPin].ulPinType == PIO_NOT_A_PIN )
+//    {
+//        return ;
+//    }
 
 	switch ( ulMode )
     {
         case INPUT:
-            /* Enable peripheral for clocking input */
-            pmc_enable_periph_clk( g_APinDescription[ulPin].ulPeripheralId ) ;
-            PIO_Configure(
-            	g_APinDescription[ulPin].pPort,
-            	PIO_INPUT,
-            	g_APinDescription[ulPin].ulPin,
-            	0 ) ;
         break ;
 
         case INPUT_PULLUP:
-            /* Enable peripheral for clocking input */
-            pmc_enable_periph_clk( g_APinDescription[ulPin].ulPeripheralId ) ;
-            PIO_Configure(
-            	g_APinDescription[ulPin].pPort,
-            	PIO_INPUT,
-            	g_APinDescription[ulPin].ulPin,
-            	PIO_PULLUP ) ;
         break ;
 
         case OUTPUT:
-            PIO_Configure(
-            	g_APinDescription[ulPin].pPort,
-            	PIO_OUTPUT_1,
-            	g_APinDescription[ulPin].ulPin,
-            	g_APinDescription[ulPin].ulPinConfiguration ) ;
-
-            /* if all pins are output, disable PIO Controller clocking, reduce power consumption */
-            if ( g_APinDescription[ulPin].pPort->PIO_OSR == 0xffffffff )
-            {
-                pmc_disable_periph_clk( g_APinDescription[ulPin].ulPeripheralId ) ;
-            }
+            	PORT_InitTypeDef PORT_InitStruct;
+              PORT_StructInit(&PORT_InitStruct);
+              PORT_InitStruct.PORT_Pin = g_APinDescription[ulPin].ulPin;
+              PORT_InitStruct.PORT_OE = PORT_OE_OUT;
+              PORT_InitStruct.PORT_FUNC = PORT_FUNC_PORT;
+              PORT_InitStruct.PORT_PULL_DOWN = PORT_PULL_DOWN_OFF;
+              PORT_InitStruct.PORT_PULL_UP = PORT_PULL_UP_ON;
+              PORT_InitStruct.PORT_SPEED = PORT_SPEED_MAXFAST;
+              PORT_InitStruct.PORT_MODE = PORT_MODE_DIGITAL;
+              PORT_Init(g_APinDescription[ulPin].pPort, &PORT_InitStruct);
         break ;
 
         default:
@@ -72,38 +46,28 @@ extern void pinMode( uint32_t ulPin, uint32_t ulMode )
 
 extern void digitalWrite( uint32_t ulPin, uint32_t ulVal )
 {
-  /* Handle */
-	if ( g_APinDescription[ulPin].ulPinType == PIO_NOT_A_PIN )
-  {
-    return ;
+//
+//	if ( g_APinDescription[ulPin].ulPinType == PIO_NOT_A_PIN )
+//  {
+//    return ;
+//  }
+  if( ulVal == LOW){
+    PORT_ResetBits(g_APinDescription[ulPin].pPort, g_APinDescription[ulPin].ulPin);
+    //вообще говоря, неправильно, поскольку перезаписывается весь порт.
+  }
+  else {
+    PORT_SetBits(g_APinDescription[ulPin].pPort, g_APinDescription[ulPin].ulPin);
+    //вообще говоря, неправильно, поскольку перезаписывается весь порт.
   }
 
-  if ( PIO_GetOutputDataStatus( g_APinDescription[ulPin].pPort, g_APinDescription[ulPin].ulPin ) == 0 )
-  {
-    PIO_PullUp( g_APinDescription[ulPin].pPort, g_APinDescription[ulPin].ulPin, ulVal ) ;
-  }
-  else
-  {
-    PIO_SetOutput( g_APinDescription[ulPin].pPort, g_APinDescription[ulPin].ulPin, ulVal, 0, PIO_PULLUP ) ;
-  }
+
 }
 
 extern int digitalRead( uint32_t ulPin )
 {
-	if ( g_APinDescription[ulPin].ulPinType == PIO_NOT_A_PIN )
-    {
-        return LOW ;
-    }
-
-	if ( PIO_Get( g_APinDescription[ulPin].pPort, PIO_INPUT, g_APinDescription[ulPin].ulPin ) == 1 )
-    {
-        return HIGH ;
-    }
-
-	return LOW ;
+	return LOW;
 }
 
 #ifdef __cplusplus
 }
 #endif
-
