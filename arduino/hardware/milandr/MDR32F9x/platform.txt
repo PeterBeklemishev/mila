@@ -5,9 +5,9 @@
 # while developing check this:
 # https://github.com/arduino/Arduino/wiki/Arduino-IDE-1.5---3rd-party-Hardware-specification
 
-# The platform.txt file contains information about 
-# platform's specific aspects (compilers command line flags, 
-# paths, system libraries, etc.). 
+# The platform.txt file contains information about
+# platform's specific aspects (compilers command line flags,
+# paths, system libraries, etc.).
 
 
 
@@ -53,7 +53,7 @@ compiler.libsam.c.flags="-I{build.system.path}/libsam" "-I{build.system.path}/CM
 build.usb_flags=-DUSB_VID={build.vid} -DUSB_PID={build.pid} -DUSBCON '-DUSB_MANUFACTURER={build.usb_manufacturer}' '-DUSB_PRODUCT={build.usb_product}'
 
 # Default usb manufacturer will be replaced at compile time using
-# numeric vendor ID if available or by board's specific value. 
+# numeric vendor ID if available or by board's specific value.
 build.usb_manufacturer="Unknown"
 
 
@@ -86,11 +86,10 @@ recipe.size.regex=\.text\s+([0-9]+).*
 # MDR32F9x Uploader tools
 # -------------------
 
-tools.bossac.cmd=bossac
-tools.bossac.cmd.windows=bossac.exe
-tools.bossac.path={runtime.ide.path}/hardware/tools
+tools.firmwarrior.cmd=firmwarrior
+#tools.firmwarrior.cmd.windows=firmwarrior.exe
+tools.firmwarrior.path={runtime.ide.path}/hardware/tools/firmwarrior
 
-tools.bossac.upload.params.verbose=-i -d
-tools.bossac.upload.params.quiet=
-tools.bossac.upload.pattern="{path}/{cmd}" {upload.verbose} --port={serial.port.file} -U {upload.native_usb} -e -w -v -b "{build.path}/{build.project_name}.bin" -R
-
+tools.firmwarrior.upload.params.verbose=-i -d
+tools.firmwarrior.upload.params.quiet=
+tools.firmwarrior.upload.pattern="{path}/{cmd}" {upload.verbose} --port={serial.port.file} -U {upload.native_usb} -e -w -v -b "{build.path}/{build.project_name}.bin" -R
