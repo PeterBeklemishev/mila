@@ -54,7 +54,7 @@ uint32_t micros( void )
 //     return count * 1000 + (SysTick->LOAD + 1 - ticks) / (SystemCoreClock/1000000) ;
 // }
 
-
+/*
 void delay( uint32_t ms )
 {
     if (ms == 0)
@@ -63,6 +63,17 @@ void delay( uint32_t ms )
     do {
         yield();
     } while (GetTickCount() - start < ms);
+}
+*/
+
+void delay()
+{
+    uint32_t delaycounteri, delaycounterj;
+    for (delaycounteri=0;delaycounteri<1000;delaycounteri++){
+        for (delaycounterj=0;delaycounterj<1000;delaycounterj++){
+            __NOP;
+        }
+    }
 }
 
 #if defined ( __ICCARM__ ) /* IAR Ewarm 5.41+ */
